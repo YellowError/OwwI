@@ -13,7 +13,7 @@ COLLABORER :
 
 > git clone https://github.com/YellowError/OwwI.git (dans le repertoire de votre choix)  
 
-###Créer une branche et swither dessus###
+###Créer une branche et switcher dessus###
 
 > git branch _nomDeLaBranch_  
 > git checkout _nomDeLaBranch  
