@@ -15,14 +15,14 @@ COLLABORER :
 
 ###Créer une branche et switcher dessus###
 
-> git branch _nomDeLaBranch_  
-> git checkout _nomDeLaBranch  
+> git branch nomDeLaBranch  
+> git checkout nomDeLaBranch  
 
 ###Vérifications avant envoies des modifications###
 
 > git pull origin dev (récupère les dernières modifications du main)  
 > git checkout dev  
-> git merge _nomDeLaBranche_ (merge la branche modifiée avec la dernière version de dev)  
+> git merge nomDeLaBranche (merge la branche modifiée avec la dernière version de dev)  
 
 ###Push de la nouvelle branch dev si celle-ci est validée###
 
@@ -30,7 +30,7 @@ COLLABORER :
 
 ###Effacer votre branch désormais inutile###
 
-> git branch -d _nomDeLaBranche_  
+> git branch -d nomDeLaBranche  
 
 Il ne vous reste plus qu'a repartir à l'étape de la création d'une nouvelle branche pour implémenter une nouvelle feature.
 
