@@ -1,6 +1,1 @@
-##TPK REACT BASE##
-to install just type
-
-```
-npx degit https://github.com/TRIPTYK/tpk-react-base.git
-```
+Une application qui permet d'estimer la valeur d'un bien immobilier.
