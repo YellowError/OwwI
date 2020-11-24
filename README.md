@@ -34,5 +34,5 @@ COLLABORER :
 
 Il ne vous reste plus qu'a repartir à l'étape de la création d'une nouvelle branche pour implémenter une nouvelle feature.
 
-enjoy
+ENJOY
 ==
