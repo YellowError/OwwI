@@ -11,7 +11,10 @@ COLLABORER :
 =
 ###Importer le projet###
 
-> git clone https://github.com/YellowError/OwwI.git (dans le repertoire de votre choix)  
+> git init
+> git branch -m main dev (renomme votre branch main en dev. Main est à remplacer par master si vous avez une ancienne version de git)
+> git remote add origin https://github.com/YellowError/OwwI.git (configure le point d'accès au depôt distant)
+> git pull origin dev (rapatrie la branch dev du remote vers votre branche dev locale)
 
 ###Créer une branche et switcher dessus###
 
@@ -30,7 +33,7 @@ COLLABORER :
 
 ###Effacer votre branch désormais inutile###
 
-> git branch -d nomDeLaBranche  
+> git branch -d nomDeLaBranche (PAS LA DEV)
 
 Il ne vous reste plus qu'a repartir à l'étape de la création d'une nouvelle branche pour implémenter une nouvelle feature.
 
