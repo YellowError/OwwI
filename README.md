@@ -20,8 +20,8 @@ COLLABORER :
 
 ###Vérifications avant envoies des modifications###
 
-> git pull origin dev (récupère les dernières modifications du main)  
 > git checkout dev  
+> git pull origin dev (récupère les dernières modifications de dev)  
 > git merge nomDeLaBranche (merge la branche modifiée avec la dernière version de dev)  
 
 ###Push de la nouvelle branch dev si celle-ci est validée###
