@@ -12,9 +12,9 @@ COLLABORER :
 ###Importer le projet###
 
 > git init  
-> git branch -m main dev (renomme votre branch main en dev. Main est à remplacer par master si vous avez une ancienne version de git)  
 > git remote add origin https://github.com/YellowError/OwwI.git (configure le point d'accès au depôt distant)  
 > git pull origin dev (rapatrie la branch dev du remote vers votre branche dev locale)  
+> git branch -m main dev (renomme votre branch main en dev. Main est à remplacer par master si vous avez une ancienne version de git)  
 
 ###Créer une branche et switcher dessus###
 
