@@ -1,13 +1,11 @@
-const tailwindcssUI = require('@tailwindcss/ui')
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: ['./src/**/*.js', './src/**/*.html'],
+  purge: ['./components/**/*.js', './pages/**/*.js', './pages/**/*.html'],
+  darkMode: false,
   theme: {
     extend: {},
   },
-  variants: {},
-  plugins: [tailwindcssUI],
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 }
