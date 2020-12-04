@@ -78,7 +78,12 @@ img {
 }
 
 .btn {
+  outline: none;
   @apply rounded-full py-2 px-1 text-white m-2;
+  outline: none;
+}
+
+.btn:focus {
   outline: none;
 }
 
