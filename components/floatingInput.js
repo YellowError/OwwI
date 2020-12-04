@@ -3,14 +3,14 @@ import React, { useState } from "react";
 const FloatingInput = ({ label, type = "text" }) => {
   const [isActive, setIsActive] = useState(false);
   const [value, setValue] = useState("");
-  function handleTextChange(text) {
+  const handleTextChange = (text) => {
     setValue(text);
     if (text !== "") {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
-  }
+  };
 
   return (
     <div className="float-label">

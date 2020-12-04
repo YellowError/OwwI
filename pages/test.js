@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FloatingInput from "../components/floatingInput";
+import StepNavMenu from "../components/stepNavMenu";
 
 const test = () => {
   return (
@@ -31,6 +32,8 @@ const test = () => {
           </li>
         </ul>
       </nav>
+
+      <StepNavMenu />
     </div>
   );
 };

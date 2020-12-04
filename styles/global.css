@@ -54,6 +54,15 @@ body {
   margin: 0;
   font-family: "textRegular";
 }
+body {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(234, 237, 240, 1) 100%
+  );
+  min-height: 100vh;
+}
 
 *,
 *:before,
@@ -79,6 +88,7 @@ img {
     rgba(167, 44, 33, 1) 100%
   );
 }
+
 .btnRed:hover {
   background: rgb(222, 77, 65);
   background: linear-gradient(
@@ -105,6 +115,7 @@ img {
     rgba(31, 54, 67, 1) 100%
   );
 }
+
 .btnGreen {
   background: rgb(129, 178, 154);
   background: linear-gradient(
@@ -113,6 +124,7 @@ img {
     rgba(90, 123, 107, 1) 100%
   );
 }
+
 .btnGreen:hover {
   background: rgb(129, 178, 154);
   background: linear-gradient(
@@ -184,6 +196,7 @@ img {
   fill: #de4c41;
   color: #fff;
 }
+
 .linkArialHome:hover {
   background-color: #294d60;
   fill: #294d60;
@@ -199,6 +212,7 @@ img {
   content: ">";
   color: #bcbcbb;
 }
+
 .filArial li:last-child:after,
 .filArial:first-child:after {
   content: "";
@@ -206,4 +220,72 @@ img {
 
 .linkArial:hover {
   color: #294d60;
+}
+
+.content {
+  @apply m-3;
+  color: #bcbcbb;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}
+
+.content:before,
+.content:after {
+  content: " ";
+  display: table;
+}
+
+.content li {
+  min-width: 55px;
+  height: 55px;
+  margin: 0 8px;
+  @apply text-center flex items-center justify-center rounded-full bg-white;
+}
+
+.content .current {
+  margin: 0;
+  margin-right: 8px;
+  border-radius: 0 50% 50% 0;
+  color: #fff;
+  background-color: #294d60;
+  min-width: 63px;
+}
+
+.content .completed {
+  margin: 0;
+  min-width: 71px;
+  color: #fff;
+  border-radius: 0;
+  background-color: #294d60;
+}
+
+.content .completed:first-child {
+  border-radius: 50% 0 0 50%;
+  min-width: 63px;
+  margin-left: 8px;
+}
+
+.content .firstOne {
+  background-color: #294d60;
+  color: #fff;
+  border-radius: 100%;
+}
+
+.content .lastOne {
+  background-color: #294d60;
+  color: #fff;
+  border-radius: 0 50% 50% 0;
+  margin: 0;
+}
+
+#Back {
+  width: 100px;
+}
+
+#Next {
+  width: 100px;
 }
