@@ -10,7 +10,7 @@ const test = () => {
       <button className="btn btnGreen">Vert</button>
 
       <form>
-        <FloatingInput label="prénom" type="text" />
+        <FloatingInput label="prénom" type="text" htmlForAndId="lastName" />
         <FloatingInput label="nom" type="password" />
       </form>
       <nav>
