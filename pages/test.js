@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import FloatingInput from "../components/floatingInput";
-import Image from "../components/image";
 import StepNavMenu from "../components/stepNavMenu";
 import ButtonDashboard from "../components/buttonDashboard";
 import Compass from "../components/create-estimation/compass";
@@ -39,10 +38,13 @@ const test = () => {
       <StepNavMenu />
 
       <ButtonDashboard />
-      <ButtonDashboard icon="little_logo_owwi.svg" label="Ajouter Client" link="http://google.com" />
+      <ButtonDashboard
+        icon="little_logo_owwi.svg"
+        label="Ajouter Client"
+        link="http://google.com"
+      />
 
-      <Compass/>
-
+      <Compass />
     </div>
   );
 };
