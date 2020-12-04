@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FloatingInput from "../components/floatingInput";
+import Image from "../components/image";
 import StepNavMenu from "../components/stepNavMenu";
 
 const test = () => {
