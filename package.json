@@ -4,8 +4,8 @@
   "description": "Application permettant de générer une estimation de bien immobilier.",
   "main": "index.js",
   "scripts": {
-	"dev": "next",
-	"build": "next build",
+    "dev": "next",
+    "build": "next build",
     "start": "next start"
   },
   "author": "La fine équipe",
