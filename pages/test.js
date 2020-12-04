@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FloatingInput from "../components/floatingInput";
 import StepNavMenu from "../components/stepNavMenu";
+import ButtonDashboard from "../components/buttonDashboard";
 
 const test = () => {
   return (
@@ -34,6 +35,10 @@ const test = () => {
       </nav>
 
       <StepNavMenu />
+
+      <ButtonDashboard />
+      <ButtonDashboard icon="little_logo_owwi.svg" label="Ajouter Client" link="http://google.com" />
+
     </div>
   );
 };
