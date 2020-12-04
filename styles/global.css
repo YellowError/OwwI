@@ -294,3 +294,28 @@ img {
 #Next {
   width: 100px;
 }
+
+/*******************/
+/*START CSS THOMAS */
+/*******************/
+.btnDashboard {
+  @apply flex items-center text-center m-2;
+}
+
+.iconDashboard {
+  @apply flex items-center p-1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  border: 0.25rem solid #294d60;
+  background-color: #ffffff;
+}
+
+.labelDashboard {
+  @apply text-sm;
+  color: #bcbcbb;
+}
+
+/*******************/
+/*END CSS THOMAS */
+/*******************/
