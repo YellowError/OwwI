@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FloatingInput from "../components/floatingInput";
 import StepNavMenu from "../components/stepNavMenu";
 import ButtonDashboard from "../components/buttonDashboard";
+import Compass from "../components/create-estimation/compass";
 
 const test = () => {
   return (
@@ -38,6 +39,8 @@ const test = () => {
 
       <ButtonDashboard />
       <ButtonDashboard icon="little_logo_owwi.svg" label="Ajouter Client" link="http://google.com" />
+
+      <Compass/>
 
     </div>
   );
