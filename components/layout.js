@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import styles from './layout.module.css';
+import Head from "next/head";
+import styles from "./layout.module.css";
 
-export const siteTitle = 'Owwi';
+export const siteTitle = "Owwi";
 
 export default function Layout({ children }) {
   return (
@@ -15,5 +15,5 @@ export default function Layout({ children }) {
       </Head>
       <main>{children}</main>
     </div>
-  )
+  );
 }
