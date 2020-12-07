@@ -43,6 +43,11 @@ const test = () => {
         label="Ajouter Client"
         link="http://google.com"
       />
+      <ButtonDashboard
+        icon="add_agent.svg"
+        label="Ajouter agent"
+        link="http://google.com"
+      />
 
       <Compass />
     </div>
