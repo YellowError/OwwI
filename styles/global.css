@@ -79,7 +79,7 @@ img {
 
 .btn {
   outline: none;
-  @apply rounded-full py-2 px-1 text-white m-2;
+  @apply rounded-full py-2 px-4 text-white m-2;
   outline: none;
 }
 
@@ -325,4 +325,40 @@ img {
 
 /*******************/
 /*END CSS THOMAS */
+/*******************/
+
+/*******************/
+/*START CSS France */
+/*******************/
+h1 {
+  font-family: "textBold";
+  color: #bcbcbb;
+  text-align: center;
+}
+h2 {
+  color: #294d60;
+  text-align: center;
+}
+h3 {
+  color: #294d60;
+  font-family: "textLight";
+}
+.inputSearch {
+  color: #294d60;
+  border-radius: 0.375rem;
+  border: solid 2px #bcbcbb;
+  padding-left: 40px;
+  background-image: url(../public/images/loupe-1.svg);
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: 5px;
+  margin: 0.5rem;
+}
+
+.inputSearch::placeholder {
+  color: #bcbcbb;
+}
+/*******************/
+/*END CSS France */
 /*******************/
