@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import FloatingInput from "../components/floatingInput";
 import StepNavMenu from "../components/stepNavMenu";
 import ButtonDashboard from "../components/buttonDashboard";
 import Compass from "../components/create-estimation/compass";
+import InputTrueFalse from "../components/inputTrueFalse";
+import InputTrueFalseSwitch from "../components/inputTrueFalseSwitch";
 
 const test = () => {
   return (
@@ -43,8 +45,16 @@ const test = () => {
         label="Ajouter Client"
         link="http://google.com"
       />
+      <ButtonDashboard
+        icon="add_agent.svg"
+        label="Ajouter agent"
+        link="http://google.com"
+      />
 
       <Compass />
+
+      <InputTrueFalse name="electric" label="électricité à refaire" />
+      <InputTrueFalseSwitch name="electric" label="électricité à refaire" />
     </div>
   );
 };
