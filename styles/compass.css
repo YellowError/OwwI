@@ -80,6 +80,9 @@
   fill: rgb(219, 65, 55);
 }
 .boussole {
+  scale: 1.5;
   @apply relative w-64 mx-auto;
-  scale: 2;
+}
+.boussoleWidth {
+  height: 315px;
 }
