@@ -234,6 +234,7 @@ img {
   color: #bcbcbb;
   overflow-x: scroll;
   flex-wrap: nowrap;
+  scrollbar-width: none;
 }
 
 .content::-webkit-scrollbar {
@@ -320,4 +321,35 @@ img {
 
 /*******************/
 /*END CSS THOMAS */
+/*******************/
+
+/*******************/
+/* CSS Melodie */
+/*******************/
+
+.regularLink:active {
+  background: rgb(47, 85, 106);
+  background: linear-gradient(
+    90deg,
+    rgba(47, 85, 106, 1) 0%,
+    rgba(31, 54, 67, 1) 100%
+  );
+  color: #fff;
+}
+.regularLink:hover {
+  color: #294d60;
+  text-decoration: underline;
+}
+.regularLink {
+  color: #d3d2d2;
+}
+.svgPagination {
+  fill: #d3d2d2;
+}
+.svgPagination:hover {
+  fill: #294d60;
+}
+
+/*******************/
+/*END CSS melodie */
 /*******************/
