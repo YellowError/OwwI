@@ -24,7 +24,7 @@ export default function index_privacy() {
             individus au sein de l'Union européenne. Wikipédia
           </p>
         </div>
-        <LinkIndex cheminLink="/index/principal">Retour</LinkIndex>
+        <LinkIndex cheminLink="/principal">Retour</LinkIndex>
       </section>
     </Layout>
   );

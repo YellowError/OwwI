@@ -24,7 +24,7 @@ export default function index_presentation() {
           d'exploitation Windows Phone ou
         </p>
 
-        <LinkIndex cheminLink="/index/principal"> Retour</LinkIndex>
+        <LinkIndex cheminLink="/principal"> Retour</LinkIndex>
       </section>
     </Layout>
   );

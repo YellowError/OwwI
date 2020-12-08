@@ -19,7 +19,7 @@ export default function index_contact_agence() {
           <p className="">Adresse: Rue Henri 23, 7320 Bruxelles</p>
           <p className=""> Tel: 065 00 11 22 </p>
         </div>
-        <LinkIndex cheminLink="/index/principal" className="btn btn-red">
+        <LinkIndex cheminLink="/principal" className="btn btn-red">
           Retour
         </LinkIndex>
       </section>
