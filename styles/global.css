@@ -4,15 +4,49 @@
 
 html,
 body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
+}
+.wrapper {
+  max-width: 900px;
+}
+
+.btnAgent,
+.btnClient {
+  background-color: rgb(120, 120, 243);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  margin: 5px;
+}
+.btnAdmin {
+  background-color: rgb(120, 120, 243);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 115px;
+  height: 125px;
+  margin: 5px;
+}
+.picture {
+  width: 76px;
+}
+
+h3 {
+  font-size: 10px;
+  margin: 0;
+  padding: 10px;
 }
