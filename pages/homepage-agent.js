@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Layout, { siteTitle } from "../components/Layout";
 import Link from "next/link";
-import BtnHomepage from "../components/BtnHomepage";
+import ButtonHomepage from "../components/dashboard/ButtonHomepage";
 import Logo from "../components/Logo";
 
 export default function homepage_agent() {
@@ -15,7 +15,7 @@ export default function homepage_agent() {
       <section className=" mx-auto">
         <div className="  flex flex-wrap justify-center">
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -35,10 +35,10 @@ export default function homepage_agent() {
               cheminBtn="/create-client"
             >
               Création Client
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -58,10 +58,10 @@ export default function homepage_agent() {
               cheminBtn="/create-estimation"
             >
               Création estimation
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -81,10 +81,10 @@ export default function homepage_agent() {
               cheminBtn="/listing(clients)"
             >
               Liste Clients
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -104,10 +104,10 @@ export default function homepage_agent() {
               cheminBtn="/listing(estimations)"
             >
               Liste estimation
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -127,10 +127,10 @@ export default function homepage_agent() {
               cheminBtn="/"
             >
               Mon profil
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <div className="btnAgent">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -156,7 +156,7 @@ export default function homepage_agent() {
               cheminBtn="/"
             >
               Options
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
         </div>
         <Link href="/" className=" flex ">

@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
-import LinkIndex from "../components/linkIndex";
+import Layout, { siteTitle } from "../components/Layout";
+import LinkIndex from "../components/LinkIndex";
 import LogoIndex from "../components/LogoIndex";
 
 export default function index_contact_agence() {

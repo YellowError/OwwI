@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+import Layout, { siteTitle } from "../components/Layout";
 import Link from "next/link";
-import BtnHomepage from "../components/BtnHomepage";
+import ButtonHomepage from "../components/dashboard/ButtonHomepage";
 import Logo from "../components/Logo";
 
 export default function homepage_client() {
@@ -17,7 +17,7 @@ export default function homepage_client() {
         {/* <p><Link href="/url">Hi.</Link></p> */}
         <div className="flex  flex-col items-center">
           <div className="btnClient">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className=" picture mx-auto"
@@ -37,11 +37,11 @@ export default function homepage_client() {
               cheminBtn="https://www.google.com"
             >
               Mes estimations
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
 
           <div className="btnClient">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className=" picture mx-auto"
@@ -61,11 +61,11 @@ export default function homepage_client() {
               cheminBtn="https://www.google.com"
             >
               Profil
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
 
           <div className="btnClient">
-            <BtnHomepage
+            <ButtonHomepage
               imgBtn={
                 <svg
                   className="picture mx-auto"
@@ -91,7 +91,7 @@ export default function homepage_client() {
               cheminBtn="/"
             >
               Options
-            </BtnHomepage>
+            </ButtonHomepage>
           </div>
           <Link href="/" className="flex  justify-center ">
             Deconnexion

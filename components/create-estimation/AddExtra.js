@@ -1,5 +1,5 @@
 import React from "react";
-import FloatingInput from "../floatingInput";
+import FloatingInput from "../for-all-form/FloatingInput";
 const AddExtra = () => {
   return (
     <>

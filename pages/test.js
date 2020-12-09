@@ -1,10 +1,10 @@
 import React from "react";
-import FloatingInput from "../components/floatingInput";
-import StepNavMenu from "../components/stepNavMenu";
-import ButtonDashboard from "../components/buttonDashboard";
-import Compass from "../components/create-estimation/compass";
-import InputTrueFalse from "../components/inputTrueFalse";
-import InputTrueFalseSwitch from "../components/inputTrueFalseSwitch";
+import FloatingInput from "../components/for-all-form/FloatingInput";
+import StepNavMenu from "../components/create-estimation/StepNavMenu";
+import Compass from "../components/create-estimation/Compass";
+import ButtonTitle from "../components/for-all-form/ButtonTitle";
+import InputSwitch from "../components/for-all-form/InputSwitch";
+import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 
 const test = () => {
   return (
@@ -18,19 +18,19 @@ const test = () => {
         <FloatingInput label="nom" type="password" />
       </form>
       <nav>
-        <ul className="flex filArial">
+        <ul className="flex filArianne">
           <li>
-            <a className="linkArialHome" href="#">
+            <a className="linkArianneHome" href="#">
               Home
             </a>
           </li>
           <li>
-            <a className="linkArial" href="#">
+            <a className="linkArianne" href="#">
               1ere étape
             </a>
           </li>
           <li>
-            <a className="linkArial" href="#">
+            <a className="linkArianne" href="#">
               2eme étape
             </a>
           </li>
@@ -41,20 +41,17 @@ const test = () => {
 
       <ButtonDashboard />
       <ButtonDashboard
-        icon="little_logo_owwi.svg"
+        icon="images/little_logo_owwi.svg"
         label="Ajouter Client"
         link="http://google.com"
       />
       <ButtonDashboard
-        icon="add_agent.svg"
+        icon="images/add_agent.svg"
         label="Ajouter agent"
         link="http://google.com"
       />
 
-      <Compass />
-
-      <InputTrueFalse name="electric" label="électricité à refaire" />
-      <InputTrueFalseSwitch name="electric" label="électricité à refaire" />
+      <ButtonTitle name="gender" label="Sélectionner le titre" />
       <Compass />
       <nav className="my-6">
         <ul class="flex">
@@ -98,11 +95,7 @@ const test = () => {
           </svg>
         </ul>
       </nav>
-      <InputTrueFalseSwitch
-        name="electric"
-        label="électricité à refaire"
-        idfor="elec"
-      />
+      <InputSwitch name="electric" label="électricité à refaire" idfor="elec" />
     </div>
   );
 };

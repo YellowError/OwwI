@@ -1,14 +1,15 @@
-import EstiClient from "../components/create-estimation/EstiClient";
-import EstiCoordonee from "../components/create-estimation/EstiCoordonee";
-import EstiDefinition from "../components/create-estimation/EstiDefintion";
-import EstiDivers from "../components/create-estimation/EstiDivers";
-import EstiEnergie from "../components/create-estimation/EstiEnergie";
-import EstiFinal from "../components/create-estimation/EstiFinale";
-import EstiInstallation from "../components/create-estimation/EstiInstallation";
-import EstiModPrix from "../components/create-estimation/EstiModPrix";
-import EstiPieceExt from "../components/create-estimation/EstiPieceExt";
-import EstiPieceInt from "../components/create-estimation/EstiPieceInt";
-import PaginationEsti from "../components/PaginationEsti";
+import EstimationClient from "../components/create-estimation/EstimationClient";
+import EstimationCoordinate from "../components/create-estimation/EstimationCoordinate";
+import EstimationDefinition from "../components/create-estimation/EstimationDefinition";
+import EstimationAddPicture from "../components/create-estimation/EstimationAddPicture";
+import EstimationEnergy from "../components/create-estimation/EstimationEnergy";
+import EstimationFinal from "../components/create-estimation/EstimationFinal";
+import EstimationInstallation from "../components/create-estimation/EstimationInstallation";
+import EstimationPriceModif from "../components/create-estimation/EstimationPriceModif";
+import EstimationRoomOutside from "../components/create-estimation/EstimationRoomOutside";
+import EstimationRoomInside from "../components/create-estimation/EstimationRoomInside";
+import EstimationPagination from "../components/create-estimation/EstimationPagination";
+
 import React, { useState } from "react";
 const creaEstimation = () => {
   const [status, setStatus] = useState(false);
@@ -18,18 +19,18 @@ const creaEstimation = () => {
   return (
     <>
       <h1>Création d'une nouvelle estimation</h1>
-      <PaginationEsti />
+      {/* <EstimationPagination /> */}
       <form>
-        <EstiClient status={status} />
-        <EstiCoordonee />
-        <EstiDefinition />
-        <EstiEnergie />
-        <EstiInstallation />
-        <EstiDivers />
-        <EstiPieceInt />
-        <EstiPieceExt />
-        <EstiModPrix />
-        <EstiFinal />
+        <EstimationClient status={status} />
+        <EstimationCoordinate />
+        <EstimationDefinition />
+        <EstimationEnergy />
+        <EstimationInstallation />
+        <EstimationAddPicture />
+        <EstimationRoomInside />
+        <EstimationRoomOutside />
+        <EstimationPriceModif />
+        <EstimationFinal />
       </form>
     </>
   );
