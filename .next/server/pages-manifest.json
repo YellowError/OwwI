@@ -2,11 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/principal": "pages/principal.js",
-  "/privacy": "pages/privacy.js",
-  "/about": "pages/about.js",
-  "/contact": "pages/contact.js",
-  "/homepage-admin": "pages/homepage-admin.js",
-  "/homepage-client": "pages/homepage-client.js",
-  "/homepage-agent": "pages/homepage-agent.js"
+  "/next/dist/pages/_error": "pages/next/dist/pages/_error.js",
+  "/create-client": "pages/create-client.js"
 }
