@@ -1,26 +1,35 @@
 import React, { useState } from "react";
+import FloatingInput from "./floatingInput";
 
-const InputTrueFalseSwitch = ({ name, label }) => {
+const InputTrueFalseSwitch = ({ label, idfor }) => {
   const [value, setValue] = useState(false);
 
   return (
-    <div>
-      <label>{label}</label>
-      <input
-        checked={value}
-        className="inputCheckBoxBtn"
-        id="inputSwitch"
-        type="checkbox"
-        onChange={() => setValue(!value)}
-      />
-      <label
-        className={value ? "inputSwitchLabel switchFalse" : "inputSwitchLabel"}
-        htmlFor="inputSwitch"
-      >
-        <span className="switchBtn" />
-      </label>
+    <div className="flex flex-col">
+      <div className="flex items-center justify-between">
+        <label htmlFor={idfor}>{label}</label>
+        <input
+          checked={value}
+          className="inputCheckBoxBtn"
+          id={idfor}
+          type="checkbox"
+          onChange={() => setValue(!value)}
+        />
+        <label
+          className={
+            value ? "inputSwitchLabel switchFalse" : "inputSwitchLabel"
+          }
+          htmlFor={idfor}
+        >
+          <span className="switchBtn" />
+        </label>
+      </div>
       {value ? (
-        <input type="text" className="inputPrice" name={`price${name}`} />
+        <FloatingInput
+          type="texte"
+          label="Estimation en €"
+          htmlForAndId="prix"
+        />
       ) : (
         ""
       )}
