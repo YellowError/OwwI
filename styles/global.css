@@ -110,7 +110,6 @@ label {
 }
 
 .btnRed {
-  min-width: 300px;
   background: rgb(222, 77, 65);
   background: linear-gradient(
     90deg,

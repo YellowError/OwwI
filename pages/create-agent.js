@@ -1,18 +1,17 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
+import Layout from "../components/Layout";
 import AddAgent from "../components/create-agent/AddAgent";
 
-import Link from "next/link";
+const CreateAgentPage = ({ user }) => {
 
-export default function Home() {
+  const pageTitle = "Home";
+
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout title={pageTitle} user={user} publicContent>
       <section>
         <AddAgent />
       </section>
     </Layout>
   );
 }
+
+export default CreateAgentPage;

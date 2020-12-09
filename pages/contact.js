@@ -1,14 +1,13 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
+import Layout from "../components/Layout";
 import LinkIndex from "../components/LinkIndex";
 import LogoIndex from "../components/LogoIndex";
 
-export default function index_contact_agence() {
+const ContactPage = ({ user }) => {
+
+  const pageTitle = "Contact";
+
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout title={pageTitle} user={user} publicContent>
       <LogoIndex />
 
       <section>
@@ -26,3 +25,5 @@ export default function index_contact_agence() {
     </Layout>
   );
 }
+
+export default ContactPage;

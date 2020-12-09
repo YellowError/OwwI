@@ -1,16 +1,14 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
+import Layout from "../components/Layout";
 import Link from "next/link";
 import ButtonHomepage from "../components/dashboard/ButtonHomepage";
 import Logo from "../components/Logo";
 
-export default function homepage_agent() {
-  return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+const AgentHomePage = ({ user }) => {
 
+  const pageTitle = "Agent Homepage";
+
+  return (
+    <Layout title={pageTitle} user={user} publicContent>
       <Logo />
       <section className=" mx-auto">
         <div className="  flex flex-wrap justify-center">
@@ -166,3 +164,5 @@ export default function homepage_agent() {
     </Layout>
   );
 }
+
+export default AgentHomePage;

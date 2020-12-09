@@ -1,3 +1,4 @@
+import Layout from "../components/Layout";
 import EstimationClient from "../components/create-estimation/EstimationClient";
 import EstimationCoordinate from "../components/create-estimation/EstimationCoordinate";
 import EstimationDefinition from "../components/create-estimation/EstimationDefinition";
@@ -11,13 +12,18 @@ import EstimationRoomInside from "../components/create-estimation/EstimationRoom
 import EstimationPagination from "../components/create-estimation/EstimationPagination";
 
 import React, { useState } from "react";
-const creaEstimation = () => {
+
+const CreateEstimationPage = ({ user }) => {
+  
+  const pageTitle = "Create Estimation";
+
   const [status, setStatus] = useState(false);
   const select = () => {
     setStatus(true);
   };
+
   return (
-    <>
+    <Layout title={pageTitle} user={user} publicContent>
       <h1>Création d'une nouvelle estimation</h1>
       {/* <EstimationPagination /> */}
       <form>
@@ -32,8 +38,8 @@ const creaEstimation = () => {
         <EstimationPriceModif />
         <EstimationFinal />
       </form>
-    </>
+    </Layout>
   );
 };
 
-export default creaEstimation;
+export default CreateEstimationPage;

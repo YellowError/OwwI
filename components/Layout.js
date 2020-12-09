@@ -1,19 +1,26 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
+import LayoutConnected from "./LayoutConnected";
 
-export const siteTitle = "Owwi";
+const Layout = ({ title, user, children, publicContent }) => {
 
-export default function Layout({ children }) {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name={siteTitle}
-          content="Application permettant de générer une estimation de bien immobilier."
-        />
-      </Head>
-      <main>{children}</main>
-    </div>
-  );
-}
+    return (
+    <>
+        <Head>
+            <link rel="icon" href="/favicon.ico" />
+            <meta
+                name={title}
+                content="Application permettant de générer une estimation de bien immobilier."
+            />
+            <title>{title}</title>
+        </Head>
+
+        { publicContent ? (
+            <main>{children}</main>
+        ) : (
+            <LayoutConnected user={user}>{children}</LayoutConnected>
+        )}
+    </>
+    );
+};
+
+export default Layout;

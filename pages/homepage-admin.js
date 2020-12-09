@@ -1,15 +1,13 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
-import Link from "next/link";
+import Layout from "../components/Layout";
 import ButtonHomepage from "../components/dashboard/ButtonHomepage";
 import Logo from "../components/Logo";
 
-export default function homepage_agent() {
+const AdminHomePage = ({ user }) => {
+
+  const pageTitle = "Admin Homepage";
+
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout title={pageTitle} user={user} publicContent>
       <Logo />
       <div className="flex flex-wrap ">
         <div className="btnAdmin">
@@ -206,3 +204,5 @@ export default function homepage_agent() {
     </Layout>
   );
 }
+
+export default AdminHomePage;

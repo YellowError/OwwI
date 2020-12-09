@@ -1,19 +1,17 @@
-import Head from "next/head";
-import Layout, { siteTitle } from "../components/Layout";
+import Layout from "../components/Layout";
 import AddClient from "../components/create-client/AddClient";
-import Link from "next/link";
 
-export default function Home() {
+const CreateClientPage = ({ user }) => {
+
+  const pageTitle = "Create Client";
+
   return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+    <Layout title={pageTitle} user={user} publicContent>
       <section>
-        {/* <p><Link href="/url">Hi.</Link></p> */}
-
         <AddClient />
       </section>
     </Layout>
   );
 }
+
+export default CreateClientPage;
