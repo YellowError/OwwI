@@ -9,8 +9,9 @@ export default function Home() {
         <title>{siteTitle}</title>
       </Head>
       <section>
-        <p><Link href="/url">Hi.</Link></p>
+        {/* <p><Link href="/url">Hi.</Link></p> */}
         <p>Hi.</p>
+
       </section>
     </Layout>
   )
