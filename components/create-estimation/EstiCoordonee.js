@@ -1,4 +1,5 @@
 import React from "react";
+import CommentaireArea from "../CommentaireArea";
 import FloatingInput from "../floatingInput";
 const EstiCoordonee = () => {
   return (
@@ -15,6 +16,7 @@ const EstiCoordonee = () => {
       <FloatingInput type="texte" label="Ville" htmlForAndId="ville" />
       <FloatingInput type="texte" label="Province" htmlForAndId="province" />
       <FloatingInput type="texte" label="Pays" htmlForAndId="pays" />
+      <CommentaireArea label="votre commentaire" idFor="comStep2" />
     </>
   );
 };

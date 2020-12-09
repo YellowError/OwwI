@@ -1,6 +1,7 @@
 import React from "react";
 import DropSimple from "../DropSimple";
 import FloatingInput from "../floatingInput";
+import CommentaireArea from "../CommentaireArea";
 const EstiEnergie = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const EstiEnergie = () => {
       <DropSimple label="Type de châssis" name="chassis" />
       <br />
       <DropSimple label="Type d'isolation" name="isolation" />
+      <CommentaireArea label="votre commentaire" idFor="comStep4" />
     </>
   );
 };

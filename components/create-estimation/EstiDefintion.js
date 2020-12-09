@@ -3,6 +3,8 @@ import DropHabitat from "./DropHabitat";
 import DropSimple from "../DropSimple";
 import FloatingInput from "../floatingInput";
 import Compass from "./compass";
+import CommentaireArea from "../CommentaireArea";
+import TrueFalseSwitch from "../TrueFalseSwitch";
 const EstiDefinition = () => {
   return (
     <>
@@ -51,9 +53,10 @@ const EstiDefinition = () => {
       <h3>Orientation</h3>
       <p>LE COMPASS QUAND IL EST OK C EST ICI</p>
       <h3>Urbanisme</h3>
-      <p>INSERTION INPUT TRUE FALSE</p>
-      <p>INSERTION INPUT TRUE FALSE</p>
+      <TrueFalseSwitch label="Permis de bâtir obtenue" idfor="permis" />
+      <TrueFalseSwitch label="Zone inondable" idfor="inondable" />
       <DropSimple label="Zone d'habitat" name="etat" />
+      <CommentaireArea label="votre commentaire" idFor="comStep3" />
     </>
   );
 };

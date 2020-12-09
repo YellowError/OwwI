@@ -328,7 +328,6 @@ img {
 /*END CSS THOMAS */
 /*******************/
 
-<<<<<<< HEAD
 /*******************/
 /*START CSS France */
 /*******************/
@@ -336,14 +335,17 @@ h1 {
   font-family: "textBold";
   color: #bcbcbb;
   text-align: center;
+  font-size: 2rem;
 }
 h2 {
   color: #294d60;
   text-align: center;
+  font-size: 1.125rem;
 }
 h3 {
   color: #294d60;
   font-family: "textLight";
+  font-size: 1.125rem;
 }
 .inputSearch {
   color: #294d60;
@@ -361,10 +363,88 @@ h3 {
 .inputSearch::placeholder {
   color: #bcbcbb;
 }
+.inputPrices {
+  width: 100px;
+  height: 48px;
+  padding: 0 25px 0 10px;
+  border: 2px solid #bcbcbb;
+  border-radius: 5px;
+  color: #294d60;
+  font-size: 1.125rem;
+  margin: 0.5rem;
+}
+
+.rate {
+  position: relative;
+}
+
+.rate::after {
+  content: "€";
+  color: #bcbcbb;
+  position: absolute;
+  right: 10px;
+  font-size: 1.125rem;
+  width: 12px;
+  height: 48px;
+  line-height: 48px;
+  margin: 0.5rem;
+}
+
+label {
+  font-size: 1.125rem;
+  color: #939393;
+}
+
+.pageesti ul li a {
+  display: block;
+  width: 55px;
+  height: 55px;
+  font-size: 1.125rem;
+  background-color: white;
+  color: #939393;
+  margin: 5px;
+  line-height: 55px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 100px;
+}
+.pageesti ul li:first-of-type a {
+  background-color: #294d60;
+  color: white;
+}
+.pageesti ul li a:hover {
+  text-decoration: underline;
+}
+.pageesti ul li a:active {
+  background-color: #294d60;
+  color: white;
+}
+
+textarea {
+  resize: none;
+}
+
+.float-label textarea {
+  @apply rounded-md px-2 pt-4 pb-1;
+  border: 2px solid #bcbcbb;
+  color: #bcbcbb;
+  width: 100%;
+  outline: none;
+  background: #fff;
+}
+
+.float-label textarea:focus {
+  border: 2px solid #294d60;
+  color: #294d60;
+}
+
+.float-label .areaFull {
+  color: #294d60;
+}
+
 /*******************/
 /*END CSS France */
 /*******************/
-=======
 /* ----------------------------- 
 START CSS REMI 
 ----------------------------- */
@@ -450,4 +530,3 @@ START CSS REMI
 /* ----------------------------- 
 END CSS REMI 
 ----------------------------- */
->>>>>>> dev

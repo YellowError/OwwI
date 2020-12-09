@@ -54,7 +54,11 @@ const test = () => {
       <Compass />
 
       <InputTrueFalse name="electric" label="électricité à refaire" />
-      <InputTrueFalseSwitch name="electric" label="électricité à refaire" />
+      <InputTrueFalseSwitch
+        name="electric"
+        label="électricité à refaire"
+        idfor="elec"
+      />
     </div>
   );
 };
