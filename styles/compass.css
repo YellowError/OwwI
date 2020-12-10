@@ -1,0 +1,88 @@
+.pointsCardinaux {
+  @apply flex justify-center items-center w-64;
+}
+.pointCardinal {
+  @apply rounded-full bg-white w-12 h-12;
+  color: #bcbcbb;
+}
+.active {
+  background: rgb(47, 85, 106);
+  background: linear-gradient(
+    90deg,
+    rgba(47, 85, 106, 1) 0%,
+    rgba(31, 54, 67, 1) 100%
+  );
+  color: #fff;
+}
+.pointCardinal:hover {
+  color: #294d60;
+  text-decoration: underline;
+}
+.nord {
+  position: absolute;
+  top: 0.3rem;
+  left: 6.5rem;
+}
+.nordOuest {
+  position: absolute;
+  top: 1.6rem;
+  left: 3rem;
+}
+.nordEst {
+  position: absolute;
+  top: 1.6rem;
+  left: 10rem;
+}
+.ouest {
+  position: absolute;
+  top: 5rem;
+  left: 1.6rem;
+}
+.est {
+  position: absolute;
+  top: 5rem;
+  left: 11.4rem;
+}
+.sudOuest {
+  position: absolute;
+  top: 8.4rem;
+  left: 3rem;
+}
+.sudEst {
+  position: absolute;
+  top: 8.4rem;
+  left: 10rem;
+}
+.sud {
+  position: absolute;
+  top: 9.8rem;
+  left: 6.5rem;
+}
+.cadranBoussole {
+  position: absolute;
+  top: 4.35rem;
+  left: 5.75rem;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+  fill: rgb(219, 65, 55);
+}
+.flecheBoussole {
+  position: absolute;
+  top: 5.9rem;
+  left: 7.25rem;
+  transform: rotate(136deg);
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+  fill: rgb(219, 65, 55);
+}
+.boussole {
+  scale: 1.5;
+  @apply relative w-64 mx-auto;
+}
+.boussoleWidth {
+  height: 315px;
+}

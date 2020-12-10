@@ -1,17 +1,19 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import Link from 'next/link'
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 
-export default function Home() {
-  return (
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section>
-        {/* <p><Link href="/url">Hi.</Link></p> */}
-        <p>Hi.</p>
-      </section>
-    </Layout>
-  )
-}
+const IndexPage = ({ user, onLogout }) => {
+
+    const pageTitle = "Index";
+
+    return (
+      <Layout title={pageTitle} user={user} publicContent>
+      
+        <Navbar user={user} onLogout={onLogout} />
+
+        <span>Hi.</span>
+
+      </Layout>
+    );
+};
+
+export default IndexPage;

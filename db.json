@@ -1,0 +1,92 @@
+{
+    "clients": [
+        {
+            "image": {
+                "0": {}
+            },
+            "assignationAgent": "agent2",
+            "title": "mme ",
+            "firstName": "angela",
+            "lastName": "yu",
+            "dateOfBirth": "1798-12-10",
+            "phoneNumber": "0425685478",
+            "email": "angela@angela.com",
+            "password": "A/z**d*A",
+            "street": "hh",
+            "number": "hh",
+            "box": "hh",
+            "zipCode": "hh",
+            "city": "hh",
+            "state": "bruxelles",
+            "registrationNumber": "22335544778",
+            "id": 2
+        },
+        {
+            "image": {
+                "0": {}
+            },
+            "assignationAgent": "agent1",
+            "title": "mme ",
+            "firstName": "Beyonce",
+            "lastName": "Beyonce",
+            "dateOfBirth": "1985-12-10",
+            "phoneNumber": "0496587854",
+            "email": "beyonce@beyonce.be",
+            "password": "Aeyryhf/*",
+            "street": "de hornu",
+            "number": "12",
+            "box": "01",
+            "zipCode": "7000",
+            "city": "Mons",
+            "state": "Hainaut",
+            "registrationNumber": "11223344556",
+            "id": 3
+        },
+        {
+            "image": {
+                "0": {}
+            },
+            "assignationAgent": "agent2",
+            "title": "mr",
+            "firstName": "Rafik",
+            "lastName": "Arouk",
+            "dateOfBirth": "1985-10-10",
+            "phoneNumber": "0496084456",
+            "email": "rafik@live.be",
+            "password": "Atyyfuhhffe/*",
+            "street": "avenue york shire",
+            "number": "458",
+            "box": "01",
+            "zipCode": "1200",
+            "city": "woluwe saint lambert",
+            "state": "bruxelles",
+            "registrationNumber": "11223344559",
+            "id": 4
+        }
+    ],
+    "agents": [
+        {
+            "image": {
+                "0": {}
+            },
+            "isAdmin": true,
+            "codeEmploye": "1200",
+            "secteur": "01bxl",
+            "title": "mme ",
+            "firstName": "angela",
+            "lastName": "yu",
+            "dateOfBirth": "1985-12-10",
+            "phoneNumber": "0498548796",
+            "email": "angela@live.yu",
+            "password": "Ayezhfif/*",
+            "street": "victoire",
+            "number": "12",
+            "box": "02",
+            "zipCode": "1400",
+            "city": "nivelles",
+            "state": "Hainaut",
+            "registrationNumber": "11223344556",
+            "id": 1
+        }
+    ]
+}
