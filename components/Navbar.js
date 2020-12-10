@@ -85,7 +85,7 @@ const Navbar = ({ user, onLogout }) => {
 
         <br/>
 
-        <Link href="/edit-profile">
+        <Link href="/edit-profile/IciDevraiEtreIdUser">
             <a className="btn btnGreen">Edit-Profile</a>
         </Link>
 
