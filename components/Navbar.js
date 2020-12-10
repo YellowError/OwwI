@@ -49,13 +49,13 @@ const Navbar = ({ user, onLogout }) => {
 
         <br/>
 
-        <Link href="/create-client">
+        <Link href="/create-client/IciSeraPasseIdAgent">
             <a className="btn btnGreen">Create-Client</a>
         </Link>
 
         <br/>
 
-        <Link href="/create-estimation">
+        <Link href="/create-estimation/IciDevraEtrePasseIdClient">
             <a className="btn btnGreen">Create-Estimation</a>
         </Link>
 
@@ -73,7 +73,7 @@ const Navbar = ({ user, onLogout }) => {
 
         <br/>
 
-        <Link href="/details-estimation">
+        <Link href="/details-estimation/IciDevraEtrePasseIdEstimation">
             <a className="btn btnGreen">Details-Estimation</a>
         </Link>
 
@@ -133,7 +133,7 @@ const Navbar = ({ user, onLogout }) => {
 
         <br/>
 
-        <Link href="/profile">
+        <Link href="/profile/IciDevraEtrePasseIdUser">
             <a className="btn btnGreen">Profile</a>
         </Link>
 

@@ -4,6 +4,7 @@
   "description": "Application permettant de générer une estimation de bien immobilier.",
   "main": "index.js",
   "scripts": {
+    "devJulien": "next & json-server --watch dbJulien.json --port 3001",
     "dev": "next",
     "build": "next build",
     "start": "next start"
