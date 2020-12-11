@@ -10,7 +10,14 @@ import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 const TestPage = ({ user }) => {
 
   const pageTitle = "Test";
-  
+  // TEST voir si ça s'envoie
+  const regardezMoi = (e) =>{
+    e.preventDefault();
+    const {
+      compassValue : { value: compassValue}
+    } = e.target.elements
+    console.log(compassValue);
+  }
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
@@ -59,7 +66,10 @@ const TestPage = ({ user }) => {
         />
 
         <ButtonTitle name="gender" label="Sélectionner le titre" />
-        <Compass />
+        <form onSubmit={regardezMoi}>
+          <Compass />
+          <button type="submit">Envoyer</button>
+        </form>
         <nav className="my-6">
           <ul className="flex">
             <svg
