@@ -10,6 +10,7 @@ import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 const TestPage = ({ user, name, defaultChecked }) => {
 
   const pageTitle = "Test";
+  // TEST voir si ça s'envoie
   const regardezMoi = (e) =>{
     e.preventDefault();
     var boutons = document.getElementsByName('compassValue');
@@ -52,6 +53,7 @@ const TestPage = ({ user, name, defaultChecked }) => {
             </li>
           </ul>
         </nav>
+
 
         <StepNavMenu />
 
