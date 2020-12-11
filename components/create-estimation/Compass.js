@@ -6,7 +6,6 @@ const Compass = () => {
   const pointsCardinalFrench = ["Nord", "Nord Ouest", "Nord Est", "Ouest", "Est", "Sud Ouest", "Sud Est", "Sud"]
   const pointsCardinalAbr = ["N", "NO", "NE", "O", "E", "SO", "SE", "S"]
   const [cardinalPointActive, setcardinalPointActive] = useState("")
-  const [compassToRadio, setCompassToRadio]= useState("")
   const [isChecked, setIsChecked]= useState(false)
     const compassValueSelected = (pointCardinal) => { 
 

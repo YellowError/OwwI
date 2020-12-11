@@ -7,21 +7,10 @@ import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 
-const TestPage = ({ user, name, defaultChecked }) => {
+const TestPage = ({ user }) => {
 
   const pageTitle = "Test";
-  // TEST voir si ça s'envoie
-  const regardezMoi = (e) =>{
-    e.preventDefault();
-    var boutons = document.getElementsByName('compassValue');
-    var valeur;
-    for(var i = 0; i < boutons.length; i++){
-      if(boutons[i].checked){
-      valeur = boutons[i].value;
-    }
-  }
-    console.log(valeur);
-  }
+  
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
@@ -70,10 +59,7 @@ const TestPage = ({ user, name, defaultChecked }) => {
         />
 
         <ButtonTitle name="gender" label="Sélectionner le titre" />
-        <form onSubmit={regardezMoi}>
-          <Compass name={name} defaultChecked={defaultChecked}/>
-          <button type="submit">Envoyer</button>
-        </form>
+        <Compass />
         <nav className="my-6">
           <ul className="flex">
             <svg
