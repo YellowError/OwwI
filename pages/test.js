@@ -7,13 +7,25 @@ import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 
-const TestPage = ({ user }) => {
+const TestPage = ({ user, name, defaultChecked }) => {
 
   const pageTitle = "Test";
+  // TEST voir si ça s'envoie
+  const regardezMoi = (e) =>{
+    e.preventDefault();
+    var boutons = document.getElementsByName('compassValue');
+    var valeur;
+    for(var i = 0; i < boutons.length; i++){
+      if(boutons[i].checked){
+      valeur = boutons[i].value;
+    }
+  }
+    console.log(valeur);
+  }
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
-      <div className="flex flex-col">
+      <div className="flex flex-col container mx-auto">
         <button className="btn btnRed">Rouge</button>
         <button className="btn btnBlue">Bleu</button>
         <button className="btn btnGreen">Vert</button>
@@ -42,6 +54,7 @@ const TestPage = ({ user }) => {
           </ul>
         </nav>
 
+
         <StepNavMenu />
 
         <ButtonDashboard />
@@ -57,11 +70,14 @@ const TestPage = ({ user }) => {
         />
 
         <ButtonTitle name="gender" label="Sélectionner le titre" />
-        <Compass />
+        <form onSubmit={regardezMoi}>
+          <Compass name={name} defaultChecked={defaultChecked}/>
+          <button type="submit">Envoyer</button>
+        </form>
         <nav className="my-6">
-          <ul class="flex">
+          <ul className="flex">
             <svg
-              class="svgPagination rounded-full p-2 mx-2 w-12 h-8 bg-white flex justify-center items-center"
+              className="svgPagination rounded-full p-2 mx-2 w-12 h-8 bg-white flex justify-center items-center"
               width="0.4rem"
               viewBox="0 0 15 25"
             >
@@ -73,20 +89,20 @@ const TestPage = ({ user }) => {
                 </g>
               </g>
             </svg>
-            <li class="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
+            <li className="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
               1
             </li>
-            <li class="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
+            <li className="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
               2
             </li>
-            <li class="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
+            <li className="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
               3
             </li>
-            <li class="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
+            <li className="rounded-full regularLink p-2 mx-2 w-8 h-8 bg-white flex justify-center items-center">
               4
             </li>
             <svg
-              class="svgPagination rounded-full p-2 mx-2 w-12 h-8 bg-white flex justify-center items-center"
+              className="svgPagination rounded-full p-2 mx-2 w-12 h-8 bg-white flex justify-center items-center"
               width="0.4rem"
               viewBox="0 0 15 25"
             >

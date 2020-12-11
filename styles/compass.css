@@ -1,11 +1,12 @@
-.pointsCardinaux {
+.pointsCardinal {
   @apply flex justify-center items-center w-64;
 }
-.pointCardinal {
-  @apply rounded-full bg-white w-12 h-12;
+.cardinalPoint {
   color: #bcbcbb;
+  cursor: pointer;
+  @apply rounded-full bg-white w-12 h-12;
 }
-.active {
+.cardinalPointActive {
   background: rgb(47, 85, 106);
   background: linear-gradient(
     90deg,
@@ -14,51 +15,55 @@
   );
   color: #fff;
 }
-.pointCardinal:hover {
+
+.cardinalPoint:hover {
   color: #294d60;
   text-decoration: underline;
 }
-.nord {
+.cardinalPointActive:hover {
+  color: #fff;
+}
+.north {
   position: absolute;
   top: 0.3rem;
   left: 6.5rem;
 }
-.nordOuest {
+.northWest {
   position: absolute;
   top: 1.6rem;
   left: 3rem;
 }
-.nordEst {
+.northEast {
   position: absolute;
   top: 1.6rem;
   left: 10rem;
 }
-.ouest {
+.west {
   position: absolute;
   top: 5rem;
   left: 1.6rem;
 }
-.est {
+.east {
   position: absolute;
   top: 5rem;
   left: 11.4rem;
 }
-.sudOuest {
+.southWest {
   position: absolute;
   top: 8.4rem;
   left: 3rem;
 }
-.sudEst {
+.southEast {
   position: absolute;
   top: 8.4rem;
   left: 10rem;
 }
-.sud {
+.south {
   position: absolute;
   top: 9.8rem;
   left: 6.5rem;
 }
-.cadranBoussole {
+.dialCompass {
   position: absolute;
   top: 4.35rem;
   left: 5.75rem;
@@ -68,7 +73,7 @@
   stroke-miterlimit: 2;
   fill: rgb(219, 65, 55);
 }
-.flecheBoussole {
+.arrowCompass {
   position: absolute;
   top: 5.9rem;
   left: 7.25rem;
@@ -79,10 +84,10 @@
   stroke-miterlimit: 2;
   fill: rgb(219, 65, 55);
 }
-.boussole {
+.compass {
   scale: 1.5;
   @apply relative w-64 mx-auto;
 }
-.boussoleWidth {
+.compassWidth {
   height: 315px;
 }
