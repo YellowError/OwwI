@@ -1,9 +1,10 @@
 import Layout from "../components/Layout";
 import AddAgent from "../components/create-agent/AddAgent";
 
+
 const CreateAgentPage = ({ user }) => {
 
-  const pageTitle = "Home";
+  const pageTitle = "Create Agent";
 
   return (
     <Layout title={pageTitle} user={user} publicContent>

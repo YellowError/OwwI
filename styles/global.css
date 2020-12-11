@@ -499,24 +499,50 @@ label {
   width: 55px;
   height: 55px;
   font-size: 1.125rem;
-  background-color: white;
+  /* background-color: white; */
   color: #939393;
   margin: 5px;
   line-height: 55px;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #bcbcbb;
   border-radius: 100px;
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 .pageEsti ul li:first-of-type a {
-  background-color: #294d60;
+  background-color: transparent;
   color: white;
 }
 .pageEsti ul li a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  transform: scale(1.1);
+  font-weight: 800;
 }
-.pageEsti ul li a:active {
-  background-color: #294d60;
+.pageEsti {
+  position: relative;
+}
+
+.stepBack {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  height: 55px;
+  width: 55px;
+  background: rgb(47, 85, 106);
+  background: linear-gradient(
+    90deg,
+    rgba(47, 85, 106, 1) 0%,
+    rgba(31, 54, 67, 1) 100%
+  );
+  border-radius: 50px;
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.pageEsti a.stepPass {
+  background-color: transparent;
   color: white;
+  border: none;
 }
 
 /*******************/
