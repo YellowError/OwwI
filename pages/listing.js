@@ -3,23 +3,107 @@ import CreateButton from "../components/listing/CreateButton"
 import FilterButton from '../components/listing/FilterButton'
 import AgentItem from '../components/listing/AgentItem'
 import ClientItem from '../components/listing/ClientItem'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useLayoutEffect } from "react"
 import FilterBy from '../components/listing/FilterBy'
 
-export default function ListingPage({user}) {
+export default function ListingPage({ user }) {
 
   const [agents, setAgents] = useState([]);
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, toggleLoading] = useState(true);
-  const [needListAgents, setNeedListAgents] = useState(true);
+  const [needListAgents, setNeedListAgents] = useState(true); 
+  const optionsSort = ["Tier par", "alphabetique", "inverse", "+ de clients", "- de clients"];
+  const [sortSelected, setSortSelected] = useState();
   const pageTitle = "listing";
-  
 
+  
   useEffect(async () => {
     await findAllUsers();
     toggleLoading(false);
   }, [])
+
+  useEffect(() => {
+    switch (sortSelected) {
+      case "alphabetique":
+        setAgents([...agents.sort(alphabetique)]);
+        setClients([...clients.sort(alphabetique)]);
+        break;
+
+      case "inverse":
+        setAgents([...agents.sort(inverse)]);
+        setClients([...clients.sort(inverse)]);
+        break;
+
+      case "+ de clients":
+        setAgents([...agents.sort(plusClient)])
+        break;
+
+      case "- de clients":
+        setAgents([...agents.sort(moinsClient)])
+
+        break;
+
+      default:
+        break;
+    }
+  }, [sortSelected])
+  
+  function alphabetique(userPrev, userNext){
+    const namePrev = userPrev.nom.toUpperCase();
+    const nameNext = userNext.nom.toUpperCase();
+
+    let comparaison = 0;
+    if(namePrev > nameNext){
+      comparaison = 1;
+    }
+    else if( namePrev < nameNext){
+      comparaison = -1;
+    }
+    return comparaison;
+  }
+
+  function inverse(userPrev, userNext){
+    const namePrev = userPrev.nom.toUpperCase();
+    const nameNext = userNext.nom.toUpperCase();
+
+    let comparaison = 0;
+    if(namePrev > nameNext){
+      comparaison = 1;
+    }
+    else if( namePrev < nameNext){
+      comparaison = -1;
+    }
+    return comparaison * -1;
+  }
+
+  function plusClient(userPrev, userNext){
+    const nbPrev = userPrev.clients.length;
+    const nbNext = userNext.clients.length;
+
+    let comparaison = 0;
+    if(nbPrev > nbNext){
+      comparaison = 1;
+    }
+    else if( nbPrev < nbNext){
+      comparaison = -1;
+    }
+    return comparaison * -1;
+  }
+
+  function moinsClient(userPrev, userNext){
+    const nbPrev = userPrev.clients.length;
+    const nbNext = userNext.clients.length;
+
+    let comparaison = 0;
+    if(nbPrev > nbNext){
+      comparaison = 1;
+    }
+    else if( nbPrev < nbNext){
+      comparaison = -1;
+    }
+    return comparaison;
+  }
 
   async function findSpecificUsers(typeOfUser) {
 
@@ -45,6 +129,7 @@ export default function ListingPage({user}) {
   }
 
   function listOfUsers(typeOfUser) {
+    
     // console.log(typeOfUser)
     if (typeOfUser === "agents") {
       return agents.map(agent => {
@@ -67,15 +152,15 @@ export default function ListingPage({user}) {
     if (input.length > 2) {
       const role = needListAgents ? agents : clients
       // console.log('try to find')
-        result = role.filter(agent => {
-          if (agent.nom.includes(input)) {
-            return agent;
-          }
-        })
+      result = role.filter(agent => {
+        if (agent.nom.includes(input)) {
+          return agent;
+        }
+      })
 
       if (result.length != 0) {
         // console.log('setAgent')
-        
+
         needListAgents ? setAgents([...result]) : setClients([...result]);
       }
 
@@ -97,7 +182,7 @@ export default function ListingPage({user}) {
           <div className='flex mb-4'>
             <FilterButton setNeedListAgents={() => { setNeedListAgents(true) }}>Agents</FilterButton>
             <FilterButton setNeedListAgents={() => { setNeedListAgents(false) }}>Clients</FilterButton>
-            <FilterBy options={["alphabetique", "inverse", "+ de clients", "- de clients"]} />
+            <FilterBy options={optionsSort} setSort={setSortSelected} />
           </div>
           <div className='bg-gray-300 w-1/2 px-4 py-4'>
             <ul>
