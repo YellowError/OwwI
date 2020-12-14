@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react'
+import React from "react";
 
 function FilterBy({ options, setSort }) {
 
     function handleChange(e){
         setSort(e.target.value);
     }
-
     return (
-        <select name='filter' onChange={handleChange} id='filter-select'>
+        <select name='filter' onChange={handleChange} id='filter-select' className="inputList">
             {options.map((option,index) => {
                 return <option key={index} value={option}>{option}</option>
             })}
@@ -15,4 +14,4 @@ function FilterBy({ options, setSort }) {
     )
 }
 
-export default FilterBy
+export default FilterBy;

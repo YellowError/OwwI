@@ -15,7 +15,7 @@ const Layout = ({ title, user, children, publicContent }) => {
         </Head>
 
         { publicContent ? (
-            <main>{children}</main>
+            <main className="container mx-auto">{children}</main>
         ) : (
             <LayoutConnected user={user}>{children}</LayoutConnected>
         )}
