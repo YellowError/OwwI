@@ -592,7 +592,7 @@ label {
   color: #fff;
   border: none;
 }
-..regularLinkActive:hover {
+.regularLinkActive:hover {
   color: #fff;
 }
 .regularLink:hover {
