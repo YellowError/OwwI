@@ -48,7 +48,7 @@ export default function ListingPage({user}) {
     // console.log(typeOfUser)
     if (typeOfUser === "agents") {
       return agents.map(agent => {
-        return <li key={agent.id} className='my-1 bg-gray-100'><AgentItem agent={agent} /></li>
+        return <li key={agent.id} className="my-1 borderUnderDropdownListing rounded-md bckLightBlue py-3 m-4 textColorBlue "><AgentItem agent={agent} /></li>
       })
     }
     else if (typeOfUser === 'clients') {
