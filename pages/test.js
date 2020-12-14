@@ -6,6 +6,7 @@ import Compass from "../components/create-estimation/Compass";
 import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
+import OpenCloseChevron from "../components/listing/OpenCloseChevron";
 
 const TestPage = ({ user }) => {
 
@@ -113,6 +114,7 @@ const TestPage = ({ user }) => {
           </ul>
         </nav>
         <InputSwitch name="electric" label="électricité à refaire" idfor="elec" />
+        <OpenCloseChevron />
       </div>
       </Layout>
   );

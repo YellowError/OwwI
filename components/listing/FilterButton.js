@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-function FilterButton({children, setNeedListAgents}) {
-    return (
-        <button onClick={setNeedListAgents} className='bg-blue-400 px-4 px-2'>{children}</button>
-    )
+function FilterButton({ children, setNeedListAgents, needListAgents }) {
+  return (
+    <button
+      onClick={setNeedListAgents}
+      className={`${
+        needListAgents ? "regularLinkActive" : ""
+      } regularLinkBorder rounded-full regularLink py-2 px-4 mx-2 h-10`}
+    >
+      {children}
+    </button>
+  );
 }
 
-export default FilterButton
+export default FilterButton;

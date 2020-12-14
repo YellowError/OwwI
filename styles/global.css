@@ -66,6 +66,13 @@ body {
   min-height: 100vh;
 }
 
+*:focus,
+*:active,
+button:focus,
+button:active {
+  outline: none;
+}
+
 *,
 *:before,
 *:after {
@@ -94,6 +101,13 @@ h3 {
 label {
   font-size: 1.125rem;
   color: #939393;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   BACKGROUND                                  */
+/* -------------------------------------------------------------------------- */
+
+.bckLightBlue {
+  background-color: #f6fcfe;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -162,7 +176,9 @@ label {
     rgba(90, 123, 107, 1) 100%
   );
 }
-
+/* -------------------------------------------------------------------------- */
+/*                                   BACKGROUND                                  */
+/* -------------------------------------------------------------------------- */
 .bgRed {
   background-color: #de4c41;
   color: white;
@@ -176,6 +192,15 @@ label {
   color: white;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   TEXTCOLOR                                  */
+/* -------------------------------------------------------------------------- */
+.textColorLightBlue {
+  color: #f6fcfe;
+}
+.textColorBlue {
+  color: #294d60;
+}
 /* -------------------------------------------------------------------------- */
 /*                              Dashboard Buttons                              */
 /* -------------------------------------------------------------------------- */
@@ -347,7 +372,15 @@ label {
 .inputSearch::placeholder {
   color: #bcbcbb;
 }
-
+.inputList {
+  @apply py-1 px-2 mx-2 h-8;
+  color: #294d60;
+  border-radius: 0.375rem;
+  border: solid 2px #bcbcbb;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: 5px;
+}
 .inputPrices {
   width: 100px;
   height: 48px;
@@ -549,7 +582,7 @@ label {
 /* CSS Melodie */
 /*******************/
 
-.regularLink:active {
+.regularLinkActive {
   background: rgb(47, 85, 106);
   background: linear-gradient(
     90deg,
@@ -557,8 +590,11 @@ label {
     rgba(31, 54, 67, 1) 100%
   );
   color: #fff;
+  border: none;
 }
-
+..regularLinkActive:hover {
+  color: #fff;
+}
 .regularLink:hover {
   color: #294d60;
   text-decoration: underline;
@@ -566,6 +602,9 @@ label {
 
 .regularLink {
   color: #d3d2d2;
+}
+.regularLinkBorder {
+  border: solid 1px #bcbcbb;
 }
 
 .svgPagination {
@@ -575,7 +614,29 @@ label {
 .svgPagination:hover {
   fill: #294d60;
 }
-
+.borderDropdownListing {
+  border: solid 1px #294d60;
+}
+.borderUnderDropdownListing {
+  border: solid 1px #bcbcbb;
+}
+.openCloseChevronBottom {
+  max-width: 1.4rem;
+  fill: #294d60;
+}
+.openCloseChevronRight {
+  max-width: 0.8rem;
+  fill: #294d60;
+}
+.addSvgButton {
+  max-width: 1.4rem;
+  display: inline;
+  fill: none;
+}
+.strokeWhite {
+  stroke: #fff;
+  stroke-width: 1px;
+}
 /*******************/
 /*END CSS melodie */
 /*******************/
