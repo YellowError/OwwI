@@ -6,6 +6,7 @@ import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 import OpenCloseChevron from "../components/listing/OpenCloseChevron";
+import DropDownMenu from "../components/DropDownMenu";
 
 const TestPage = ({ user }) => {
   const pageTitle = "Test";
@@ -14,8 +15,10 @@ const TestPage = ({ user }) => {
     e.preventDefault();
     const {
       compassValue: { value: compassValue },
+      dropDownList: { value: dropDownList },
     } = e.target.elements;
     console.log(compassValue);
+    console.log(dropDownList);
   };
 
   return (
@@ -63,7 +66,10 @@ const TestPage = ({ user }) => {
 
         <ButtonTitle name="gender" label="Sélectionner le titre" />
         <form onSubmit={regardezMoi}>
+          <DropDownMenu />
+
           <Compass />
+
           <button type="submit">Envoyer</button>
         </form>
         <nav className="my-6">
