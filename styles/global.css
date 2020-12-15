@@ -193,7 +193,7 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   TEXTCOLOR                                  */
+/*                                   TEXTCOLOR  SVG COlOR                                */
 /* -------------------------------------------------------------------------- */
 .textColorLightBlue {
   color: #f6fcfe;
@@ -252,7 +252,6 @@ label {
   cursor: pointer;
   width: 50px;
   height: 25px;
-
   background: rgb(222, 77, 65);
   background: linear-gradient(
     90deg,
@@ -413,7 +412,6 @@ label {
   line-height: 48px;
   margin: 0.5rem;
 }
-
 .inputSurface {
   width: 100%;
   height: 48px;
@@ -554,6 +552,115 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                Fil d'Arianne                               */
+/* -------------------------------------------------------------------------- */
+
+.linkArianneHome {
+  background-color: #de4c41;
+  fill: #de4c41;
+  color: #fff;
+}
+
+.linkArianneHome:hover {
+  background-color: #294d60;
+  fill: #294d60;
+}
+
+.linkArianne {
+  @apply mx-1;
+  text-decoration: underline;
+  color: #bcbcbb;
+}
+
+.filArianne li:after {
+  content: ">";
+  color: #bcbcbb;
+}
+
+.filArianne li:last-child:after,
+.filArianne:first-child:after {
+  content: "";
+}
+
+.linkArianne:hover {
+  color: #294d60;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             Step estimation nav                            */
+/* -------------------------------------------------------------------------- */
+
+.stepEstimation {
+  @apply m-3;
+  overflow-y: scroll;
+  color: #bcbcbb;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+
+.stepEstimation::-webkit-scrollbar {
+  display: none;
+}
+
+.stepEstimation:before,
+.stepEstimation:after {
+  content: " ";
+  display: table;
+}
+
+.stepEstimation li {
+  min-width: 55px;
+  height: 55px;
+  margin: 0 8px;
+  @apply text-center flex items-center justify-center rounded-full bg-white;
+}
+
+.stepEstimation .current {
+  margin: 0;
+  margin-right: 8px;
+  border-radius: 0 50% 50% 0;
+  color: #fff;
+  background-color: #294d60;
+  min-width: 63px;
+}
+
+.stepEstimation .completed {
+  margin: 0;
+  min-width: 71px;
+  color: #fff;
+  border-radius: 0;
+  background-color: #294d60;
+}
+
+.stepEstimation .completed:first-child {
+  border-radius: 50% 0 0 50%;
+  min-width: 63px;
+  margin-left: 8px;
+}
+
+.stepEstimation .firstOne {
+  background-color: #294d60;
+  color: #fff;
+  border-radius: 100%;
+}
+
+.stepEstimation .lastOne {
+  background-color: #294d60;
+  color: #fff;
+  border-radius: 0 50% 50% 0;
+  margin: 0;
+}
+
+#Back {
+  width: 100px;
+}
+
+#Next {
+  width: 100px;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                             step Nav bar France                            */
 /* -------------------------------------------------------------------------- */
 
@@ -607,7 +714,6 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   color: white;
   border: none;
 }
-
 /* -------------------------------------------------------------------------- */
 /*                             step list form estimation France                            */
 /* -------------------------------------------------------------------------- */
