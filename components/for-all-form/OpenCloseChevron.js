@@ -2,7 +2,7 @@ import React from "react";
 
 const OpenCloseChevron = ({ showList }) => {
   return (
-    <>
+    <div className="w-6">
       <svg
         className={`${!showList ? "hidden" : ""}  ml-2 openCloseChevronBottom`}
         viewBox="0 0 21 12"
@@ -27,7 +27,7 @@ const OpenCloseChevron = ({ showList }) => {
           </g>
         </g>
       </svg>
-    </>
+    </div>
   );
 };
 

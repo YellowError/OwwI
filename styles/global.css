@@ -608,6 +608,28 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   border: none;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                             step list form estimation France                            */
+/* -------------------------------------------------------------------------- */
+
+.titleList {
+  font-family: "textBold";
+  color: #bcbcbb;
+}
+.titleListOpen {
+  font-family: "textBold";
+  color: #81b29a;
+}
+
+.listClose {
+  border-radius: 6px;
+  border: 2px solid #bcbcbb;
+}
+
+.listOpen {
+  border: 2px solid#294d60;
+}
+
 /*******************/
 /* CSS Melodie */
 /*******************/
@@ -652,7 +674,6 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 .openCloseChevronBottom {
   width: 1.4rem;
-  color: #294d60;
   fill: currentColor;
   fill-rule: evenodd;
   clip-rule: evenodd;
@@ -662,7 +683,6 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 .openCloseChevronRight {
   width: 0.8rem;
   fill: currentColor;
-  color: #294d60;
   fill-rule: evenodd;
   clip-rule: evenodd;
   stroke-linejoin: round;
