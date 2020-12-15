@@ -3,20 +3,25 @@ import CommentArea from "../CommentArea";
 import DropSimple from "../DropSimple";
 import FloatingInput from "../for-all-form/FloatingInput";
 import InputSurface from "../for-all-form/InputSurface";
+import OpenCloseChevronForm from "../for-all-form/OpenCloseChevronForm";
 import RangeEstimation from "./RangeEstimation";
 const NewRoomInside = () => {
   const [showRoom, setShowRoom] = useState(false);
   return (
     <>
-      <li className="border m-4 p-2">
-        <span
-          className="mx-2 p-2"
+      <li className={`${showRoom ? "listClose listOpen" : "listClose"} m-4`}>
+        <div
+          className={`
+                ${showRoom ? "titleList titleListOpen" : "titleList"}
+                  flex justify-between items-center py-1 px-4
+              `}
           onClick={() => {
             setShowRoom(!showRoom);
           }}
         >
-          Nouvel pièce
-        </span>
+          <span className="mx-2 p-2">Nouvelle pièce</span>
+          <OpenCloseChevronForm showList={showRoom} />
+        </div>
         {showRoom ? (
           <ul className="mx-4 px-2">
             <li>

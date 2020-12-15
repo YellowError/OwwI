@@ -1,18 +1,27 @@
 import React, { useState } from "react";
+import OpenCloseChevronForm from "../for-all-form/OpenCloseChevronForm";
 import NewRoomInside from "./NewRoomInside";
 const FirstFloor = () => {
   const [showFloor, setShowFloor] = useState(false);
   return (
     <>
-      <li className="border m-4 p-2">
-        <span
-          className="mx-2 p-2"
+      <li
+        className={`${
+          showFloor ? "listClose listOpen" : "listClose"
+        } m-4 bg-white`}
+      >
+        <div
+          className={`
+                ${showFloor ? "titleList titleListOpen" : "titleList"}
+                  flex justify-between items-center py-1 px-4
+              `}
           onClick={() => {
             setShowFloor(!showFloor);
           }}
         >
-          Rez-de-chaussée
-        </span>
+          <span className=" p-2">Rez-de-chaussée</span>
+          <OpenCloseChevronForm showList={showFloor} />
+        </div>
         {showFloor ? (
           <ul className="mt-2">
             <NewRoomInside />
