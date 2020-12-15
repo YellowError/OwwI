@@ -381,6 +381,110 @@ label {
   margin: 0.5rem;
 }
 
+.inputSurface {
+  width: 100%;
+  height: 48px;
+  padding: 0 45px 0 10px;
+  border: 2px solid #bcbcbb;
+  border-radius: 5px;
+  color: #294d60;
+  font-size: 1.125rem;
+  margin: 0.5rem;
+}
+
+.inputSurface:focus {
+  outline: none;
+  border: 2px solid #294d60;
+  color: #294d60;
+}
+
+.inputSurface::placeholder {
+  color: #bcbcbb;
+}
+
+.surface {
+  width: 250px;
+  position: relative;
+}
+.surface::after {
+  content: "m²";
+  color: #bcbcbb;
+  position: absolute;
+  right: 5px;
+  font-size: 1.125rem;
+  width: 20px;
+  height: 48px;
+  line-height: 48px;
+  margin: 0.5rem;
+}
+
+/* ---------inputSlideFinition------ */
+input[type="range"].custom-slider {
+  -webkit-appearance: none; /*nécessaire pour Chrome */
+  padding: 0; /* nécessaire pour IE */
+  font: inherit; /* même rendu suivant font document */
+  outline: none;
+  color: #069; /* sert pour couleur de référence, via currentColor, pour le curseur */
+  opacity: 1;
+  border-radius: 20px;
+  background: rgb(222, 77, 65);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 77, 65, 1) 0%,
+    rgba(167, 44, 33, 1) 100%
+  );
+  box-sizing: border-box; /* même modèle de boîte pour tous */
+  transition: opacity 0.2s;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  /* height: 100%; */
+  border: none;
+}
+
+input[type="range"].custom-slider::-moz-range-track {
+  height: 100%;
+  border: none;
+}
+
+input[type="range"].custom-slider::-ms-track {
+  height: 100%;
+  border: none;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 1px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-moz-range-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 3px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 3px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                Fil d'Arianne                               */
 /* -------------------------------------------------------------------------- */
@@ -414,80 +518,6 @@ label {
 
 .linkArianne:hover {
   color: #294d60;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                             Step estimation nav                            */
-/* -------------------------------------------------------------------------- */
-
-.stepEstimation {
-  @apply m-3;
-  overflow-y: scroll;
-  color: #bcbcbb;
-  overflow-x: scroll;
-  flex-wrap: nowrap;
-  scrollbar-width: none;
-}
-
-.stepEstimation::-webkit-scrollbar {
-  display: none;
-}
-
-.stepEstimation:before,
-.stepEstimation:after {
-  content: " ";
-  display: table;
-}
-
-.stepEstimation li {
-  min-width: 55px;
-  height: 55px;
-  margin: 0 8px;
-  @apply text-center flex items-center justify-center rounded-full bg-white;
-}
-
-.stepEstimation .current {
-  margin: 0;
-  margin-right: 8px;
-  border-radius: 0 50% 50% 0;
-  color: #fff;
-  background-color: #294d60;
-  min-width: 63px;
-}
-
-.stepEstimation .completed {
-  margin: 0;
-  min-width: 71px;
-  color: #fff;
-  border-radius: 0;
-  background-color: #294d60;
-}
-
-.stepEstimation .completed:first-child {
-  border-radius: 50% 0 0 50%;
-  min-width: 63px;
-  margin-left: 8px;
-}
-
-.stepEstimation .firstOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 100%;
-}
-
-.stepEstimation .lastOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 0 50% 50% 0;
-  margin: 0;
-}
-
-#Back {
-  width: 100px;
-}
-
-#Next {
-  width: 100px;
 }
 
 /* -------------------------------------------------------------------------- */

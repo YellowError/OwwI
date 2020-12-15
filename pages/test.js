@@ -1,23 +1,21 @@
 import React from "react";
 import Layout from "../components/Layout";
 import FloatingInput from "../components/for-all-form/FloatingInput";
-import StepNavMenu from "../components/create-estimation/StepNavMenu";
 import Compass from "../components/create-estimation/Compass";
 import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 
 const TestPage = ({ user }) => {
-
   const pageTitle = "Test";
   // TEST voir si ça s'envoie
-  const regardezMoi = (e) =>{
+  const regardezMoi = (e) => {
     e.preventDefault();
     const {
-      compassValue : { value: compassValue}
-    } = e.target.elements
+      compassValue: { value: compassValue },
+    } = e.target.elements;
     console.log(compassValue);
-  }
+  };
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
@@ -49,9 +47,6 @@ const TestPage = ({ user }) => {
             </li>
           </ul>
         </nav>
-
-
-        <StepNavMenu />
 
         <ButtonDashboard />
         <ButtonDashboard
@@ -112,9 +107,13 @@ const TestPage = ({ user }) => {
             </svg>
           </ul>
         </nav>
-        <InputSwitch name="electric" label="électricité à refaire" idfor="elec" />
+        <InputSwitch
+          name="electric"
+          label="électricité à refaire"
+          idfor="elec"
+        />
       </div>
-      </Layout>
+    </Layout>
   );
 };
 
