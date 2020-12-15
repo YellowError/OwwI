@@ -9,16 +9,15 @@ import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 import OpenCloseChevron from "../components/listing/OpenCloseChevron";
 
 const TestPage = ({ user }) => {
-
   const pageTitle = "Test";
   // TEST voir si ça s'envoie
-  const regardezMoi = (e) =>{
+  const regardezMoi = (e) => {
     e.preventDefault();
     const {
-      compassValue : { value: compassValue}
-    } = e.target.elements
+      compassValue: { value: compassValue },
+    } = e.target.elements;
     console.log(compassValue);
-  }
+  };
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
@@ -50,7 +49,6 @@ const TestPage = ({ user }) => {
             </li>
           </ul>
         </nav>
-
 
         <StepNavMenu />
 
@@ -113,10 +111,14 @@ const TestPage = ({ user }) => {
             </svg>
           </ul>
         </nav>
-        <InputSwitch name="electric" label="électricité à refaire" idfor="elec" />
+        <InputSwitch
+          name="electric"
+          label="électricité à refaire"
+          idfor="elec"
+        />
         <OpenCloseChevron />
       </div>
-      </Layout>
+    </Layout>
   );
 };
 
