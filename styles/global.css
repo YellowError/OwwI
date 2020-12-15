@@ -621,21 +621,35 @@ label {
   border: solid 1px #bcbcbb;
 }
 .openCloseChevronBottom {
-  max-width: 1.4rem;
-  fill: #294d60;
+  width: 1.4rem;
+  color: #294d60;
+  fill: currentColor;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
 }
 .openCloseChevronRight {
-  max-width: 0.8rem;
-  fill: #294d60;
+  width: 0.8rem;
+  fill: currentColor;
+  color: #294d60;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
 }
 .addSvgButton {
-  max-width: 1.4rem;
+  width: 1.4rem;
   display: inline;
   fill: none;
 }
 .strokeWhite {
   stroke: #fff;
   stroke-width: 1px;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
 }
 /*******************/
 /*END CSS melodie */
