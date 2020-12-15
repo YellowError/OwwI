@@ -1,23 +1,27 @@
-import Layout from '../components/Layout'
-import CreateButton from "../components/listing/CreateButton"
-import FilterButton from '../components/listing/FilterButton'
-import AgentItem from '../components/listing/AgentItem'
-import ClientItem from '../components/listing/ClientItem'
-import { useState, useEffect, useLayoutEffect } from "react"
-import FilterBy from '../components/listing/FilterBy'
+import Layout from "../components/Layout";
+import CreateButton from "../components/listing/CreateButton";
+import FilterButton from "../components/listing/FilterButton";
+import AgentItem from "../components/listing/AgentItem";
+import ClientItem from "../components/listing/ClientItem";
+import { useState, useEffect, useLayoutEffect } from "react";
+import FilterBy from "../components/listing/FilterBy";
 
 export default function ListingPage({ user }) {
-
   const [agents, setAgents] = useState([]);
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState("");
   const [loading, toggleLoading] = useState(true);
-  const [needListAgents, setNeedListAgents] = useState(true); 
-  const optionsSort = ["Tier par", "alphabetique", "inverse", "+ de clients", "- de clients"];
+  const [needListAgents, setNeedListAgents] = useState(true);
+  const optionsSort = [
+    "Tier par",
+    "alphabetique",
+    "inverse",
+    "+ de clients",
+    "- de clients",
+  ];
   const [sortSelected, setSortSelected] = useState();
   const pageTitle = "listing";
 
-  
   useEffect(async () => {
     await findAllUsers();
     toggleLoading(false);
@@ -36,70 +40,66 @@ export default function ListingPage({ user }) {
         break;
 
       case "+ de clients":
-        setAgents([...agents.sort(plusClient)])
+        setAgents([...agents.sort(plusClient)]);
         break;
 
       case "- de clients":
-        setAgents([...agents.sort(moinsClient)])
+        setAgents([...agents.sort(moinsClient)]);
 
         break;
 
       default:
         break;
     }
-  }, [sortSelected])
-  
-  function alphabetique(userPrev, userNext){
+  }, [sortSelected]);
+
+  function alphabetique(userPrev, userNext) {
     const namePrev = userPrev.nom.toUpperCase();
     const nameNext = userNext.nom.toUpperCase();
 
     let comparaison = 0;
-    if(namePrev > nameNext){
+    if (namePrev > nameNext) {
       comparaison = 1;
-    }
-    else if( namePrev < nameNext){
+    } else if (namePrev < nameNext) {
       comparaison = -1;
     }
     return comparaison;
   }
 
-  function inverse(userPrev, userNext){
+  function inverse(userPrev, userNext) {
     const namePrev = userPrev.nom.toUpperCase();
     const nameNext = userNext.nom.toUpperCase();
 
     let comparaison = 0;
-    if(namePrev > nameNext){
+    if (namePrev > nameNext) {
       comparaison = 1;
-    }
-    else if( namePrev < nameNext){
+    } else if (namePrev < nameNext) {
       comparaison = -1;
     }
     return comparaison * -1;
   }
 
-  function plusClient(userPrev, userNext){
+  function plusClient(userPrev, userNext) {
     const nbPrev = userPrev.clients.length;
     const nbNext = userNext.clients.length;
 
     let comparaison = 0;
-    if(nbPrev > nbNext){
+    if (nbPrev > nbNext) {
       comparaison = 1;
-    }
-    else if( nbPrev < nbNext){
+    } else if (nbPrev < nbNext) {
       comparaison = -1;
     }
     return comparaison * -1;
   }
 
-  function moinsClient(userPrev, userNext){
+  function moinsClient(userPrev, userNext) {
     const nbPrev = userPrev.clients.length;
     const nbNext = userNext.clients.length;
 
     let comparaison = 0;
-    if(nbPrev > nbNext){
+    if (nbPrev > nbNext) {
       comparaison = 1;
-    }
-    else if( nbPrev < nbNext){
+    } else if (nbPrev < nbNext) {
       comparaison = -1;
     }
     return comparaison;
@@ -156,13 +156,13 @@ export default function ListingPage({ user }) {
     setSearch(input);
 
     if (input.length > 2) {
-      const role = needListAgents ? agents : clients
+      const role = needListAgents ? agents : clients;
       // console.log('try to find')
-      result = role.filter(agent => {
+      result = role.filter((agent) => {
         if (agent.nom.includes(input)) {
           return agent;
         }
-      })
+      });
 
       if (result.length != 0) {
         // console.log('setAgent')
@@ -192,33 +192,30 @@ export default function ListingPage({ user }) {
       <section>
         <div>
           <div className="flex mx-auto mb-4 items-center justify-between lg:w-1/2">
-            <div>
-              <FilterButton
-                setNeedListAgents={() => {
-                  setNeedListAgents(true);
-                }}
-                onClick={() => {
-                  isActive();
-                }}
-                needListAgents={needListAgents}
-              >
-                Agents
-              </FilterButton>
-              <FilterButton
-                setNeedListAgents={() => {
-                  setNeedListAgents(false);
-                }}
-                onClick={() => {
-                  isActive();
-                }}
-                needListAgents={!needListAgents}
-              >
-                Clients
-              </FilterButton>
-            </div>
+            <FilterButton
+              setNeedListAgents={() => {
+                setNeedListAgents(true);
+              }}
+              onClick={() => {
+                isActive();
+              }}
+              needListAgents={needListAgents}
+            >
+              Agents
+            </FilterButton>
+            <FilterButton
+              setNeedListAgents={() => {
+                setNeedListAgents(false);
+              }}
+              onClick={() => {
+                isActive();
+              }}
+              needListAgents={!needListAgents}
+            >
+              Clients
+            </FilterButton>
 
             <FilterBy options={optionsSort} setSort={setSortSelected} />
-
           </div>
           <div className="w-10/12 mx-auto lg:w-3/4 px-4 py-4 rounded-md">
             <ul className="mb-6">
@@ -231,35 +228,63 @@ export default function ListingPage({ user }) {
               )}
             </ul>
             {needListAgents ? (
-              <CreateButton cible="/create-agent" style={"btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"}><svg  className="addSvgButton p-0" viewBox="0 0 32 32">
-              <g className="strokeWhite" transform="matrix(1,0,0,1,-1058.88,-570.422)">
-                  <g transform="matrix(2.66667,0,0,2.66667,0,0)">
+              <CreateButton
+                cible="/create-agent"
+                style={
+                  "btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"
+                }
+              >
+                <svg className="addSvgButton p-0" viewBox="0 0 32 32">
+                  <g
+                    className="strokeWhite"
+                    transform="matrix(1,0,0,1,-1058.88,-570.422)"
+                  >
+                    <g transform="matrix(2.66667,0,0,2.66667,0,0)">
                       <g transform="matrix(1,0,0,1,403.308,220.169)">
-                          <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z"/>
+                        <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
                       </g>
-                  </g>
-                  <g className="strokeWhite" transform="matrix(2.66667,0,0,2.66667,0,0)">
+                    </g>
+                    <g
+                      className="strokeWhite"
+                      transform="matrix(2.66667,0,0,2.66667,0,0)"
+                    >
                       <g transform="matrix(0,-1,-1,0,403.036,215.983)">
-                          <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88"/>
+                        <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88" />
                       </g>
+                    </g>
                   </g>
-              </g>
-          </svg> Ajouter un agent</CreateButton>
+                </svg>{" "}
+                Ajouter un agent
+              </CreateButton>
             ) : (
-              <CreateButton cible="/create-client/25" style={"btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"}><svg  className="addSvgButton p-0" viewBox="0 0 32 32">
-              <g className="strokeWhite" transform="matrix(1,0,0,1,-1058.88,-570.422)">
-                  <g transform="matrix(2.66667,0,0,2.66667,0,0)">
+              <CreateButton
+                cible="/create-client/25"
+                style={
+                  "btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"
+                }
+              >
+                <svg className="addSvgButton p-0" viewBox="0 0 32 32">
+                  <g
+                    className="strokeWhite"
+                    transform="matrix(1,0,0,1,-1058.88,-570.422)"
+                  >
+                    <g transform="matrix(2.66667,0,0,2.66667,0,0)">
                       <g transform="matrix(1,0,0,1,403.308,220.169)">
-                          <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z"/>
+                        <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
                       </g>
-                  </g>
-                  <g className="strokeWhite" transform="matrix(2.66667,0,0,2.66667,0,0)">
+                    </g>
+                    <g
+                      className="strokeWhite"
+                      transform="matrix(2.66667,0,0,2.66667,0,0)"
+                    >
                       <g transform="matrix(0,-1,-1,0,403.036,215.983)">
-                          <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88"/>
+                        <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88" />
                       </g>
+                    </g>
                   </g>
-              </g>
-          </svg> Ajouter un client</CreateButton>
+                </svg>{" "}
+                Ajouter un client
+              </CreateButton>
             )}
           </div>
         </div>
