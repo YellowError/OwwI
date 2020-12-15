@@ -51,7 +51,7 @@ const EstimationDefinition = () => {
       />
       <DropSimple label="Etat du bâtiment" name="etat" />
       <h3>Orientation</h3>
-      <p>LE COMPASS QUAND IL EST OK C EST ICI</p>
+      <Compass />
       <h3>Urbanisme</h3>
       <Switch label="Permis de bâtir obtenue" idfor="permis" />
       <Switch label="Zone inondable" idfor="inondable" />

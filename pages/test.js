@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/Layout";
 import FloatingInput from "../components/for-all-form/FloatingInput";
-import StepNavMenu from "../components/create-estimation/StepNavMenu";
 import Compass from "../components/create-estimation/Compass";
 import ButtonTitle from "../components/for-all-form/ButtonTitle";
 import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
-import OpenCloseChevron from "../components/listing/OpenCloseChevron";
+import OpenCloseChevron from "../components/for-all-form/OpenCloseChevron";
+import DropDownMenu from "../components/DropDownMenu";
 
 const TestPage = ({ user }) => {
   const pageTitle = "Test";
@@ -15,8 +15,10 @@ const TestPage = ({ user }) => {
     e.preventDefault();
     const {
       compassValue: { value: compassValue },
+      dropDownList: { value: dropDownList },
     } = e.target.elements;
     console.log(compassValue);
+    console.log(dropDownList);
   };
 
   return (
@@ -50,8 +52,6 @@ const TestPage = ({ user }) => {
           </ul>
         </nav>
 
-        <StepNavMenu />
-
         <ButtonDashboard />
         <ButtonDashboard
           icon="images/little_logo_owwi.svg"
@@ -66,7 +66,10 @@ const TestPage = ({ user }) => {
 
         <ButtonTitle name="gender" label="Sélectionner le titre" />
         <form onSubmit={regardezMoi}>
+          <DropDownMenu />
+
           <Compass />
+
           <button type="submit">Envoyer</button>
         </form>
         <nav className="my-6">
