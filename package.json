@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devJulien": "next & json-server --watch dbJulien.json --port 3001",
+    "devFr": "next & json-server --watch dbFrance.json --port 3002",
     "dev": "next",
     "build": "next build",
     "start": "next start"
