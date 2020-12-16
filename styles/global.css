@@ -607,6 +607,48 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   color: white;
   border: none;
 }
+/* -------------------------------------------------------------------------- */
+/*                             btn mod supp France                            */
+/* -------------------------------------------------------------------------- */
+
+button.btnMod {
+  width: 90px;
+  height: 55px;
+  background-color: rgb(47, 85, 106);
+  background: url("../public/images/btnMod.svg"),
+    linear-gradient(90deg, rgba(47, 85, 106, 1) 0%, rgba(31, 54, 67, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  background-size: 45px, 100%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+button.btnMod:hover {
+  background: url("../public/images/btnModHover.svg"),
+    linear-gradient(90deg, rgba(47, 85, 106, 1) 40%, rgba(31, 54, 67, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  background-size: 45px, 100%;
+}
+button.btnSupp {
+  width: 90px;
+  height: 55px;
+  background-color: rgb(222, 77, 65);
+  background: url("../public/images/btnSupp.svg"),
+    linear-gradient(90deg, rgba(222, 77, 65, 1) 0%, rgba(167, 44, 33, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 45px, 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+button.btnSupp:hover {
+  background: url("../public/images/btnSuppHover.svg"),
+    linear-gradient(90deg, rgba(222, 77, 65, 1) 40%, rgba(167, 44, 33, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 45px, 100%;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                             step list form estimation France                            */
