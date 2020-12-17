@@ -115,8 +115,8 @@ label {
 /* -------------------------------------------------------------------------- */
 
 .btn {
-  @apply rounded-full py-2 px-4 text-white m-2;
   outline: none;
+  @apply rounded-full py-2 px-4 text-white m-2;
 }
 
 .btn:focus {
@@ -193,7 +193,7 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   TEXTCOLOR  SVG COlOR                                */
+/*                                   TEXTCOLOR                                  */
 /* -------------------------------------------------------------------------- */
 .textColorLightBlue {
   color: #f6fcfe;
@@ -202,7 +202,7 @@ label {
   color: #294d60;
 }
 /* -------------------------------------------------------------------------- */
-/*                              Dashboard Buttons                              */
+/*                              DASHBOARD BUTTONS                              */
 /* -------------------------------------------------------------------------- */
 
 .btnDashboard {
@@ -210,12 +210,12 @@ label {
 }
 
 .iconDashboard {
-  @apply flex items-center p-1 mx-auto;
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
   border: 0.25rem solid #294d60;
   background-color: #ffffff;
+  @apply flex items-center p-1 mx-auto;
 }
 
 .btnDashboard > div {
@@ -223,12 +223,12 @@ label {
 }
 
 .iconDashboard > img {
-  @apply p-1 mx-auto;
   height: 100%;
+  @apply p-1 mx-auto;
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Radio buttons                                */
+/*                                RADIO BUTTONS                                */
 /* -------------------------------------------------------------------------- */
 
 .btnRadio input {
@@ -236,7 +236,7 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                               Switch buttons                               */
+/*                               SWITCH BUTTONS                               */
 /* -------------------------------------------------------------------------- */
 
 .inputCheckBoxBtn {
@@ -252,6 +252,7 @@ label {
   cursor: pointer;
   width: 50px;
   height: 25px;
+
   background: rgb(222, 77, 65);
   background: linear-gradient(
     90deg,
@@ -298,18 +299,17 @@ label {
 /* -------------------------------------------------------------------------- */
 
 .floatLabel {
-  @apply flex flex-col relative m-2;
   position: relative;
-  min-width: 350px;
+  @apply flex flex-col relative m-2;
 }
 
 .floatLabel input {
-  @apply rounded-md px-2 pt-4 pb-1;
   border: 2px solid #bcbcbb;
   color: #bcbcbb;
   width: 100%;
   outline: none;
   background: #fff;
+  @apply rounded-md px-2 pt-4 pb-1;
 }
 
 .floatLabel label {
@@ -342,12 +342,12 @@ label {
 }
 
 .floatLabel textarea {
-  @apply rounded-md px-2 pt-4 pb-1;
   border: 2px solid #bcbcbb;
   color: #bcbcbb;
   width: 100%;
   outline: none;
   background: #fff;
+  @apply rounded-md px-2 pt-4 pb-1;
 }
 
 .floatLabel textarea:focus {
@@ -372,13 +372,13 @@ label {
   color: #bcbcbb;
 }
 .inputList {
-  @apply py-1 px-2 mx-2 h-8;
   color: #294d60;
   border-radius: 0.375rem;
   border: solid 2px #bcbcbb;
   background-repeat: no-repeat;
   background-size: 40px;
   background-position: 5px;
+  @apply py-1 px-2 mx-2 h-8;
 }
 .inputPrices {
   width: 100px;
@@ -412,6 +412,7 @@ label {
   line-height: 48px;
   margin: 0.5rem;
 }
+
 .inputSurface {
   width: 100%;
   height: 48px;
@@ -517,7 +518,7 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Fil d'Arianne                               */
+/*                                FIL D'ARIANNE                               */
 /* -------------------------------------------------------------------------- */
 
 .linkArianneHome {
@@ -552,116 +553,7 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Fil d'Arianne                               */
-/* -------------------------------------------------------------------------- */
-
-.linkArianneHome {
-  background-color: #de4c41;
-  fill: #de4c41;
-  color: #fff;
-}
-
-.linkArianneHome:hover {
-  background-color: #294d60;
-  fill: #294d60;
-}
-
-.linkArianne {
-  @apply mx-1;
-  text-decoration: underline;
-  color: #bcbcbb;
-}
-
-.filArianne li:after {
-  content: ">";
-  color: #bcbcbb;
-}
-
-.filArianne li:last-child:after,
-.filArianne:first-child:after {
-  content: "";
-}
-
-.linkArianne:hover {
-  color: #294d60;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                             Step estimation nav                            */
-/* -------------------------------------------------------------------------- */
-
-.stepEstimation {
-  @apply m-3;
-  overflow-y: scroll;
-  color: #bcbcbb;
-  overflow-x: scroll;
-  flex-wrap: nowrap;
-  scrollbar-width: none;
-}
-
-.stepEstimation::-webkit-scrollbar {
-  display: none;
-}
-
-.stepEstimation:before,
-.stepEstimation:after {
-  content: " ";
-  display: table;
-}
-
-.stepEstimation li {
-  min-width: 55px;
-  height: 55px;
-  margin: 0 8px;
-  @apply text-center flex items-center justify-center rounded-full bg-white;
-}
-
-.stepEstimation .current {
-  margin: 0;
-  margin-right: 8px;
-  border-radius: 0 50% 50% 0;
-  color: #fff;
-  background-color: #294d60;
-  min-width: 63px;
-}
-
-.stepEstimation .completed {
-  margin: 0;
-  min-width: 71px;
-  color: #fff;
-  border-radius: 0;
-  background-color: #294d60;
-}
-
-.stepEstimation .completed:first-child {
-  border-radius: 50% 0 0 50%;
-  min-width: 63px;
-  margin-left: 8px;
-}
-
-.stepEstimation .firstOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 100%;
-}
-
-.stepEstimation .lastOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 0 50% 50% 0;
-  margin: 0;
-}
-
-#Back {
-  width: 100px;
-}
-
-#Next {
-  width: 100px;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                             step Nav bar France                            */
+/*                             STEP NAV BAR                            */
 /* -------------------------------------------------------------------------- */
 
 .pageEsti ul li a {
@@ -714,14 +606,16 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   color: white;
   border: none;
 }
+
 /* -------------------------------------------------------------------------- */
-/*                             step list form estimation France                            */
+/*                             STEP LIST FORM ESTIMATION                      */
 /* -------------------------------------------------------------------------- */
 
 .titleList {
   font-family: "textBold";
   color: #bcbcbb;
 }
+
 .titleListOpen {
   font-family: "textBold";
   color: #81b29a;
@@ -740,6 +634,14 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 /* CSS Melodie */
 /*******************/
 
+.regularLink:hover {
+  color: #294d60;
+  text-decoration: underline;
+}
+
+.regularLink {
+  color: #d3d2d2;
+}
 .regularLinkActive {
   background: rgb(47, 85, 106);
   background: linear-gradient(
@@ -753,14 +655,7 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 .regularLinkActive:hover {
   color: #fff;
 }
-.regularLink:hover {
-  color: #294d60;
-  text-decoration: underline;
-}
 
-.regularLink {
-  color: #d3d2d2;
-}
 .regularLinkBorder {
   border: solid 1px #bcbcbb;
 }
@@ -812,19 +707,8 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 /*******************/
 
 /* -------------------------------------------------------------------------- */
-/*                             Dropdown list                           */
+/*                            DROPDOWN LIST                                   */
 /* -------------------------------------------------------------------------- */
-
-select {
-  color: #999;
-  border-radius: 5px;
-  width: 100%;
-  font-size: 1.5rem;
-}
-
-[selected] {
-  color: #bcbcbb !important;
-}
 
 .selectStyle .select {
   background: white;
@@ -847,10 +731,6 @@ select {
   background-color: #8497a6;
 }
 
-/* .dropdown:hover .dropdown-menu {
-  display: block;
-} */
-
 .selectBorder {
   @apply border-2 border-solid border-gray-300 rounded p-2;
 }
@@ -872,13 +752,13 @@ select {
 }
 
 .dropdownLiTitleFirst {
-  @apply rounded-t py-2 px-4 font-semibold text-white;
   background-color: #81b29a;
+  @apply rounded-t py-2 px-4 font-semibold text-white;
 }
 
 .dropdownLiTitle {
-  @apply py-2 px-4 font-semibold text-white;
   background-color: #81b29a;
+  @apply py-2 px-4 font-semibold text-white;
 }
 
 .dropdownLiOption {
