@@ -1,214 +1,570 @@
 {
-    "agents": [
+  "agents": [
+    {
+      "id": 31241256624,
+      "nom": "willy",
+      "clients": [
         {
-            "id": 31241256624,
-            "nom": "willy",
-            "clients": [
-                {
-                    "id": 23145908543,
-                    "nom": "jhon",
-                    "estimations": [
-                        {
-                            "id": 43153421,
-                            "nom": "estimations 1"
-                        },
-                        {
-                            "id": 543252346,
-                            "nom": "estimations 2"
-                        }
-                    ]
-                },
-                {
-                    "id": 31453416457,
-                    "nom": "tom",
-                    "estimations": [
-                        {
-                            "id": 547652468,
-                            "nom": "estimations 1"
-                        },
-                        {
-                            "id": 32142342,
-                            "nom": "estimations 2"
-                        },
-                        {
-                            "id": 76537856454,
-                            "nom": "estimations 3"
-                        },
-                        {
-                            "id": 1,
-                            "nom": "estimations 4"
-                        }
-                    ]
-                }
-            ]
+          "id": 23145908543,
+          "nom": "jhon",
+          "estimations": [
+            {
+              "id": 43153421,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 543252346,
+              "nom": "estimations 2"
+            }
+          ]
         },
         {
-            "id": 3126761431,
-            "nom": "christophe",
-            "clients": [
-                {
-                    "id": 54235423,
-                    "nom": "bob",
-                    "estimations": [
-                        {
-                            "id": 5423767,
-                            "nom": "estimations 1"
-                        },
-                        {
-                            "id": 56247574,
-                            "nom": "estimations 2"
-                        },
-                        {
-                            "id": 2143124,
-                            "nom": "estimations 3"
-                        },
-                        {
-                            "id": 412356613,
-                            "nom": "estimations 4"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 4312431243,
-            "nom": "william",
-            "clients": [
-                {
-                    "id": 314231341,
-                    "nom": "samanta",
-                    "estimations": [
-                        {
-                            "id": 5423767,
-                            "nom": "estimations 1"
-                        },
-                        {
-                            "id": 56247574,
-                            "nom": "estimations 2"
-                        },
-                        {
-                            "id": 2143124,
-                            "nom": "estimations 3"
-                        },
-                        {
-                            "id": 412356613,
-                            "nom": "estimations 4"
-                        }
-                    ]
-                }
-            ]
+          "id": 31453416457,
+          "nom": "tom",
+          "estimations": [
+            {
+              "id": 547652468,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 32142342,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 76537856454,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 1,
+              "nom": "estimations 4"
+            }
+          ]
         }
-    ],
-    "clients": [
+      ]
+    },
+    {
+      "id": 3126761431,
+      "nom": "christophe",
+      "clients": [
         {
-            "id": 31432143214,
-            "nom": "jhon",
-            "estimations": [
-                {
-                    "id": 5423767,
-                    "nom": "estimations 1"
-                },
-                {
-                    "id": 56247574,
-                    "nom": "estimations 2"
-                },
-                {
-                    "id": 2143124,
-                    "nom": "estimations 3"
-                },
-                {
-                    "id": 412356613,
-                    "nom": "estimations 4"
-                }
-            ]
-        },
-        {
-            "id": 3124234121,
-            "nom": "tom",
-            "estimations": [
-                {
-                    "id": 5423767,
-                    "nom": "estimations 1"
-                },
-                {
-                    "id": 56247574,
-                    "nom": "estimations 2"
-                },
-                {
-                    "id": 2143124,
-                    "nom": "estimations 3"
-                },
-                {
-                    "id": 412356613,
-                    "nom": "estimations 4"
-                }
-            ]
-        },
-        {
-            "id": 4312423123,
-            "nom": "bob",
-            "estimations": [
-                {
-                    "id": 5423767,
-                    "nom": "estimations 1"
-                },
-                {
-                    "id": 56247574,
-                    "nom": "estimations 2"
-                },
-                {
-                    "id": 2143124,
-                    "nom": "estimations 3"
-                },
-                {
-                    "id": 412356613,
-                    "nom": "estimations 4"
-                }
-            ]
-        },
-        {
-            "id": 412343212234,
-            "nom": "sam",
-            "estimations": [
-                {
-                    "id": 5423767,
-                    "nom": "estimations 1"
-                },
-                {
-                    "id": 56247574,
-                    "nom": "estimations 2"
-                },
-                {
-                    "id": 2143124,
-                    "nom": "estimations 3"
-                },
-                {
-                    "id": 412356613,
-                    "nom": "estimations 4"
-                }
-            ]
-        },
-        {
-            "id": 43124321432,
-            "nom": "samanta",
-            "estimations": [
-                {
-                    "id": 5423767,
-                    "nom": "estimations 1"
-                },
-                {
-                    "id": 56247574,
-                    "nom": "estimations 2"
-                },
-                {
-                    "id": 2143124,
-                    "nom": "estimations 3"
-                },
-                {
-                    "id": 412356613,
-                    "nom": "estimations 4"
-                }
-            ]
+          "id": 54235423,
+          "nom": "bob",
+          "estimations": [
+            {
+              "id": 5423767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 56247574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 2143124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 412356613,
+              "nom": "estimations 4"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "id": 4312431243,
+      "nom": "william",
+      "clients": [
+        {
+          "id": 314231341,
+          "nom": "samanta",
+          "estimations": [
+            {
+              "id": 5423767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 56247574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 2143124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 412356613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 2145643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 214893124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 21473124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 21431824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3141231341,
+          "nom": "test1",
+          "estimations": [
+            {
+              "id": 54231767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562747574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21438124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4123596613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21456431524,
+              "nom": "estimations 5"
+            }
+          ]
+        },
+        {
+          "id": 3142321341,
+          "nom": "test2",
+          "estimations": [
+            {
+              "id": 54223767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562472574,
+              "nom": "estimations 2"
+            }
+          ]
+        },
+        {
+          "id": 3142331341,
+          "nom": "test3",
+          "estimations": [
+            {
+              "id": 54237637,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562437574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21343124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4123356613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21456433124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2148393124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 213473124,
+              "nom": "estimations 7"
+            }
+          ]
+        },
+        {
+          "id": 3142431341,
+          "nom": "test4",
+          "estimations": [
+            {
+              "id": 54243767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562447574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21434124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4123564613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21456443124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2144893124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 214473124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 214431824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3145231341,
+          "nom": "test5",
+          "estimations": [
+            {
+              "id": 54253767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562457574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21453124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 412356613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21455643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2154893124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 214573124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 215431824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3142316341,
+          "nom": "test6",
+          "estimations": [
+            {
+              "id": 54263767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 5624766574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21431624,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4126356613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21456463124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2148936124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 261473124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 214361824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3142371341,
+          "nom": "test7",
+          "estimations": [
+            {
+              "id": 54273767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562477574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21473124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4123566173,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21745643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2148937124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 217473124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 214317824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3142831341,
+          "nom": "test8",
+          "estimations": [
+            {
+              "id": 54283767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562847574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21438124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4123856613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21845643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2148983124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 214731824,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 214318824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3149231341,
+          "nom": "test9",
+          "estimations": [
+            {
+              "id": 54293767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 562947574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 21493124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 4129356613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 21459643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 2148993124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 214739124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 214319824,
+              "nom": "estimations 8"
+            }
+          ]
+        },
+        {
+          "id": 3174231341,
+          "nom": "test10",
+          "estimations": [
+            {
+              "id": 541123767,
+              "nom": "estimations 1"
+            },
+            {
+              "id": 5624711574,
+              "nom": "estimations 2"
+            },
+            {
+              "id": 214113124,
+              "nom": "estimations 3"
+            },
+            {
+              "id": 41231156613,
+              "nom": "estimations 4"
+            },
+            {
+              "id": 214115643124,
+              "nom": "estimations 5"
+            },
+            {
+              "id": 21489113124,
+              "nom": "estimations 6"
+            },
+            {
+              "id": 2141173124,
+              "nom": "estimations 7"
+            },
+            {
+              "id": 2143111824,
+              "nom": "estimations 8"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "id": 31432143214,
+      "nom": "jhon",
+      "estimations": [
+        {
+          "id": 5423767,
+          "nom": "estimations 1"
+        },
+        {
+          "id": 56247574,
+          "nom": "estimations 2"
+        },
+        {
+          "id": 2143124,
+          "nom": "estimations 3"
+        },
+        {
+          "id": 412356613,
+          "nom": "estimations 4"
+        }
+      ]
+    },
+    {
+      "id": 3124234121,
+      "nom": "tom",
+      "estimations": [
+        {
+          "id": 5423767,
+          "nom": "estimations 1"
+        },
+        {
+          "id": 56247574,
+          "nom": "estimations 2"
+        },
+        {
+          "id": 2143124,
+          "nom": "estimations 3"
+        },
+        {
+          "id": 412356613,
+          "nom": "estimations 4"
+        }
+      ]
+    },
+    {
+      "id": 4312423123,
+      "nom": "bob",
+      "estimations": [
+        {
+          "id": 5423767,
+          "nom": "estimations 1"
+        },
+        {
+          "id": 56247574,
+          "nom": "estimations 2"
+        },
+        {
+          "id": 2143124,
+          "nom": "estimations 3"
+        },
+        {
+          "id": 412356613,
+          "nom": "estimations 4"
+        }
+      ]
+    },
+    {
+      "id": 412343212234,
+      "nom": "sam",
+      "estimations": [
+        {
+          "id": 5423767,
+          "nom": "estimations 1"
+        },
+        {
+          "id": 56247574,
+          "nom": "estimations 2"
+        },
+        {
+          "id": 2143124,
+          "nom": "estimations 3"
+        },
+        {
+          "id": 412356613,
+          "nom": "estimations 4"
+        }
+      ]
+    },
+    {
+      "id": 43124321432,
+      "nom": "samanta",
+      "estimations": [
+        {
+          "id": 5423767,
+          "nom": "estimations 1"
+        },
+        {
+          "id": 56247574,
+          "nom": "estimations 2"
+        },
+        {
+          "id": 2143124,
+          "nom": "estimations 3"
+        },
+        {
+          "id": 412356613,
+          "nom": "estimations 4"
+        }
+      ]
+    }
+  ]
 }

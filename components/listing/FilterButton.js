@@ -6,7 +6,7 @@ function FilterButton({ children, setNeedListAgents, needListAgents }) {
       onClick={setNeedListAgents}
       className={`${
         needListAgents ? "regularLinkActive" : ""
-      } regularLinkBorder rounded-full py-2 px-4 mx-2 h-10 hover:underline`}
+      } regularLinkBorder rounded-full py-2 px-4 mx-2 mb-3 sm:mb-0 h-10 hover:underline`}
     >
       {children}
     </button>

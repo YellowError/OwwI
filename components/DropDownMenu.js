@@ -105,18 +105,23 @@ class DropDownMenu extends React.Component {
       return uneOption.map((unLabel) => {
         if (parseInt(unLabel.value % 100) == 0) {
           return (
-            <li className="dropdownLiTitle" value={unLabel.value}>
+            <li
+              key={unLabel.value}
+              className="dropdownLiTitle"
+              value={unLabel.value}
+            >
               {unLabel.label}
             </li>
           );
         } else {
           return (
             <li
+              key={unLabel.value}
               className="dropdownLiOption"
               value={unLabel.value}
               onClick={this.choosingAnswer}
             >
-               {unLabel.label}
+              {unLabel.label}
             </li>
           );
         }
@@ -142,9 +147,11 @@ class DropDownMenu extends React.Component {
             name="dropDownList"
           >
             {listeoptions2.map((option) => (
-              <optgroup label={option[0].label}>
+              <optgroup key={option[0].label} label={option[0].label}>
                 {option.slice(1).map((labels) => (
-                  <option value={labels.value}>{labels.label}</option>
+                  <option key={labels.value} value={labels.value}>
+                    {labels.label}
+                  </option>
                 ))}
               </optgroup>
             ))}

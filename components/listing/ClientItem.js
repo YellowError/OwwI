@@ -9,26 +9,27 @@ function ClientItem({ client }) {
   function listOfEstimations() {
     return client.estimations.map((estimation) => {
       return (
-        <li
-          key={estimation.id}
-          className="rounded-md mx-6 bgBlue py-3 my-1 text-wite text-center"
-        >
-          <Link href={`/details-estimation/${estimation.id}`}>
+        <Link href={`/details-estimation/${estimation.id}`}>
+          <li
+            key={estimation.id}
+            className="cursor-pointer rounded-md mx-6 bgBlue py-3 my-1 text-wite text-center"
+          >
             {estimation.nom}
-          </Link>
-        </li>
+          </li>
+        </Link>
       );
     });
   }
 
   return (
     <div>
-      <div className="w-full flex justify-between textColorBlue py-2 m-1">
-        <button
-          onClick={() => {
-            setShowList(!showList);
-          }}
-        >
+      <div
+        className="cursor-pointer w-full flex justify-between textColorBlue py-2 m-1"
+        onClick={() => {
+          setShowList(!showList);
+        }}
+      >
+        <button>
           <OpenCloseChevron showList={showList} />
         </button>
         <p className="text-left textColorBlue w-3/12">{client.nom}</p>

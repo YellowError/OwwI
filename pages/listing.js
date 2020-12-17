@@ -3,8 +3,9 @@ import CreateButton from "../components/listing/CreateButton";
 import FilterButton from "../components/listing/FilterButton";
 import AgentItem from "../components/listing/AgentItem";
 import ClientItem from "../components/listing/ClientItem";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import FilterBy from "../components/listing/FilterBy";
+import Pagination from "../components/listing/Pagination";
 
 export default function ListingPage({ user }) {
   const [agents, setAgents] = useState([]);
@@ -12,12 +13,24 @@ export default function ListingPage({ user }) {
   const [search, setSearch] = useState("");
   const [loading, toggleLoading] = useState(true);
   const [needListAgents, setNeedListAgents] = useState(true);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  // UserPerPage choisi le nombre d'utilisateur afficher par page (modifiable via useState)
+  const [userPerPage] = useState(3);
+
+  const indexOfLastUser = currentPage * userPerPage;
+  const indexOfFirstPost = indexOfLastUser - userPerPage;
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   const optionsSort = [
-    "Tier par",
-    "alphabetique",
-    "inverse",
-    "+ de clients",
-    "- de clients",
+    "Trier par",
+    "Ordre alphabétique (A - z)",
+    "Ordre alphabétique (Z - a)",
+    "Nbr de clients décroissant",
+    "Nbr de clients croissant",
   ];
   const [sortSelected, setSortSelected] = useState();
   const pageTitle = "listing";
@@ -29,23 +42,22 @@ export default function ListingPage({ user }) {
 
   useEffect(() => {
     switch (sortSelected) {
-      case "alphabetique":
+      case "Ordre alphabétique (A - z)":
         setAgents([...agents.sort(alphabetique)]);
         setClients([...clients.sort(alphabetique)]);
         break;
 
-      case "inverse":
+      case "Ordre alphabétique (Z - a)":
         setAgents([...agents.sort(inverse)]);
         setClients([...clients.sort(inverse)]);
         break;
 
-      case "+ de clients":
+      case "Nbr de clients décroissant":
         setAgents([...agents.sort(plusClient)]);
         break;
 
-      case "- de clients":
+      case "Nbr de clients croissant":
         setAgents([...agents.sort(moinsClient)]);
-
         break;
 
       default:
@@ -125,18 +137,24 @@ export default function ListingPage({ user }) {
   };
   function listOfUsers(typeOfUser) {
     if (typeOfUser === "agents") {
-      return agents.map((agent) => {
+      return agents.slice(indexOfFirstPost, indexOfLastUser).map((agent) => {
         return (
           <li
             key={agent.id}
             className="my-1 borderUnderDropdownListing rounded-md bckLightBlue py-3 m-4 textColorBlue "
           >
-            <AgentItem agent={agent} />
+            <AgentItem
+              agent={agent}
+              userPerPage={userPerPage}
+              paginate={paginate}
+              indexOfFirstPost={indexOfFirstPost}
+              indexOfLastUser={indexOfLastUser}
+            />
           </li>
         );
       });
     } else if (typeOfUser === "clients") {
-      return clients.map((client) => {
+      return clients.slice(indexOfFirstPost, indexOfLastUser).map((client) => {
         return (
           <li
             key={client.id}
@@ -192,32 +210,39 @@ export default function ListingPage({ user }) {
       <section>
         <div>
           <div className="flex mx-auto mb-4 items-center justify-between lg:w-1/2">
-            <FilterButton
-              setNeedListAgents={() => {
-                setNeedListAgents(true);
-              }}
-              onClick={() => {
-                isActive();
-              }}
-              needListAgents={needListAgents}
-            >
-              Agents
-            </FilterButton>
-            <FilterButton
-              setNeedListAgents={() => {
-                setNeedListAgents(false);
-              }}
-              onClick={() => {
-                isActive();
-              }}
-              needListAgents={!needListAgents}
-            >
-              Clients
-            </FilterButton>
+            <div className="flex flex-col items-center sm:flex-row">
+              <FilterButton
+                setNeedListAgents={() => {
+                  setNeedListAgents(true);
+                }}
+                onClick={() => {
+                  isActive();
+                }}
+                needListAgents={needListAgents}
+              >
+                Agents
+              </FilterButton>
+              <FilterButton
+                setNeedListAgents={() => {
+                  setNeedListAgents(false);
+                }}
+                onClick={() => {
+                  isActive();
+                }}
+                needListAgents={!needListAgents}
+              >
+                Clients
+              </FilterButton>
+            </div>
 
-            <FilterBy options={optionsSort} setSort={setSortSelected} />
+            <FilterBy
+              options={optionsSort}
+              setSort={setSortSelected}
+              isAgent={needListAgents}
+            />
           </div>
-          <div className="w-10/12 mx-auto lg:w-3/4 px-4 py-4 rounded-md">
+
+          <div className="w-full mx-auto lg:w-3/4 px-4 py-4 rounded-md">
             <ul className="mb-6">
               {loading ? (
                 <span>loading</span>
@@ -227,64 +252,93 @@ export default function ListingPage({ user }) {
                 listOfUsers("clients")
               )}
             </ul>
+
             {needListAgents ? (
-              <CreateButton
-                cible="/create-agent"
-                style={
-                  "btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"
-                }
-              >
-                <svg className="addSvgButton p-0" viewBox="0 0 32 32">
-                  <g
-                    className="strokeWhite"
-                    transform="matrix(1,0,0,1,-1058.88,-570.422)"
+              <>
+                <div className="flex flex-col justify-center md:flex-row-reverse items-center md:justify-between">
+                  <CreateButton
+                    cible="/create-agent"
+                    style={
+                      "btnBlue block rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6 flex justify-between"
+                    }
                   >
-                    <g transform="matrix(2.66667,0,0,2.66667,0,0)">
-                      <g transform="matrix(1,0,0,1,403.308,220.169)">
-                        <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
+                    <svg className="addSvgButton p-0" viewBox="0 0 32 32">
+                      <g
+                        className="strokeWhite"
+                        transform="matrix(1,0,0,1,-1058.88,-570.422)"
+                      >
+                        <g transform="matrix(2.66667,0,0,2.66667,0,0)">
+                          <g transform="matrix(1,0,0,1,403.308,220.169)">
+                            <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
+                          </g>
+                        </g>
+                        <g
+                          className="strokeWhite"
+                          transform="matrix(2.66667,0,0,2.66667,0,0)"
+                        >
+                          <g transform="matrix(0,-1,-1,0,403.036,215.983)">
+                            <ellipse
+                              cx="-3.88"
+                              cy="-0.001"
+                              rx="3.879"
+                              ry="3.88"
+                            />
+                          </g>
+                        </g>
                       </g>
-                    </g>
-                    <g
-                      className="strokeWhite"
-                      transform="matrix(2.66667,0,0,2.66667,0,0)"
-                    >
-                      <g transform="matrix(0,-1,-1,0,403.036,215.983)">
-                        <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88" />
-                      </g>
-                    </g>
-                  </g>
-                </svg>{" "}
-                Ajouter un agent
-              </CreateButton>
+                    </svg>
+                    Ajouter un agent
+                  </CreateButton>
+                  <Pagination
+                    userPerPage={userPerPage}
+                    totalUsers={agents.length}
+                    paginate={paginate}
+                    currentPage={currentPage}
+                  />
+                </div>
+              </>
             ) : (
-              <CreateButton
-                cible="/create-client/25"
-                style={
-                  "btnBlue rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6"
-                }
-              >
-                <svg className="addSvgButton p-0" viewBox="0 0 32 32">
-                  <g
-                    className="strokeWhite"
-                    transform="matrix(1,0,0,1,-1058.88,-570.422)"
-                  >
-                    <g transform="matrix(2.66667,0,0,2.66667,0,0)">
-                      <g transform="matrix(1,0,0,1,403.308,220.169)">
-                        <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
-                      </g>
-                    </g>
+              <>
+                <CreateButton
+                  cible="/create-client/25"
+                  style={
+                    "btnBlue block rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6  flex justify-between"
+                  }
+                >
+                  <svg className="addSvgButton p-0" viewBox="0 0 32 32">
                     <g
                       className="strokeWhite"
-                      transform="matrix(2.66667,0,0,2.66667,0,0)"
+                      transform="matrix(1,0,0,1,-1058.88,-570.422)"
                     >
-                      <g transform="matrix(0,-1,-1,0,403.036,215.983)">
-                        <ellipse cx="-3.88" cy="-0.001" rx="3.879" ry="3.88" />
+                      <g transform="matrix(2.66667,0,0,2.66667,0,0)">
+                        <g transform="matrix(1,0,0,1,403.308,220.169)">
+                          <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
+                        </g>
+                      </g>
+                      <g
+                        className="strokeWhite"
+                        transform="matrix(2.66667,0,0,2.66667,0,0)"
+                      >
+                        <g transform="matrix(0,-1,-1,0,403.036,215.983)">
+                          <ellipse
+                            cx="-3.88"
+                            cy="-0.001"
+                            rx="3.879"
+                            ry="3.88"
+                          />
+                        </g>
                       </g>
                     </g>
-                  </g>
-                </svg>{" "}
-                Ajouter un client
-              </CreateButton>
+                  </svg>
+                  Ajouter un client
+                </CreateButton>
+                <Pagination
+                  userPerPage={userPerPage}
+                  totalUsers={clients.length}
+                  paginate={paginate}
+                  currentPage={currentPage}
+                />
+              </>
             )}
           </div>
         </div>
