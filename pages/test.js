@@ -7,6 +7,7 @@ import InputSwitch from "../components/for-all-form/InputSwitch";
 import ButtonDashboard from "../components/dashboard/ButtonDashboard";
 import OpenCloseChevron from "../components/for-all-form/OpenCloseChevron";
 import DropDownMenu from "../components/DropDownMenu";
+import ButtonModSupp from "../components/for-all-form/ButtonModSupp";
 
 const TestPage = ({ user }) => {
   const pageTitle = "Test";
@@ -27,6 +28,7 @@ const TestPage = ({ user }) => {
         <button className="btn btnRed">Rouge</button>
         <button className="btn btnBlue">Bleu</button>
         <button className="btn btnGreen">Vert</button>
+        <ButtonModSupp />
 
         <form>
           <FloatingInput label="prénom" type="text" htmlForAndId="lastName" />
