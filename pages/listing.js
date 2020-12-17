@@ -15,7 +15,8 @@ export default function ListingPage({ user }) {
   const [needListAgents, setNeedListAgents] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [userPerPage] = useState(1);
+  // UserPerPage choisi le nombre d'utilisateur afficher par page (modifiable via useState)
+  const [userPerPage] = useState(3);
 
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;

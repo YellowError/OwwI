@@ -7,8 +7,9 @@ import Pagination from "./Pagination";
 function AgentItem({ agent }) {
   const [showList, setShowList] = useState(false);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [userPerPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(3);
+  // UserPerPage choisi le nombre de client afficher par agent (modifiable via useState)
+  const [userPerPage] = useState(5);
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
 
