@@ -67,8 +67,8 @@ function ClientItem({ client }) {
                 </g>
               </g>
             </g>
-          </svg>{" "}
-          Ajouter une estimations
+          </svg>
+          Ajouter une estimation
         </CreateButton>
       )}
     </div>

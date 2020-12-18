@@ -398,7 +398,9 @@ const Pagination = ({ userPerPage, totalUsers, paginate, currentPage }) => {
   };
   return (
     <nav>
-      <ul className="flex mt-3">{totalPages > 1 ? switchPages() : ""}</ul>
+      <ul className="flex mt-3 lg:mt-0">
+        {totalPages > 1 ? switchPages() : ""}
+      </ul>
     </nav>
   );
 };

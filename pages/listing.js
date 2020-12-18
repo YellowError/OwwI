@@ -6,6 +6,7 @@ import ClientItem from "../components/listing/ClientItem";
 import { useState, useEffect } from "react";
 import FilterBy from "../components/listing/FilterBy";
 import Pagination from "../components/listing/Pagination";
+import NumberPerPage from "../components/listing/NumberPerPage";
 
 export default function ListingPage({ user }) {
   const [agents, setAgents] = useState([]);
@@ -16,14 +17,10 @@ export default function ListingPage({ user }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   // UserPerPage choisi le nombre d'utilisateur afficher par page (modifiable via useState)
-  const [userPerPage] = useState(3);
+  const [userPerPage, setUserPerPage] = useState(5);
 
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   const optionsSort = [
     "Trier par",
@@ -146,7 +143,9 @@ export default function ListingPage({ user }) {
             <AgentItem
               agent={agent}
               userPerPage={userPerPage}
-              paginate={paginate}
+              paginate={(pageNumber) => {
+                setCurrentPage(pageNumber);
+              }}
               indexOfFirstPost={indexOfFirstPost}
               indexOfLastUser={indexOfLastUser}
             />
@@ -234,12 +233,18 @@ export default function ListingPage({ user }) {
                 Clients
               </FilterButton>
             </div>
-
-            <FilterBy
-              options={optionsSort}
-              setSort={setSortSelected}
-              isAgent={needListAgents}
-            />
+            <div className="flex flex-col-reverse items-end">
+              <NumberPerPage
+                setCurrentPage={setCurrentPage}
+                setUserPerPage={setUserPerPage}
+                userPerPage={userPerPage}
+              />
+              <FilterBy
+                options={optionsSort}
+                setSort={setSortSelected}
+                isAgent={needListAgents}
+              />
+            </div>
           </div>
 
           <div className="w-full mx-auto lg:w-3/4 px-4 py-4 rounded-md">
@@ -289,55 +294,62 @@ export default function ListingPage({ user }) {
                     </svg>
                     Ajouter un agent
                   </CreateButton>
+
                   <Pagination
                     userPerPage={userPerPage}
                     totalUsers={agents.length}
-                    paginate={paginate}
+                    paginate={(pageNumber) => {
+                      setCurrentPage(pageNumber);
+                    }}
                     currentPage={currentPage}
                   />
                 </div>
               </>
             ) : (
               <>
-                <CreateButton
-                  cible="/create-client/25"
-                  style={
-                    "btnBlue block rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6  flex justify-between"
-                  }
-                >
-                  <svg className="addSvgButton p-0" viewBox="0 0 32 32">
-                    <g
-                      className="strokeWhite"
-                      transform="matrix(1,0,0,1,-1058.88,-570.422)"
-                    >
-                      <g transform="matrix(2.66667,0,0,2.66667,0,0)">
-                        <g transform="matrix(1,0,0,1,403.308,220.169)">
-                          <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
-                        </g>
-                      </g>
+                <div className="flex flex-col justify-center md:flex-row-reverse items-center md:justify-between">
+                  <CreateButton
+                    cible="/create-client/25"
+                    style={
+                      "btnBlue block rounded-full m-2 w-48 pl-2 pr-4 py-2 text-white ml-6  flex justify-between"
+                    }
+                  >
+                    <svg className="addSvgButton p-0" viewBox="0 0 32 32">
                       <g
                         className="strokeWhite"
-                        transform="matrix(2.66667,0,0,2.66667,0,0)"
+                        transform="matrix(1,0,0,1,-1058.88,-570.422)"
                       >
-                        <g transform="matrix(0,-1,-1,0,403.036,215.983)">
-                          <ellipse
-                            cx="-3.88"
-                            cy="-0.001"
-                            rx="3.879"
-                            ry="3.88"
-                          />
+                        <g transform="matrix(2.66667,0,0,2.66667,0,0)">
+                          <g transform="matrix(1,0,0,1,403.308,220.169)">
+                            <path d="M0,-0.612L1.183,-0.612L1.183,-0.103L0,-0.103L0,1.238L-0.541,1.238L-0.541,-0.103L-1.724,-0.103L-1.724,-0.612L-0.541,-0.612L-0.541,-1.85L0,-1.85L0,-0.612Z" />
+                          </g>
+                        </g>
+                        <g
+                          className="strokeWhite"
+                          transform="matrix(2.66667,0,0,2.66667,0,0)"
+                        >
+                          <g transform="matrix(0,-1,-1,0,403.036,215.983)">
+                            <ellipse
+                              cx="-3.88"
+                              cy="-0.001"
+                              rx="3.879"
+                              ry="3.88"
+                            />
+                          </g>
                         </g>
                       </g>
-                    </g>
-                  </svg>
-                  Ajouter un client
-                </CreateButton>
-                <Pagination
-                  userPerPage={userPerPage}
-                  totalUsers={clients.length}
-                  paginate={paginate}
-                  currentPage={currentPage}
-                />
+                    </svg>
+                    Ajouter un client
+                  </CreateButton>
+                  <Pagination
+                    userPerPage={userPerPage}
+                    totalUsers={clients.length}
+                    paginate={(pageNumber) => {
+                      setCurrentPage(pageNumber);
+                    }}
+                    currentPage={currentPage}
+                  />
+                </div>
               </>
             )}
           </div>

@@ -9,13 +9,9 @@ function AgentItem({ agent }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   // UserPerPage choisi le nombre de client afficher par agent (modifiable via useState)
-  const [userPerPage] = useState(1);
+  const [userPerPage] = useState(10);
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
 
   function listOfClients(agent) {
     return agent.clients
@@ -35,7 +31,7 @@ function AgentItem({ agent }) {
   return (
     <>
       <div
-        className="flex justify-between w-full"
+        className="cursor-pointer flex justify-between w-full"
         onClick={() => {
           setShowList(!showList);
         }}
@@ -86,9 +82,11 @@ function AgentItem({ agent }) {
             </CreateButton>
             <Pagination
               userPerPage={userPerPage}
-              paginate={paginate}
               totalUsers={agent.clients.length}
               currentPage={currentPage}
+              paginate={(pageNumber) => {
+                setCurrentPage(pageNumber);
+              }}
             />
           </div>
         </>
