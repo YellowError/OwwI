@@ -10,6 +10,54 @@ export const ImmoType = [
   "Immeuble de rapport",
   "Autre",
 ];
+
+export const ImmoSubType = {
+  101: "Villa",
+  102: "Maison de Rangée",
+  103: "Chalet",
+  104: "Bungalow",
+  105: "Chateau",
+  106: "Fermette",
+  107: "Maison bel étage",
+  108: "Ferme",
+  109: "Maison de Maître",
+  110: "Maison de Campagne",
+
+  201: "Rez-de-Chaussee",
+  202: "Triplex",
+  203: "Duplex",
+  204: "Penthouse",
+  205: "Kot",
+  206: "Studio",
+  207: "Loft",
+  208: "Appartement de Service",
+
+  401: "Bureau",
+  402: "Immeuble de Bureau",
+  403: "Villa commerciale",
+  404: "Immeuble bureaux mixtes",
+  405: "Immeuble",
+
+  501: "Locaux commerciaux",
+  502: "Horeca",
+  503: "Immeuble commerce mixte",
+
+  601: "Locaux industriels",
+  602: "Entrepot",
+  603: "Immeuble industriel",
+
+  701: "Terrain à bâtir",
+  702: "Zone forestière",
+  703: "Prairie",
+  704: "Terrain non bâtissable",
+  705: "Zone de Loisirs",
+  706: "Champs",
+  707: "Verger",
+  708: "Zone agricole",
+
+  999: "Autre",
+};
+
 export const BuildingState = [
   "Neuf",
   "A rénover",
@@ -32,7 +80,13 @@ export const Orientation = [
   "Ouest",
 ];
 
-export const Zoning = ["Autre", "Résidential", "Rural", "Urban", "Industrial"];
+export const Zoning = [
+  "Autre",
+  "Résidentiel",
+  "Rurale",
+  "Urbain",
+  "Industriel",
+];
 
 export const Decoration = ["Autre", "Rural", "Morderne"];
 
@@ -57,13 +111,13 @@ export const InsideFlooring = [
 ];
 
 export const InsidePieceSubtype = [
-  "Cuisine vide",
-  "Cuisine semi-équipée",
-  "Cuisine équipee",
-  "Cuisine hyper-équipée",
-  "Cuisine Americaine hyper-équipée",
-  "Grenier aménagé",
-  "Grenier non aménagé",
+  "vide",
+  "semi-équipée",
+  "équipee",
+  "hyper-équipée",
+  "Americaine hyper-équipée",
+  "aménagé",
+  "non aménagé",
 ];
 
 export const TypePieceExterne = [
@@ -87,7 +141,7 @@ export const OutsideFlooring = [
   "Carrelage",
   "Beton",
   "Parquet",
-  "Klinders",
+  "Klinkers",
   "Pave",
   "Pierre naturelle",
 ];
@@ -107,7 +161,7 @@ export const Chauffage = [
   "Autre",
 ];
 
-export const FramingType = ["Bois", "Plastique"];
+export const FramingType = ["Bois", "PVC"];
 
 export const Vitrage = ["Simple", "Double", "Triple", "Autre"];
 

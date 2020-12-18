@@ -618,14 +618,14 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
 /* -------------------------------------------------------------------------- */
 
 button.btnMod {
-  width: 90px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   background-color: rgb(47, 85, 106);
   background: url("../public/images/btnMod.svg"),
     linear-gradient(90deg, rgba(47, 85, 106, 1) 0%, rgba(31, 54, 67, 1) 100%);
   background-repeat: no-repeat;
   background-position: 75% 50%;
-  background-size: 40px, 100%;
+  background-size: 35px, 100%;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
@@ -634,17 +634,17 @@ button.btnMod:hover {
     linear-gradient(90deg, rgba(47, 85, 106, 1) 40%, rgba(31, 54, 67, 1) 100%);
   background-repeat: no-repeat;
   background-position: 75% 50%;
-  background-size: 40px, 100%;
+  background-size: 35px, 100%;
 }
 button.btnSupp {
-  width: 90px;
-  height: 50px;
+  width: 80px;
+  height: 40px;
   background-color: rgb(222, 77, 65);
   background: url("../public/images/btnSupp.svg"),
     linear-gradient(90deg, rgba(222, 77, 65, 1) 0%, rgba(167, 44, 33, 1) 100%);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 40px, 100%;
+  background-size: 35px, 100%;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
 }
@@ -653,7 +653,7 @@ button.btnSupp:hover {
     linear-gradient(90deg, rgba(222, 77, 65, 1) 40%, rgba(167, 44, 33, 1) 100%);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 40px, 100%;
+  background-size: 35px, 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -678,6 +678,93 @@ button.btnSupp:hover {
 
 .listOpen {
   border: 2px solid#294d60;
+}
+/*-------------------------------------------------------------------------- */
+/*                             details estimation France                            */
+/* -------------------------------------------------------------------------- */
+
+.block {
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #bcbcbb;
+  background-color: #f6fcfe;
+  padding: 20px;
+  color: #294d60;
+}
+.imgAgent {
+  margin-right: 20px;
+  border: 2px solid #bcbcbb;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  fill: #de4c41;
+}
+
+span.titleGreen {
+  color: #81b29a;
+}
+
+span.typeHabitat {
+  font-size: 1.125rem;
+  color: #de4c41;
+}
+
+span.titleFloor {
+  display: block;
+  background-color: #294d60;
+  color: white;
+  font-family: "textBold";
+  text-align: left;
+  padding: 10px;
+  margin: 10px auto;
+}
+span.titleRoom {
+  display: block;
+  background-color: #81b29a;
+  color: white;
+  font-family: "textBold";
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+}
+span.red {
+  color: #de4c41;
+}
+span.green {
+  color: #81b29a;
+}
+.block h2 {
+  font-family: "textBold";
+  font-size: 1.5rem;
+}
+
+p.priceEstimation {
+  font-family: "textBold";
+  color: #81b29a;
+}
+p.comment {
+  color: #8497a6;
+}
+ul.listDetailEstimation {
+  margin: 5px 10px;
+}
+ul.listDetailEstimation li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: #8497a6;
+}
+ul.listDetailEstimation li:nth-of-type(odd) {
+  background-color: #fff;
+}
+ul.listDetailEstimation img {
+  width: 25px;
+}
+
+img.picturesEsti {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
 }
 
 /*******************/
