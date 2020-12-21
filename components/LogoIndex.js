@@ -3,11 +3,7 @@ import React from "react";
 const LogoIndex = () => {
   return (
     <div>
-      <img
-        className="picture mx-auto logo"
-        src="/images/logo_owwi_full.png"
-        alt="Logo Owwi Index"
-      ></img>
+      <img src={"/images/logoLogin.png"} className="mx-auto w-32 mb-6 mt-10" />
     </div>
   );
 };

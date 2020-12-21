@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-const FloatingInput = ({ htmlForAndId, label, type = "text" }) => {
+const FloatingInput = ({
+  htmlForAndId,
+  label,
+  type = "text",
+  isRequired = false,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [value, setValue] = useState("");
   const handleTextChange = (text) => {
@@ -20,6 +25,8 @@ const FloatingInput = ({ htmlForAndId, label, type = "text" }) => {
         value={value}
         onChange={(e) => handleTextChange(e.target.value)}
         id={htmlForAndId}
+        name={htmlForAndId}
+        required={isRequired}
       />
       <label
         className={`${isActive ? "full" : ""} md:text-lg`}
