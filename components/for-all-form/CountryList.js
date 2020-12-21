@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 
-const CountryList = () => {
+const Countries = forwardRef(({ value, onChange }, ref) => {
   const [countries, setCountries] = useState([]);
+  const handleChange = e => onChange(e);
 
   useEffect(async () => {
     const countryData = await fetch(
       "https://restcountries.eu/rest/v2/all"
-    ).then((response) => response.json());
+    ).then(response => response.json());
 
     setCountries(countryData);
   }, []);
@@ -14,13 +15,21 @@ const CountryList = () => {
   return (
     <div>
       <label htmlFor="countryList">Pays</label>
-      <select id="countryList">
-        {countries.map((country) => (
-          <option value="{country.name}">{country.name}</option>
+      <select
+        id="countryList"
+        name="country"
+        ref={ref}
+        value={value}
+        onChange={handleChange}
+      >
+        {countries.map((country, index) => (
+          <option key={index} value={country.name}>
+            {country.name}
+          </option>
         ))}
       </select>
     </div>
   );
-};
+});
 
-export default CountryList;
+export default Countries;
