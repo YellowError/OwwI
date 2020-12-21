@@ -48,7 +48,9 @@
   font-family: "textThin";
   src: url("/fonts/Roboto-ThinItalic.ttf");
 }
-
+html {
+  min-height: 100vh;
+}
 html,
 body {
   box-sizing: border-box;
@@ -63,7 +65,13 @@ body {
     rgba(255, 255, 255, 1) 0%,
     rgba(234, 237, 240, 1) 100%
   );
-  min-height: 100vh;
+}
+
+*:focus,
+*:active,
+button:focus,
+button:active {
+  outline: none;
 }
 
 *,
@@ -99,16 +107,26 @@ label {
   font-size: 1.125rem;
   color: #939393;
 }
+/* -------------------------------------------------------------------------- */
+/*                                   BACKGROUND                                  */
+/* -------------------------------------------------------------------------- */
+
+.bckLightBlue {
+  background-color: #f6fcfe;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                                   BUTTONS                                  */
 /* -------------------------------------------------------------------------- */
 
 .btn {
-  @apply rounded-full py-2 px-4 text-white m-2;
   outline: none;
+  @apply rounded-full py-2 px-4 text-white m-2 cursor-pointer;
 }
-
+.btnRoundedMd {
+  outline: none;
+  @apply rounded-md py-2 px-4 text-white m-2 cursor-pointer;
+}
 .btn:focus {
   outline: none;
 }
@@ -166,7 +184,9 @@ label {
     rgba(90, 123, 107, 1) 100%
   );
 }
-
+/* -------------------------------------------------------------------------- */
+/*                                   BACKGROUND                                  */
+/* -------------------------------------------------------------------------- */
 .bgRed {
   background-color: #de4c41;
   color: white;
@@ -181,7 +201,16 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                              Dashboard Buttons                              */
+/*                                   TEXTCOLOR                                  */
+/* -------------------------------------------------------------------------- */
+.textColorLightBlue {
+  color: #f6fcfe;
+}
+.textColorBlue {
+  color: #294d60;
+}
+/* -------------------------------------------------------------------------- */
+/*                              DASHBOARD BUTTONS                              */
 /* -------------------------------------------------------------------------- */
 
 .btnDashboard {
@@ -189,12 +218,12 @@ label {
 }
 
 .iconDashboard {
-  @apply flex items-center p-1 mx-auto;
   width: 5rem;
   height: 5rem;
   border-radius: 100%;
   border: 0.25rem solid #294d60;
   background-color: #ffffff;
+  @apply flex items-center p-1 mx-auto;
 }
 
 .btnDashboard > div {
@@ -202,12 +231,12 @@ label {
 }
 
 .iconDashboard > img {
-  @apply p-1 mx-auto;
   height: 100%;
+  @apply p-1 mx-auto;
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                Radio buttons                                */
+/*                                RADIO BUTTONS                                */
 /* -------------------------------------------------------------------------- */
 
 .btnRadio input {
@@ -215,7 +244,7 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                               Switch buttons                               */
+/*                               SWITCH BUTTONS                               */
 /* -------------------------------------------------------------------------- */
 
 .inputCheckBoxBtn {
@@ -278,18 +307,17 @@ label {
 /* -------------------------------------------------------------------------- */
 
 .floatLabel {
-  @apply flex flex-col relative m-2;
   position: relative;
-  min-width: 350px;
+  @apply flex flex-col relative m-2;
 }
 
 .floatLabel input {
-  @apply rounded-md px-2 pt-4 pb-1;
   border: 2px solid #bcbcbb;
   color: #bcbcbb;
   width: 100%;
   outline: none;
   background: #fff;
+  @apply rounded-md px-2 pt-4 pb-1;
 }
 
 .floatLabel label {
@@ -322,12 +350,12 @@ label {
 }
 
 .floatLabel textarea {
-  @apply rounded-md px-2 pt-4 pb-1;
   border: 2px solid #bcbcbb;
   color: #bcbcbb;
   width: 100%;
   outline: none;
   background: #fff;
+  @apply rounded-md px-2 pt-4 pb-1;
 }
 
 .floatLabel textarea:focus {
@@ -351,7 +379,15 @@ label {
 .inputSearch::placeholder {
   color: #bcbcbb;
 }
-
+.inputList {
+  color: #294d60;
+  border-radius: 0.375rem;
+  border: solid 2px #bcbcbb;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  background-position: 5px;
+  @apply py-1 px-2 mx-2 h-8;
+}
 .inputPrices {
   width: 100px;
   height: 48px;
@@ -385,8 +421,112 @@ label {
   margin: 0.5rem;
 }
 
+.inputSurface {
+  width: 100%;
+  height: 48px;
+  padding: 0 45px 0 10px;
+  border: 2px solid #bcbcbb;
+  border-radius: 5px;
+  color: #294d60;
+  font-size: 1.125rem;
+  margin: 0.5rem;
+}
+
+.inputSurface:focus {
+  outline: none;
+  border: 2px solid #294d60;
+  color: #294d60;
+}
+
+.inputSurface::placeholder {
+  color: #bcbcbb;
+}
+
+.surface {
+  width: 250px;
+  position: relative;
+}
+.surface::after {
+  content: "m²";
+  color: #bcbcbb;
+  position: absolute;
+  right: 5px;
+  font-size: 1.125rem;
+  width: 20px;
+  height: 48px;
+  line-height: 48px;
+  margin: 0.5rem;
+}
+
+/* ---------inputSlideFinition------ */
+input[type="range"].custom-slider {
+  -webkit-appearance: none; /*nécessaire pour Chrome */
+  padding: 0; /* nécessaire pour IE */
+  font: inherit; /* même rendu suivant font document */
+  outline: none;
+  color: #069; /* sert pour couleur de référence, via currentColor, pour le curseur */
+  opacity: 1;
+  border-radius: 20px;
+  background: rgb(222, 77, 65);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 77, 65, 1) 0%,
+    rgba(167, 44, 33, 1) 100%
+  );
+  box-sizing: border-box; /* même modèle de boîte pour tous */
+  transition: opacity 0.2s;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"].custom-slider::-webkit-slider-runnable-track {
+  /* height: 100%; */
+  border: none;
+}
+
+input[type="range"].custom-slider::-moz-range-track {
+  height: 100%;
+  border: none;
+}
+
+input[type="range"].custom-slider::-ms-track {
+  height: 100%;
+  border: none;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 1px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-moz-range-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 3px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
+input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em; /* largeur du bord */
+  border: 3px solid #de4d41;
+  border-radius: 50%;
+  box-shadow: none;
+  background: white;
+}
+
 /* -------------------------------------------------------------------------- */
-/*                                Fil d'Arianne                               */
+/*                                FIL D'ARIANNE                               */
 /* -------------------------------------------------------------------------- */
 
 .linkArianneHome {
@@ -421,81 +561,7 @@ label {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                             Step estimation nav                            */
-/* -------------------------------------------------------------------------- */
-
-.stepEstimation {
-  @apply m-3;
-  overflow-y: scroll;
-  color: #bcbcbb;
-  overflow-x: scroll;
-  flex-wrap: nowrap;
-  scrollbar-width: none;
-}
-
-.stepEstimation::-webkit-scrollbar {
-  display: none;
-}
-
-.stepEstimation:before,
-.stepEstimation:after {
-  content: " ";
-  display: table;
-}
-
-.stepEstimation li {
-  min-width: 55px;
-  height: 55px;
-  margin: 0 8px;
-  @apply text-center flex items-center justify-center rounded-full bg-white;
-}
-
-.stepEstimation .current {
-  margin: 0;
-  margin-right: 8px;
-  border-radius: 0 50% 50% 0;
-  color: #fff;
-  background-color: #294d60;
-  min-width: 63px;
-}
-
-.stepEstimation .completed {
-  margin: 0;
-  min-width: 71px;
-  color: #fff;
-  border-radius: 0;
-  background-color: #294d60;
-}
-
-.stepEstimation .completed:first-child {
-  border-radius: 50% 0 0 50%;
-  min-width: 63px;
-  margin-left: 8px;
-}
-
-.stepEstimation .firstOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 100%;
-}
-
-.stepEstimation .lastOne {
-  background-color: #294d60;
-  color: #fff;
-  border-radius: 0 50% 50% 0;
-  margin: 0;
-}
-
-#Back {
-  width: 100px;
-}
-
-#Next {
-  width: 100px;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                             step Nav bar France                            */
+/*                             STEP NAV BAR                            */
 /* -------------------------------------------------------------------------- */
 
 .pageEsti ul li a {
@@ -524,6 +590,12 @@ label {
 }
 .pageEsti {
   position: relative;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.pageEsti::-webkit-scrollbar {
+  display: none;
 }
 
 .stepBack {
@@ -549,19 +621,163 @@ label {
   border: none;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                             btn mod supp France                            */
+/* -------------------------------------------------------------------------- */
+
+button.btnMod {
+  width: 80px;
+  height: 40px;
+  background-color: rgb(47, 85, 106);
+  background: url("../public/images/btnMod.svg"),
+    linear-gradient(90deg, rgba(47, 85, 106, 1) 0%, rgba(31, 54, 67, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  background-size: 35px, 100%;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+button.btnMod:hover {
+  background: url("../public/images/btnModHover.svg"),
+    linear-gradient(90deg, rgba(47, 85, 106, 1) 40%, rgba(31, 54, 67, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: 75% 50%;
+  background-size: 35px, 100%;
+}
+button.btnSupp {
+  width: 80px;
+  height: 40px;
+  background-color: rgb(222, 77, 65);
+  background: url("../public/images/btnSupp.svg"),
+    linear-gradient(90deg, rgba(222, 77, 65, 1) 0%, rgba(167, 44, 33, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 35px, 100%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+button.btnSupp:hover {
+  background: url("../public/images/btnSuppHover.svg"),
+    linear-gradient(90deg, rgba(222, 77, 65, 1) 40%, rgba(167, 44, 33, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 35px, 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             step list form estimation France                            */
+/*                             STEP LIST FORM ESTIMATION                      */
+/* -------------------------------------------------------------------------- */
+
+.titleList {
+  font-family: "textBold";
+  color: #bcbcbb;
+}
+
+.titleListOpen {
+  font-family: "textBold";
+  color: #81b29a;
+}
+
+.listClose {
+  border-radius: 6px;
+  border: 2px solid #bcbcbb;
+}
+
+.listOpen {
+  border: 2px solid#294d60;
+}
+/*-------------------------------------------------------------------------- */
+/*                             details estimation France                            */
+/* -------------------------------------------------------------------------- */
+
+.block {
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #bcbcbb;
+  background-color: #f6fcfe;
+  padding: 20px;
+  color: #294d60;
+}
+.imgAgent {
+  margin-right: 20px;
+  border: 2px solid #bcbcbb;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  fill: #de4c41;
+}
+
+span.titleGreen {
+  color: #81b29a;
+}
+
+span.typeHabitat {
+  font-size: 1.125rem;
+  color: #de4c41;
+}
+
+span.titleFloor {
+  display: block;
+  background-color: #294d60;
+  color: white;
+  font-family: "textBold";
+  text-align: left;
+  padding: 10px;
+  margin: 10px auto;
+}
+span.titleRoom {
+  display: block;
+  background-color: #81b29a;
+  color: white;
+  font-family: "textBold";
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+}
+span.red {
+  color: #de4c41;
+}
+span.green {
+  color: #81b29a;
+}
+.block h2 {
+  font-family: "textBold";
+  font-size: 1.5rem;
+}
+
+p.priceEstimation {
+  font-family: "textBold";
+  color: #81b29a;
+}
+p.comment {
+  color: #8497a6;
+}
+ul.listDetailEstimation {
+  margin: 5px 10px;
+}
+ul.listDetailEstimation li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: #8497a6;
+}
+ul.listDetailEstimation li:nth-of-type(odd) {
+  background-color: #fff;
+}
+ul.listDetailEstimation img {
+  width: 25px;
+}
+
+img.picturesEsti {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
 /*******************/
 /* CSS Melodie */
 /*******************/
-
-.regularLink:active {
-  background: rgb(47, 85, 106);
-  background: linear-gradient(
-    90deg,
-    rgba(47, 85, 106, 1) 0%,
-    rgba(31, 54, 67, 1) 100%
-  );
-  color: #fff;
-}
 
 .regularLink:hover {
   color: #294d60;
@@ -571,6 +787,23 @@ label {
 .regularLink {
   color: #d3d2d2;
 }
+.regularLinkActive {
+  background: rgb(47, 85, 106);
+  background: linear-gradient(
+    90deg,
+    rgba(47, 85, 106, 1) 0%,
+    rgba(31, 54, 67, 1) 100%
+  );
+  color: #fff;
+  border: none;
+}
+.regularLinkActive:hover {
+  color: #fff;
+}
+
+.regularLinkBorder {
+  border: solid 1px #bcbcbb;
+}
 
 .svgPagination {
   fill: #d3d2d2;
@@ -579,7 +812,44 @@ label {
 .svgPagination:hover {
   fill: #294d60;
 }
-
+.borderDropdownListing {
+  border: solid 1px #294d60;
+}
+.borderUnderDropdownListing {
+  border: solid 1px #bcbcbb;
+}
+.openCloseChevronBottom {
+  width: 1.4rem;
+  fill: currentColor;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+}
+.openCloseChevronRight {
+  width: 0.8rem;
+  fill: currentColor;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+}
+.addSvgButton {
+  width: 1.4rem;
+  display: inline;
+  fill: none;
+}
+.strokeWhite {
+  stroke: #fff;
+  stroke-width: 1px;
+  fill-rule: evenodd;
+  clip-rule: evenodd;
+  stroke-linejoin: round;
+  stroke-miterlimit: 2;
+}
+.form-loginlogout {
+  max-width: 300px;
+}
 /*******************/
 /*END CSS melodie */
 /*******************/
@@ -591,4 +861,65 @@ label {
 
 .topNegative{
   top:-1.2rem;
+/* -------------------------------------------------------------------------- */
+/*                            DROPDOWN LIST                                   */
+/* -------------------------------------------------------------------------- */
+
+.selectStyle .select {
+  background: white;
+  border: 1px solid #bcbcbb;
+  color: #294d60;
+  border-radius: 15px;
+}
+
+.selectStyle optgroup {
+  background-color: #81b29a;
+  color: #ffffff;
+}
+
+.selectStyle option {
+  background-color: #ffffff;
+  color: #294d60;
+}
+
+.selectStyle option:hover {
+  background-color: #8497a6;
+}
+
+.selectBorder {
+  @apply border-2 border-solid border-gray-300 rounded p-2;
+}
+
+.dropdownBorder {
+  @apply border-2 border-solid border-gray-300 rounded;
+}
+
+.dropdownDiv {
+  @apply inline-block relative w-full;
+}
+
+.dropdownButton {
+  @apply bg-white text-gray-500 font-bold py-2 px-4 rounded flex justify-between items-center w-full;
+}
+
+.dropdownUl {
+  @apply text-gray-700 pt-1 w-full bg-white rounded;
+}
+
+.dropdownLiTitleFirst {
+  background-color: #81b29a;
+  @apply rounded-t py-2 px-4 font-semibold text-white;
+}
+
+.dropdownLiTitle {
+  background-color: #81b29a;
+  @apply py-2 px-4 font-semibold text-white;
+}
+
+.dropdownLiOption {
+  @apply hover:bg-gray-200 py-2 pl-6 cursor-pointer;
+}
+
+.dropdownLiOptionLast {
+  @apply rounded-b hover:bg-gray-200 py-2 px-4 cursor-pointer;
 }

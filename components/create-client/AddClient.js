@@ -5,6 +5,7 @@ import CountryList from "../for-all-form/CountryList";
 
 const AddClient = () => {
   const { register, handleSubmit, errors } = useForm();
+
   const [client, setClient] = useState({});
   const [profileImg, setProfileImage] = useState(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/200px-Circle-icons-profile.svg.png"
@@ -21,31 +22,61 @@ const AddClient = () => {
         setProfileImage(reader.result);
       }
     };
+
     reader.readAsDataURL(e.target.files[0]);
   };
+
   const onSubmit = async (data, e) => {
-    await axios.post("http://localhost:3001/clients", data);
-    e.target.reset();
-    console.log(data);
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("picture", data.photo[0]);
+      const req = await fetch("http://localhost:3000/api/upload-img", {
+        method: "POST",
+        body: formData,
+        // headers: {
+        //   "Content-Type": "application/json;charset=utf-8",
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Authorization":'Bearer' <token>
+        // },
+      });
+      const { status, name } = await req.json();
+      if (!status) {
+        alert(
+          "Sorry, something went wrong in uploading picture. Please try again!"
+        );
+        return;
+      }
+      const mergData = {
+        ...data,
+        photo: name,
+        roles: [0],
+      };
 
-    setProfileImage(
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/200px-Circle-icons-profile.svg.png"
-    );
-
-    // console.log(data);
+      await axios.post(
+        // "https://techno-api.azurewebsites.net//api/Authorization/register",
+        "http://localhost:3001/clients",
+        mergData
+      );
+      e.target.reset();
+      setProfileImage(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/200px-Circle-icons-profile.svg.png"
+      );
+    } catch (error) {
+      console.log(error, "error in upload image");
+    }
   };
-
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <h1>Création Nouveau Client</h1>
+          <h1>Création Nouveau client</h1>
         </div>
         <div>
           <input
             type="file"
             accept="image/gif, image/jpeg, image/png"
-            name="image"
+            name="photo"
             id="file"
             ref={register({
               required: "picture is required",
@@ -55,41 +86,34 @@ const AddClient = () => {
           <img id="output" width="200" src={profileImg} alt="" />
           {errors.image ? <span> {errors.image.message}</span> : ""}
         </div>
-
-        <div className="">
-          <label htmlFor="assignationAgent">assignation de l'agent</label>
-          <select
-            id="assignationAgent"
-            name="assignationAgent"
-            // value={assignationAgent}
-            ref={register({
-              required: "Title is required",
-            })}
-            onChange={(e) => onInputChange(e)}
-          >
-            <option>Lier à agent</option>
-            <option value="agent1">Agent 1</option>
-            <option value="agent2">Agent 2</option>
-            <option value="agent3">Agent 3</option>
-          </select>
-        </div>
-
-        <div className="">
-          <label htmlFor="title">Titre.</label>
-          <select
-            id="title"
+        <div>
+          Mr
+          <input
+            type="radio"
+            id="mr"
+            value="Mr"
             name="title"
-            // value={title}
-            ref={register({
-              required: "Title is required",
-            })}
+            ref={register}
             onChange={(e) => onInputChange(e)}
-          >
-            <option value="">Select...</option>
-            <option value="mr">Mr</option>
-            <option value="mme ">Mme</option>
-            <option value="mlle">Mlle</option>
-          </select>
+          />
+          Mme
+          <input
+            type="radio"
+            id="mme"
+            value="Mme"
+            name="title"
+            ref={register}
+            onChange={(e) => onInputChange(e)}
+          />
+          Mlle
+          <input
+            type="radio"
+            id="mlle"
+            value="Mlle"
+            name="title"
+            ref={register}
+            onChange={(e) => onInputChange(e)}
+          />
         </div>
 
         <div>
@@ -98,7 +122,6 @@ const AddClient = () => {
             type="text"
             id="firstName"
             name="firstName"
-            // value={firstName}
             placeholder="Entrer votre Prénom"
             ref={register({
               required: "required",
@@ -111,14 +134,12 @@ const AddClient = () => {
           />
           {errors.firstName ? <span> {errors.firstName.message}</span> : ""}
         </div>
-
         <div>
           <label htmlFor="lastName">Nom</label>
           <input
             type="text"
             id="lastNname"
             name="lastName"
-            // value={lastName}
             placeholder="Entrer votre Nom"
             ref={register({
               required: "required",
@@ -131,50 +152,39 @@ const AddClient = () => {
           />
           {errors.lastName ? <span> {errors.lastName.message}</span> : ""}
         </div>
-
         <div>
-          <label htmlFor="dateOfBirth">Date de naissance</label>
+          <label htmlFor="birthDate">Date de naissance</label>
           <input
             type="date"
-            id="dateOfBirth"
-            name="dateOfBirth"
-            // value={dateOfBirth}
+            id="birthDate"
+            name="birthDate"
             placeholder="Enter your date of birth"
             ref={register({
               required: "required",
             })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.dateOfBirth ? <span> {errors.dateOfBirth.message}</span> : ""}
+          {errors.birthDate ? <span> {errors.birthDate.message}</span> : ""}
         </div>
-
         <div className="">
-          <label htmlFor="phoneNumber">Numéro de téléphone</label>
+          <label htmlFor="phone">Numéro de téléphone</label>
+
           <input
-            type="phoneNumber"
-            id="phoneNumber"
-            name="phoneNumber"
-            // value={phoneNumber}
+            type="text"
+            id="phone"
+            name="phone"
             placeholder="Entrer votre Numéro de téléphone"
-            ref={register({
-              required: "required",
-              pattern: {
-                value: /^\d{10}$/,
-                message: "Invalid phone number",
-              },
-            })}
+            ref={register({ required: "required" })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.phoneNumber ? <span> {errors.phoneNumber.message}</span> : ""}
+          {errors.phone ? <span> {errors.phone.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="email">Email</label>
           <input
             type="text"
             id="email"
             name="email"
-            // value={email}
             placeholder="Entrer votre email"
             ref={register({
               required: "required",
@@ -187,14 +197,12 @@ const AddClient = () => {
           />
           {errors.email ? <span> {errors.email.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="pass">Mot de passe</label>
           <input
             type="password"
             id="password"
             name="password"
-            // value={password}
             placeholder="Entrer votre Mot de passe"
             onChange={(e) => onInputChange(e)}
             ref={register({
@@ -211,19 +219,16 @@ const AddClient = () => {
           />
           {errors.password ? <span>{errors.password.message}</span> : null}
         </div>
-
         <div className="">
           <label htmlFor="street">Rue</label>
           <input
             type="text"
             id="street"
             name="street"
-            // value={street}
             placeholder="Entrer votre adresse"
             ref={register({
               required: "required",
               pattern: {
-                // value: "[/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/]",
                 message: "Invalid address",
               },
             })}
@@ -231,14 +236,12 @@ const AddClient = () => {
           />
           {errors.street ? <span> {errors.street.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="number">N°</label>
           <input
             type="text"
             id="number"
             name="number"
-            // value={number}
             placeholder="Numéro"
             ref={register({
               required: "required",
@@ -251,14 +254,12 @@ const AddClient = () => {
           />
           {errors.number ? <span> {errors.number.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="box">boite</label>
           <input
             type="text"
             id="box"
             name="box"
-            // value={box}
             placeholder="Boite"
             ref={register({
               required: "required",
@@ -271,14 +272,12 @@ const AddClient = () => {
           />
           {errors.box ? <span> {errors.box.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="zipCode">Code postal</label>
           <input
             type="text"
             id="zipCode"
             name="zipCode"
-            // value={zipCode}
             placeholder="Code postal"
             ref={register({
               required: "required",
@@ -291,14 +290,12 @@ const AddClient = () => {
           />
           {errors.zipCode ? <span> {errors.zipCode.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="city">Ville</label>
           <input
             type="text"
             id="city"
             name="city"
-            // value={city}
             placeholder="Ville"
             ref={register({
               required: "required",
@@ -317,7 +314,6 @@ const AddClient = () => {
           <select
             id="state"
             name="state"
-            // value={state}
             ref={register({
               required: "required",
             })}
@@ -336,16 +332,21 @@ const AddClient = () => {
             <option value="Limbourg">Limbourg</option>
           </select>
         </div>
-
-        <div className="">{/* <CountryList /> */}</div>
-
         <div className="">
-          <label htmlFor="nationalId">Numéro de registre national</label>
+          <CountryList
+            ref={register({
+              required: "required",
+            })}
+            onChange={(e) => onInputChange(e)}
+          />
+          {errors.country ? <span> {errors.country.message}</span> : ""}
+        </div>
+        <div className="">
+          <label htmlFor="registerNumber">Numéro de registre national</label>
           <input
             type="text"
-            id="registrationNumber"
-            name="registrationNumber"
-            // value={registrationNumber}
+            id="registerNumber"
+            name="registerNumber"
             placeholder="Numéro de registre national"
             ref={register({
               required: "required",
@@ -356,11 +357,11 @@ const AddClient = () => {
             })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.registrationNumber ? (
-            <span> {errors.registrationNumber.message}</span>
+          {errors.registerNumber ? (
+            <span> {errors.registerNumber.message}</span>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
         <div>
           <button type="submit">Submit</button>

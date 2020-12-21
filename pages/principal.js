@@ -3,28 +3,43 @@ import LinkIndex from "../components/LinkIndex";
 import LogoIndex from "../components/LogoIndex";
 
 const PrincipalPage = ({ user }) => {
-
   const pageTitle = "Principal";
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
       <LogoIndex />
 
-      <section className="mx-auto flex flex-col my-20xp max-w-sm  ">
-        <LinkIndex cheminLink="/about" className="btn btnBlue">
-          Qu'est ce que c'est ?
+      <section className="mx-auto flex flex-col items-center my-20 max-w-sm p-3">
+        <LinkIndex
+          cheminLink="/about"
+          style={"btnRoundedMd btnBlue w-64 text-center"}
+        >
+          A propos de Owwi
         </LinkIndex>
 
-        <LinkIndex cheminLink="/privacy">Réglement général</LinkIndex>
+        <LinkIndex
+          cheminLink="/privacy"
+          style={"btnRoundedMd btnBlue w-64 text-center"}
+        >
+          Conditions Générales
+        </LinkIndex>
 
-        <LinkIndex cheminLink="/contact">Contacter l'agence</LinkIndex>
+        <LinkIndex
+          cheminLink="/contact"
+          style={"btnRoundedMd btnBlue w-64 text-center"}
+        >
+          Contacter l'agence
+        </LinkIndex>
 
-        <LinkIndex cheminLink="/" className="bg-red-700">
+        <LinkIndex
+          cheminLink="login"
+          style={"btnRoundedMd btnRed w-64 text-center"}
+        >
           Me connecter
         </LinkIndex>
       </section>
     </Layout>
   );
-}
+};
 
 export default PrincipalPage;

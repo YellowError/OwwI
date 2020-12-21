@@ -44,20 +44,22 @@ const CreateEstimationPage = ({ user }) => {
     <Layout title={pageTitle} user={user} publicContent>
       <span>Id Client : {idClient}</span>
       <h1>Création d'une nouvelle estimation</h1>
-      <EstimationPagination select={select} />
-      <form>
-        {status == 1 ? <EstimationClient /> : ""}
-        {status == 2 ? <EstimationCoordinate /> : ""}
-        {status == 3 ? <EstimationDefinition /> : ""}
-        {status == 4 ? <EstimationEnergy /> : ""}
-        {status == 5 ? <EstimationInstallation /> : ""}
-        {status == 6 ? <EstimationAddPicture /> : ""}
-        {status == 7 ? <EstimationRoomInside /> : ""}
-        {status == 8 ? <EstimationRoomOutside /> : ""}
-        {status == 9 ? <EstimationPriceModif /> : ""}
-        {status == 10 ? <EstimationFinal /> : ""}
-        <ButtonsPaginationEsti setStatus={setStatus} status={status} />
-      </form>
+      <div className="contain mx-auto">
+        <EstimationPagination select={select} />
+        <form>
+          {status == 1 ? <EstimationClient /> : ""}
+          {status == 2 ? <EstimationCoordinate /> : ""}
+          {status == 3 ? <EstimationDefinition /> : ""}
+          {status == 4 ? <EstimationEnergy /> : ""}
+          {status == 5 ? <EstimationInstallation /> : ""}
+          {status == 6 ? <EstimationAddPicture /> : ""}
+          {status == 7 ? <EstimationRoomInside /> : ""}
+          {status == 8 ? <EstimationRoomOutside /> : ""}
+          {status == 9 ? <EstimationPriceModif /> : ""}
+          {status == 10 ? <EstimationFinal /> : ""}
+          <ButtonsPaginationEsti setStatus={setStatus} status={status} />
+        </form>
+      </div>
     </Layout>
   );
 };
