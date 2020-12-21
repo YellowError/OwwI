@@ -1,92 +1,76 @@
 {
-    "clients": [
-        {
-            "image": {
-                "0": {}
-            },
-            "assignationAgent": "agent2",
-            "title": "mme ",
-            "firstName": "angela",
-            "lastName": "yu",
-            "dateOfBirth": "1798-12-10",
-            "phoneNumber": "0425685478",
-            "email": "angela@angela.com",
-            "password": "A/z**d*A",
-            "street": "hh",
-            "number": "hh",
-            "box": "hh",
-            "zipCode": "hh",
-            "city": "hh",
-            "state": "bruxelles",
-            "registrationNumber": "22335544778",
-            "id": 2
-        },
-        {
-            "image": {
-                "0": {}
-            },
-            "assignationAgent": "agent1",
-            "title": "mme ",
-            "firstName": "Beyonce",
-            "lastName": "Beyonce",
-            "dateOfBirth": "1985-12-10",
-            "phoneNumber": "0496587854",
-            "email": "beyonce@beyonce.be",
-            "password": "Aeyryhf/*",
-            "street": "de hornu",
-            "number": "12",
-            "box": "01",
-            "zipCode": "7000",
-            "city": "Mons",
-            "state": "Hainaut",
-            "registrationNumber": "11223344556",
-            "id": 3
-        },
-        {
-            "image": {
-                "0": {}
-            },
-            "assignationAgent": "agent2",
-            "title": "mr",
-            "firstName": "Rafik",
-            "lastName": "Arouk",
-            "dateOfBirth": "1985-10-10",
-            "phoneNumber": "0496084456",
-            "email": "rafik@live.be",
-            "password": "Atyyfuhhffe/*",
-            "street": "avenue york shire",
-            "number": "458",
-            "box": "01",
-            "zipCode": "1200",
-            "city": "woluwe saint lambert",
-            "state": "bruxelles",
-            "registrationNumber": "11223344559",
-            "id": 4
-        }
-    ],
-    "agents": [
-        {
-            "image": {
-                "0": {}
-            },
-            "isAdmin": true,
-            "codeEmploye": "1200",
-            "secteur": "01bxl",
-            "title": "mme ",
-            "firstName": "angela",
-            "lastName": "yu",
-            "dateOfBirth": "1985-12-10",
-            "phoneNumber": "0498548796",
-            "email": "angela@live.yu",
-            "password": "Ayezhfif/*",
-            "street": "victoire",
-            "number": "12",
-            "box": "02",
-            "zipCode": "1400",
-            "city": "nivelles",
-            "state": "Hainaut",
-            "registrationNumber": "11223344556",
-            "id": 1
-        }
-    ]
+  "clients": [
+    {
+      "photo": "/images/upload_2b0372a7197a748643534f677b06e428.jpg",
+      "title": "Mlle",
+      "firstName": "Beyonce",
+      "lastName": "Cestelle",
+      "birthDate": "2020-12-03",
+      "phone": "0493772699",
+      "email": "Micha.loquette@gmail.com",
+      "password": "Micha1995j",
+      "street": "17 Rue Duquesnoy, 17/32",
+      "number": "2",
+      "box": "3",
+      "zipCode": "7500",
+      "city": "Tournai",
+      "state": "Hainaut",
+      "country": "Afghanistan",
+      "registerNumber": "97042543705",
+      "roles": [
+        0
+      ],
+      "id": 1
+    }
+  ],
+  "agents": [
+    {
+      "image": {
+        "0": {}
+      },
+      "isAdmin": true,
+      "codeEmploye": "1200",
+      "secteur": "01bxl",
+      "title": "mme ",
+      "firstName": "angela",
+      "lastName": "yu",
+      "dateOfBirth": "1985-12-10",
+      "phoneNumber": "0498548796",
+      "email": "angela@live.yu",
+      "password": "Ayezhfif/*",
+      "street": "victoire",
+      "number": "12",
+      "box": "02",
+      "zipCode": "1400",
+      "city": "nivelles",
+      "state": "Hainaut",
+      "registrationNumber": "11223344556",
+      "id": 1
+    },
+    {
+      "image": "/images/upload_40e28bfdf4d892c21c37fc0779250e83.jpg",
+      "isAdmin": true,
+      "codeEmploye": "00",
+      "secteur": "000",
+      "title": "Mlle",
+      "firstName": "Micha",
+      "lastName": "loquette",
+      "birthDate": "2020-12-04",
+      "phone": "0493772699",
+      "email": "Micha.loquette@gmail.com",
+      "password": "Micha1995j",
+      "street": "Quai Saint Bice",
+      "number": "1",
+      "box": "1",
+      "zipCode": "7500",
+      "city": "Tournai",
+      "state": "bruxelles",
+      "country": "Afghanistan",
+      "registerNumber": "97042543705",
+      "roles": [
+        1
+      ],
+      "id": 2
+    }
+  ]
 }

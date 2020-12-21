@@ -24,15 +24,45 @@ const AddAgent = () => {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+
   const onSubmit = async (data, e) => {
-    await axios.post("http://localhost:3001/agents", data);
-    e.target.reset();
-
-    setProfileImage(
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/200px-Circle-icons-profile.svg.png"
-    );
+    e.preventDefault();
+    try {
+      const formData = new FormData();
+      formData.append("picture", data.image[0]);
+      const req = await fetch("http://localhost:3000/api/upload-img", {
+        method: "POST",
+        body: formData,
+        // headers: {
+        //   "Content-Type": "application/json;charset=utf-8",
+        //   "Access-Control-Allow-Origin": "*",
+        // },
+      });
+      const { status, name } = await req.json();
+      if (!status) {
+        alert(
+          "Sorry, something went wrong in uploading picture. Please try again!"
+        );
+        return;
+      }
+      const mergData = {
+        ...data,
+        image: name,
+        roles: [1],
+      };
+      await axios.post(
+        // "https://techno-api.azurewebsites.net/api/Authorization/register",
+        "http://localhost:3001/agents",
+        mergData
+      );
+      e.target.reset();
+      setProfileImage(
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/200px-Circle-icons-profile.svg.png"
+      );
+    } catch (error) {
+      console.log(error, "error in upload image");
+    }
   };
-
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -53,12 +83,10 @@ const AddAgent = () => {
           <img id="output" width="200" src={profileImg} alt="" />
           {errors.image ? <span> {errors.image.message}</span> : ""}
         </div>
-
         <div>
           <label htmlFor="isAdmin">Admin</label>
           <input type="checkbox" name="isAdmin" id="isAdmin" ref={register} />
         </div>
-
         <div className="">
           <label htmlFor="codeEmploye">Code employé</label>
           <input
@@ -71,7 +99,6 @@ const AddAgent = () => {
           />
           {errors.codeEmploye ? <span> {errors.codeEmploye.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="secteur">secteur</label>
           <input
@@ -85,22 +112,36 @@ const AddAgent = () => {
           {errors.secteur ? <span> {errors.secteur.message}</span> : ""}
         </div>
 
-        <div className="">
-          <label htmlFor="title">Titre.</label>
-          <select
-            id="title"
+        <div>
+          Mr
+          <input
+            id="mr"
+            value="Mr"
+            type="radio"
             name="title"
-            ref={register({
-              required: "Title is required",
-            })}
+            ref={register}
             onChange={(e) => onInputChange(e)}
-          >
-            <option value="">Select...</option>
-            <option value="mr">Mr</option>
-            <option value="mme ">Mme</option>
-            <option value="mlle">Mlle</option>
-          </select>
+          />
+          Mme
+          <input
+            id="mme"
+            type="radio"
+            value="Mme"
+            name="title"
+            ref={register}
+            onChange={(e) => onInputChange(e)}
+          />
+          Mlle
+          <input
+            id="mlle"
+            type="radio"
+            value="Mlle"
+            name="title"
+            ref={register}
+            onChange={(e) => onInputChange(e)}
+          />
         </div>
+
         <div>
           <label htmlFor="FirstName">Prénom</label>
           <input
@@ -119,7 +160,6 @@ const AddAgent = () => {
           />
           {errors.firstName ? <span> {errors.firstName.message}</span> : ""}
         </div>
-
         <div>
           <label htmlFor="lastName">Nom</label>
           <input
@@ -139,34 +179,32 @@ const AddAgent = () => {
           {errors.lastName ? <span> {errors.lastName.message}</span> : ""}
         </div>
         <div>
-          <label htmlFor="dateOfBirth">Date de naissance</label>
+          <label htmlFor="birthDate">Date de naissance</label>
           <input
             type="date"
-            id="dateOfBirth"
-            name="dateOfBirth"
+            id="birthDate"
+            name="birthDate"
             placeholder="Enter your date of birth"
             ref={register({
               required: "required",
             })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.dateOfBirth ? <span> {errors.dateOfBirth.message}</span> : ""}
+          {errors.birthDate ? <span> {errors.birthDate.message}</span> : ""}
         </div>
-
         <div className="">
-          <label htmlFor="phoneNumber">Numéro de téléphone</label>
+          <label htmlFor="phone">Numéro de téléphone</label>
 
           <input
             type="text"
-            id="phoneNumber"
-            name="phoneNumber"
+            id="phone"
+            name="phone"
             placeholder="Entrer votre Numéro de téléphone"
             ref={register({ required: "required" })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.phoneNumber ? <span> {errors.phoneNumber.message}</span> : ""}
+          {errors.phone ? <span> {errors.phone.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="email">Email</label>
           <input
@@ -185,7 +223,6 @@ const AddAgent = () => {
           />
           {errors.email ? <span> {errors.email.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="pass">Mot de passe</label>
           <input
@@ -208,7 +245,6 @@ const AddAgent = () => {
           />
           {errors.password ? <span>{errors.password.message}</span> : null}
         </div>
-
         <div className="">
           <label htmlFor="street">Rue</label>
           <input
@@ -226,7 +262,6 @@ const AddAgent = () => {
           />
           {errors.street ? <span> {errors.street.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="number">N°</label>
           <input
@@ -245,7 +280,6 @@ const AddAgent = () => {
           />
           {errors.number ? <span> {errors.number.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="box">boite</label>
           <input
@@ -264,7 +298,6 @@ const AddAgent = () => {
           />
           {errors.box ? <span> {errors.box.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="zipCode">Code postal</label>
           <input
@@ -283,7 +316,6 @@ const AddAgent = () => {
           />
           {errors.zipCode ? <span> {errors.zipCode.message}</span> : ""}
         </div>
-
         <div className="">
           <label htmlFor="city">Ville</label>
           <input
@@ -303,7 +335,6 @@ const AddAgent = () => {
           {errors.city ? <span> {errors.city.message}</span> : ""}
         </div>
 
-        {/* <CityAndCp /> */}
         <div className="">
           <label htmlFor="state">Province</label>
           <select
@@ -327,17 +358,21 @@ const AddAgent = () => {
             <option value="Limbourg">Limbourg</option>
           </select>
         </div>
-
         <div className="">
-          <CountryList />
+          <CountryList
+            ref={register({
+              required: "required",
+            })}
+            onChange={(e) => onInputChange(e)}
+          />
+          {errors.country ? <span> {errors.country.message}</span> : ""}
         </div>
-
         <div className="">
-          <label htmlFor="nationalId">Numéro de registre national</label>
+          <label htmlFor="registerNumber">Numéro de registre national</label>
           <input
             type="text"
-            id="registrationNumber"
-            name="registrationNumber"
+            id="registerNumber"
+            name="registerNumber"
             placeholder="Numéro de registre national"
             ref={register({
               required: "required",
@@ -348,13 +383,12 @@ const AddAgent = () => {
             })}
             onChange={(e) => onInputChange(e)}
           />
-          {errors.registrationNumber ? (
-            <span> {errors.registrationNumber.message}</span>
+          {errors.registerNumber ? (
+            <span> {errors.registerNumber.message}</span>
           ) : (
-            ""
-          )}
+              ""
+            )}
         </div>
-
         <div>
           <button type="submit">Submit</button>
         </div>

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "devJulien": "next & json-server --watch dbJulien.json --port 3001",
+    "json-server": "json-server --watch db.json --port 3001",
     "dev": "next",
     "build": "next build",
     "start": "next start"
@@ -12,10 +13,17 @@
   "author": "La fine équipe",
   "license": "MIT",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "axios": "^0.21.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "formidable": "^1.2.2",
     "json-server": "^0.16.3",
     "jwt-decode": "^3.1.2",
+    "morgan": "^1.10.0",
     "next": "^10.0.3",
+    "next-images": "^1.6.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.12.2",
