@@ -14,14 +14,14 @@ const PrincipalPage = ({ user }) => {
           cheminLink="/about"
           style={"btnRoundedMd btnBlue w-64 text-center"}
         >
-          Qu'est ce que c'est ?
+          A propos de Owwi
         </LinkIndex>
 
         <LinkIndex
           cheminLink="/privacy"
           style={"btnRoundedMd btnBlue w-64 text-center"}
         >
-          Réglement général
+          Conditions Générales
         </LinkIndex>
 
         <LinkIndex
