@@ -1,69 +1,76 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import EndpointType from "../../common/endpoint-type";
-import FloatingInput from "../for-all-form/FloatingInput";
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import EndpointType from '../../common/endpoint-type';
+import FloatingInput from '../../components/for-all-form/FloatingInput';
 
 const FormConnection = ({ title, endpoint, onLoginSucess, onNotification }) => {
-  const url = `http://localhost:8000/${endpoint}`;
-  // const url = `http://${process.env.DB_HOST}:${process.env.PORT}/${endpoint}`;
-  const router = useRouter();
 
-  const manageValues = async (values) => {
-    let userRaw = null;
-    let user = null;
+    const router = useRouter();
+    const apiRequestLogin = `https://techno-api.azurewebsites.net/api/authorization/${endpoint}`;
 
-    console.log(url);
-    try {
-      userRaw = await fetch(url, {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+    const manageValues = async (values) => {
+        let userRaw = null;
+        let user = null;
 
-      if (!userRaw.ok) {
-        // bad request
-        console.log("bad");
-        onNotification(await userRaw.text());
-      } else {
-        // good request
-        console.log("good");
-        if (endpoint == EndpointType.Login) {
-          user = await userRaw.json();
-          localStorage.setItem("req-token", user.accessToken);
-          onLoginSucess(user.accessToken);
-          router.push("/");
-        } else if (endpoint == EndpointType.Register) {
-          router.push("/login");
+        try {
+            userRaw = await fetch(apiRequestLogin,
+            {
+                method: 'post',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(values)
+            });
+
+            if (!userRaw.ok) {
+                // bad request
+                // console.log("bad");
+                onNotification(await userRaw.text());
+            } else {
+                // good request
+                // console.log("good");
+                if (endpoint == EndpointType.Login) {
+                    user = await userRaw.json();
+                    // • with DB Json
+                    // localStorage.setItem("req-token", user.accessToken); 
+                    // onLoginSucess(user.accessToken);
+                    // • Live project
+                    localStorage.setItem("req-token", user.token); 
+                    localStorage.setItem("req-userId", user.userId); 
+                    onLoginSucess(user);
+                    router.push('/');
+                } else if (endpoint == EndpointType.Register) {
+                    router.push('/login');
+                }
+
+                document.querySelector(".form-loginlogout").reset();
+            }
+
+        } catch (e) {
+            console.error(e);
         }
-
-        document.querySelector(".form-loginlogout").reset();
-      }
-    } catch (e) {
-      console.error(e);
     }
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const {
-      email: { value: email },
-      password: { value: password },
-    } = e.target.elements;
-    setValues({ email, password });
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { 
+            email: {value: email}, 
+            password: {value: password} 
+        } = e.target.elements;
+        setValues({email, password});
+    }
 
-  const [values, setValues] = useState(null);
+    const [values, setValues] = useState(null);
 
-  useEffect(() => {
-    if (!values) return;
+    useEffect(() => {
+        if (!values)
+            return;
 
-    manageValues(values);
-  }, [values]);
+        manageValues(values);
+    }, [values]);
 
-  return (
+    return (
     <>
       <img src={"/images/logoLogin.png"} className="mx-auto w-32 mb-6 mt-10" />
       <br />

@@ -1,26 +1,39 @@
 import '../styles/global.css';
 import { useState, useEffect } from 'react';
-import jwtDecode from 'jwt-decode';
 import Notification from '../components/Notification';
 
 const App = ({ Component, pageProps }) => {
 
 	// nb : change for .env at some point
-	const baseFetchUrl = "http://localhost:8000/users";
-
+	const apiRequestUser = `https://techno-api.azurewebsites.net/api/authorization/get-user`;
+	
 	// Token
 	// nb : didn't use hooks on purpose (could infinite loop)
 	let token;
+	let userId;
 
 	const setToken = (accessToken) => {
 		token = accessToken;
 	};
 
+	const setUserId = (accessUserId) => {
+		userId = accessUserId;
+	};
+
+	const setTokenAndUserId = (request) => {
+		token = request.token;
+		userId = request.userId;
+		// console.log("Token : " + token);
+		// console.log("User ID : " + userId);
+	};
+
 	try {
-		if (!token)
+		if (!token && !userId) {
 			setToken(localStorage.getItem("req-token"));
+			setUserId(localStorage.getItem("req-userId"));
+		}
 	} catch(e) {
-		// console.log(e);
+		// console.error("Couldn't get Token & UserID in Local Storage.");
 	}
 		
 	// User
@@ -30,13 +43,13 @@ const App = ({ Component, pageProps }) => {
 		if (user)
 			return;
 		
-		if (token)
+		if (token && userId)
 			getUserFromServer();
-	}, [token, user]);
+	}, [token, userId, user]);
 
 	const getUserFromServer = async () => {
 		try {
-			let userRaw = await fetch(`${baseFetchUrl}/${jwtDecode(token).sub}`,
+			let userRaw = await fetch(`${apiRequestUser}?id=${userId}`,
 			{
 				method: 'get',
 				headers: {
@@ -59,9 +72,15 @@ const App = ({ Component, pageProps }) => {
 	}
 
 	const onLogout = () => {
-		localStorage.removeItem("req-token");
-		setToken(null);
-		setUser(null);
+		try {
+			localStorage.removeItem("req-token");
+			localStorage.removeItem("req-userId");
+			setToken(null);
+			setUserId(null);
+			setUser(null);
+		} catch(e) {
+			console.error("Couldn't Logout");
+		}
 	}
 
 	// Notification
@@ -86,7 +105,7 @@ const App = ({ Component, pageProps }) => {
 				)}
 			</div>
 			{/* Every pages */}
-			<Component {...pageProps} user={user} onLoginSucess={setToken} onLogout={onLogout} onNotification={onNotification} />
+			<Component {...pageProps} user={user} onLoginSucess={setTokenAndUserId} onLogout={onLogout} onNotification={onNotification} />
 		</>
 	);
 };

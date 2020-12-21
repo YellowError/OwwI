@@ -4,9 +4,10 @@ import Navbar from "../components/Navbar";
 const IndexPage = ({ user, onLogout }) => {
 
     const pageTitle = "Index";
-
+    // console.log(user ? user : "Still no user");
+    
     return (
-      <Layout title={pageTitle} user={user} publicContent>
+      <Layout title={pageTitle} user={user}>
       
         <Navbar user={user} onLogout={onLogout} />
 
