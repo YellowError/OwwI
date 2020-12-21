@@ -49,7 +49,7 @@ const DashboardPage = ({ user, onLogout }) => {
             return (
               <>
                 <Button
-                  href="/create-client"
+                  href="/create-client/idagent"
                   nameBtn="Ajouter client"
                   src="./../images/btnAddClientDashboard.svg"
                 />
@@ -59,7 +59,7 @@ const DashboardPage = ({ user, onLogout }) => {
                   src="./../images/btnListClientDashboard.svg"
                 />
                 <Button
-                  href="/create-estimation/id"
+                  href="/create-estimation/idclient"
                   nameBtn="Création estimation"
                   src="./../images/btnAddEstimationDashboard.svg"
                 />
