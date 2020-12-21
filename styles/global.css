@@ -766,6 +766,37 @@ img.picturesEsti {
   height: 150px;
   overflow: hidden;
 }
+/* -------------------------------------------------------------------------- */
+/*                             Dashboard France                            
+/*                             -------------------------------------------------------------------------- */
+.logo {
+  display: none;
+}
+.logo img {
+  width: 350px;
+  margin: 30px auto 0;
+}
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.dashboard button {
+  color: #8497a6;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.dashboard button img {
+  width: 120px;
+}
+
+.dashboard button:hover {
+  transform: scale(1.5);
+}
 
 /*******************/
 /* CSS Melodie */
