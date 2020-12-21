@@ -1,16 +1,7 @@
 import React, { Fragment, useState } from "react";
 
 const Compass = () => {
-  const pointsCardinal = [
-    "north",
-    "northWest",
-    "northEast",
-    "west",
-    "east",
-    "southWest",
-    "southEast",
-    "south",
-  ];
+  const pointsCardinal = ["1", "2", "3", "8", "7", "5", "6", "4"];
   const pointsCardinalFrench = [
     "Nord",
     "Nord Ouest",

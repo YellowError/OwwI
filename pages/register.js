@@ -1,21 +1,23 @@
 import Layout from "../components/Layout";
 import FormConnection from "../components/login/FormConnection";
 import Navbar from "../components/Navbar";
-import EndpointType from '../common/endpoint-type';
+import EndpointType from "../common/endpoint-type";
 
 const RegisterPage = ({ user, onLoginSucess, onLogout, onNotification }) => {
+  const pageTitle = "Register";
 
-    const pageTitle = "Register";
-
-    return (
+  return (
     <Layout title={pageTitle} publicContent>
+      {/* <Navbar user={user} onLogout={onLogout} /> */}
 
-        <Navbar user={user} onLogout={onLogout} />
-
-        <FormConnection title={pageTitle} endpoint={EndpointType.Register} onLoginSucess={onLoginSucess} onNotification={onNotification} />
-
+      <FormConnection
+        title={pageTitle}
+        endpoint={EndpointType.Register}
+        onLoginSucess={onLoginSucess}
+        onNotification={onNotification}
+      />
     </Layout>
-    );
+  );
 };
 
 export default RegisterPage;
