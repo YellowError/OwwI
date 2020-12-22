@@ -3,50 +3,28 @@ import { useRouter } from "next/router";
 import EndpointType from "../../common/endpoint-type";
 import FloatingInput from "../../components/for-all-form/FloatingInput";
 
-const FormConnection = ({ title, endpoint, onLoginSucess, onNotification }) => {
+const FormConnection = ({ title, endpoint, onLoginSucess, onNotification, requestServer }) => {
   const router = useRouter();
   const apiRequestLogin = `https://techno-api.azurewebsites.net/api/authorization/${endpoint}`;
 
-  const manageValues = async (values) => {
-    let userRaw = null;
-    let user = null;
+  const manageValues = async(values) => {
 
-    try {
-      userRaw = await fetch(apiRequestLogin, {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
-
-      if (!userRaw.ok) {
-        // bad request
-        // console.log("bad");
-        onNotification(await userRaw.text());
-      } else {
-        // good request
-        // console.log("good");
-        if (endpoint == EndpointType.Login) {
-          user = await userRaw.json();
-          // • with DB Json
-          // localStorage.setItem("req-token", user.accessToken);
-          // onLoginSucess(user.accessToken);
-          // • Live project
-          localStorage.setItem("req-token", user.token);
-          localStorage.setItem("req-userId", user.userId);
-          onLoginSucess(user);
-          router.push("/dashboard");
-        } else if (endpoint == EndpointType.Register) {
-          router.push("/login");
-        }
-
-        document.querySelector(".form-loginlogout").reset();
-      }
-    } catch (e) {
-      console.error(e);
+    let response = await requestServer('post', `/api/authorization/${endpoint}`, JSON.stringify(values));
+    if (endpoint == EndpointType.Login) {
+      // • with DB Json
+      // localStorage.setItem("req-token", user.accessToken);
+      // onLoginSucess(user.accessToken);
+      // • Live project
+      localStorage.setItem("req-token", response.token);
+      localStorage.setItem("req-userId", response.userId);
+      localStorage.setItem("req-roles", response.roles);
+      onLoginSucess(response);
+      router.push("/dashboard");
+    } else if (endpoint == EndpointType.Register) {
+      router.push("/login");
     }
+  
+    document.querySelector(".form-loginlogout").reset();
   };
 
   const handleSubmit = (e) => {
@@ -60,10 +38,10 @@ const FormConnection = ({ title, endpoint, onLoginSucess, onNotification }) => {
 
   const [values, setValues] = useState(null);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (!values) return;
 
-    manageValues(values);
+    await manageValues(values);
   }, [values]);
 
   return (

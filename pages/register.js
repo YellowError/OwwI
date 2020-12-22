@@ -3,7 +3,7 @@ import FormConnection from "../components/login/FormConnection";
 import Navbar from "../components/Navbar";
 import EndpointType from "../common/endpoint-type";
 
-const RegisterPage = ({ user, onLoginSucess, onLogout, onNotification }) => {
+const RegisterPage = ({ user, onLoginSucess, onLogout, onNotification, requestServer }) => {
   const pageTitle = "Register";
 
   return (
@@ -15,6 +15,7 @@ const RegisterPage = ({ user, onLoginSucess, onLogout, onNotification }) => {
         endpoint={EndpointType.Register}
         onLoginSucess={onLoginSucess}
         onNotification={onNotification}
+        requestServer={requestServer}
       />
     </Layout>
   );

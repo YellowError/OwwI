@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import Button from "../components/dashboard/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonAction from "../components/dashboard/ButtonAction";
 
 const DashboardPage = ({ user, onLogout }) => {
@@ -20,6 +20,13 @@ const DashboardPage = ({ user, onLogout }) => {
     roles: [0, 2, 3],
   };
   const [etatUser, setEtatUser] = useState(fetchUser);
+
+  // EXEMPLE DE COMMENT S'ATTENDRE A USER
+  useEffect(() => {
+    if (user) {
+      console.log(user);
+    }
+  }, [user]);
 
   return (
     <Layout title={pageTitle} user={user}>
