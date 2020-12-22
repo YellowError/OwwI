@@ -7,7 +7,9 @@ import { useState, useEffect } from "react";
 import FilterBy from "../components/listing/FilterBy";
 import Pagination from "../components/listing/Pagination";
 import NumberPerPage from "../components/listing/NumberPerPage";
-import UserRole from "../common/user"
+import UserRole from "../common/user";
+import Position from "../common/Position";
+import MenuMobile from "../components/MenuMobile";
 
 export default function ListingPage({ user, onLogout }) {
   const [agents, setAgents] = useState([]);
@@ -22,7 +24,25 @@ export default function ListingPage({ user, onLogout }) {
 
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
-
+  const mainButton = {
+    link: "create-estimation/15",
+    svg: "createEstimation",
+    style: "",
+    logic: () => {},
+  };
+  const buttons = [
+    {
+      title: "createAgent",
+      position: Position.Left,
+      cible: "/create-agent",
+    },
+    {
+      title: "createClient",
+      position: Position.Right,
+      cible: "/create-client/2",
+    },
+    { title: "/logOut", position: Position.Right, cible: "dashboard" },
+  ];
   const optionsSort = [
     "Trier par",
     "Ordre alphabétique (A - z)",
@@ -116,37 +136,36 @@ export default function ListingPage({ user, onLogout }) {
   // }
 
   async function findSpecificUsers(typeOfUser) {
-
-    try{
+    try {
       const token = localStorage.getItem("req-token");
-      let response = await fetch(`https://techno-api.azurewebsites.net/api/authorization/get-users?role=${typeOfUser}`,
+      let response = await fetch(
+        `https://techno-api.azurewebsites.net/api/authorization/get-users?role=${typeOfUser}`,
         {
-          method: 'get',
+          method: "get",
           headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
-          }
-        });
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       // let decrypte = typeOfUser === UserRole.client? "clients" : "agents"
       // let response = await fetch(`http://localhost:3001/${decrypte}`);
 
-        if (!response.ok) {
-          // bad request
-          onLogout();
-          throw new Error(await response.text());
-        } else {
-          // good request
-          var responseJson = await response.json();
-          console.log(responseJson.applicationUsers);
-          const applicationUser = responseJson.applicationUsers;
-          if (typeOfUser === UserRole.confirmedAgent) 
-            setAgents([...applicationUser]);
-          else 
-            setClients([...applicationUser]);
-        }
-    }
-    catch(e){
+      if (!response.ok) {
+        // bad request
+        onLogout();
+        throw new Error(await response.text());
+      } else {
+        // good request
+        var responseJson = await response.json();
+        console.log(responseJson.applicationUsers);
+        const applicationUser = responseJson.applicationUsers;
+        if (typeOfUser === UserRole.confirmedAgent)
+          setAgents([...applicationUser]);
+        else setClients([...applicationUser]);
+      }
+    } catch (e) {
       console.log(e);
     }
   }
@@ -155,7 +174,7 @@ export default function ListingPage({ user, onLogout }) {
     await findSpecificUsers(UserRole.client);
     await findSpecificUsers(UserRole.confirmedAgent);
   }
-  
+
   function listOfUsers(typeOfUser) {
     if (typeOfUser === "agents") {
       return agents.slice(indexOfFirstPost, indexOfLastUser).map((agent) => {
@@ -185,7 +204,7 @@ export default function ListingPage({ user, onLogout }) {
             key={client.id}
             className="my-1 borderUnderDropdownListing rounded-md m-4 bckLightBlue textColorBlue"
           >
-            <ClientItem client={client} onLogOut={onLogout}/>
+            <ClientItem client={client} onLogOut={onLogout} />
           </li>
         );
       });
@@ -209,14 +228,15 @@ export default function ListingPage({ user, onLogout }) {
 
       if (result.length != 0) {
         needListAgents ? setAgents([...result]) : setClients([...result]);
-      }
-      else{
+      } else {
         needListAgents ? setAgents([]) : setClients([]);
       }
     }
 
     if (!input.length) {
-      needListAgents ? findAllUsers(UserRole.confirmedAgent) : findAllUsers(UserRole.client);
+      needListAgents
+        ? findAllUsers(UserRole.confirmedAgent)
+        : findAllUsers(UserRole.client);
     }
   }
 
@@ -241,7 +261,6 @@ export default function ListingPage({ user, onLogout }) {
                 setNeedListAgents={() => {
                   setNeedListAgents(true);
                 }}
-
                 needListAgents={needListAgents}
               >
                 Agents
@@ -250,7 +269,6 @@ export default function ListingPage({ user, onLogout }) {
                 setNeedListAgents={() => {
                   setNeedListAgents(false);
                 }}
-
                 needListAgents={!needListAgents}
               >
                 Clients
@@ -376,6 +394,9 @@ export default function ListingPage({ user, onLogout }) {
               </>
             )}
           </div>
+        </div>
+        <div className="w-full">
+          <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </section>
     </Layout>
