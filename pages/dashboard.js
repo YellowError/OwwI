@@ -20,6 +20,7 @@ const DashboardPage = ({ user, onLogout }) => {
     roles: [0, 2, 3],
   };
   const [etatUser, setEtatUser] = useState(fetchUser);
+  // console.log(user);
 
   return (
     <Layout title={pageTitle} user={user}>

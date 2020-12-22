@@ -16,15 +16,9 @@ const EstimationPriceModif = ({ hidden }) => {
         label="Prix du terrain non-constructible/m²"
         idfor="nonBuildableAreaPrice"
       />
-      {/* <InputPrice label="Prix du m² habitable" idfor="prixMHabitable" />
-      <InputPrice label="Prix du m² non-habitable" idfor="prixMNonHabitable" /> */}
-      <h3>A refaire ?</h3>
-      <InputSwitch label="Chauffage" idfor="prixchauffage" />
-      <InputSwitch label="Electricité" idfor="prixelectric" />
-      <InputSwitch label="Salle de bain" idfor="prixsdb" />
-      <InputSwitch label="Cuisine" idfor="prixcuisine" />
+      <h3>Extras</h3>
       <ButtonExtra />
-      <CommentArea label="votre commentaire" idFor="comStep9" />
+      <CommentArea label="votre commentaire" forId="comStep9" />
     </div>
   );
 };

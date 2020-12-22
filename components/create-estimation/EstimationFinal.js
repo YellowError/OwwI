@@ -4,7 +4,7 @@ const EstimationFinal = ({ hidden }) => {
   return (
     <div className={hidden}>
       <h2>Résumé</h2>
-      <CommentArea label="votre commentaire" idFor="comStep10" />
+      <CommentArea label="votre commentaire" forId="comStep10" />
     </div>
   );
 };

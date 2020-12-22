@@ -5,13 +5,12 @@ const ButtonExtra = () => {
   const addExtra = (newExtra) => {
     console.log(newExtra);
     setValue([...value, newExtra]);
-    console.log(value);
   };
   return (
     <>
       {value &&
-        value.map(() => {
-          return <AddExtra />;
+        value.map((extra, index) => {
+          return <AddExtra index={index} key={index} />;
         })}
       <button
         className="btn btnBlue"

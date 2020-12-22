@@ -10,6 +10,7 @@ const Switch = ({ label, idfor }) => {
         checked={value}
         className="inputCheckBoxBtn"
         id={idfor}
+        name={idfor}
         type="checkbox"
         onChange={() => setValue(!value)}
       />

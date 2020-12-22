@@ -19,6 +19,7 @@ const CommentArea = ({ forId, label }) => {
         value={value}
         onChange={(e) => handleTextChange(e.target.value)}
         id={forId}
+        name={forId}
       ></textarea>
       <label className={`${isActive ? "full" : ""} md:text-lg`} htmlFor={forId}>
         {label}

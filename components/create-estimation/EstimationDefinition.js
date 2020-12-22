@@ -35,6 +35,12 @@ const EstimationDefinition = ({ hidden }) => {
       />
       <FloatingInput
         type="texte"
+        label="Superficie habitation non-habitable"
+        htmlForAndId="nonHabitableArea"
+      />
+
+      <FloatingInput
+        type="texte"
         label="Année de construction"
         htmlForAndId="constructionDate"
       />

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import CommentArea from "../CommentArea";
-import DropSimple from "../DropSimple";
-import FloatingInput from "../for-all-form/FloatingInput";
+import DropDownMenu from "../DropDownMenu";
 import InputSurface from "../for-all-form/InputSurface";
 import OpenCloseChevronForm from "../for-all-form/OpenCloseChevronForm";
 import RangeEstimation from "./RangeEstimation";
+import { InsideFlooring, InsidePieceType } from "../../common/immobilier";
 const NewRoomInside = () => {
   const [showRoom, setShowRoom] = useState(false);
   return (
-    <>
+    <ul>
       <li className={`${showRoom ? "listClose listOpen" : "listClose"} m-4`}>
         <div
           className={`
@@ -26,14 +26,11 @@ const NewRoomInside = () => {
           <ul className="mx-4 px-2">
             <li>
               <div>
-                <FloatingInput
-                  label="Nom de la pièce"
-                  htmlForAndId="NameRoom"
-                />
-                <InputSurface placeholder="surface" idfor="surface" />
-                <RangeEstimation label="finition" idFor="" />
-                <DropSimple label="Lorem Ipsum" />
-                <CommentArea label="Votre commentaire" idfor="commRoom" />
+                <DropDownMenu table={InsidePieceType} id="typeInside1" />
+                <InputSurface placeholder="surface" idfor="areaInside1" />
+                <RangeEstimation label="finition" idFor="finishInisde1" />
+                <DropDownMenu table={InsideFlooring} id="flooring1" />
+                <CommentArea label="Votre commentaire" forId="commentInside1" />
                 <div className="flex justify-between">
                   <button type="button" className="btn btnRed">
                     Supprimer
@@ -49,7 +46,7 @@ const NewRoomInside = () => {
           ""
         )}
       </li>
-    </>
+    </ul>
   );
 };
 export default NewRoomInside;

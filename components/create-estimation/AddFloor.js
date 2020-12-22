@@ -29,7 +29,7 @@ const AddFloor = () => {
               <div>
                 <FloatingInput
                   label="Nom de l'étage"
-                  htmlForAndId="NameFloor"
+                  htmlForAndId="nameFloor"
                 />
                 <NewRoomInside />
                 <button type="button" className="btn btnBlue">

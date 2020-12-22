@@ -1,5 +1,11 @@
 import React, { useState } from "react";
+import {
+  Orientation,
+  SubTypePieceExterne,
+  TypePieceExterne,
+} from "../../common/immobilier";
 import CommentArea from "../CommentArea";
+import DropDownMenu from "../DropDownMenu";
 import DropSimple from "../DropSimple";
 import FloatingInput from "../for-all-form/FloatingInput";
 import InputSurface from "../for-all-form/InputSurface";
@@ -31,14 +37,22 @@ const NewRoomOutside = () => {
           <ul className="mx-4 px-2">
             <li>
               <div>
-                <FloatingInput
-                  label="Nom de la pièce"
-                  htmlForAndId="NameRoom"
+                <span>Type :</span>
+                <DropDownMenu table={TypePieceExterne} id="typeOutside1" />
+                <span>Options :</span>
+                <DropDownMenu
+                  table={SubTypePieceExterne}
+                  id="subTypeOutside1"
                 />
-                <InputSurface placeholder="surface" idfor="surface" />
-                <RangeEstimation label="finition" idFor="" />
-                <DropSimple label="Lorem Ipsum" />
-                <CommentArea label="Votre commentaire" idfor="commRoom" />
+
+                <InputSurface placeholder="surface" idfor="areaOutside1" />
+                <span>Orientation du jardin:</span>
+                <DropDownMenu table={Orientation} id="orientationOutside" />
+                <RangeEstimation label="finition" idFor="finishOutside1" />
+                <CommentArea
+                  label="Votre commentaire"
+                  forId="commentOutside1"
+                />
                 <div className="flex justify-between">
                   <button type="button" className="btn btnRed">
                     Supprimer

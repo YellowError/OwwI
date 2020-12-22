@@ -1,7 +1,17 @@
 import React, { Fragment, useState } from "react";
 
 const Compass = () => {
-  const pointsCardinal = ["1", "2", "3", "8", "7", "5", "6", "4"];
+  const classNamePointsCardinal = [
+    "north",
+    "northWest",
+    "northEast",
+    "west",
+    "east",
+    "southWest",
+    "southEast",
+    "south",
+  ];
+  const pointsCardinal = [1, 2, 3, 8, 7, 5, 6, 4];
   const pointsCardinalFrench = [
     "Nord",
     "Nord Ouest",
@@ -51,7 +61,9 @@ const Compass = () => {
                   cardinalPointActive == pointCardinal
                     ? "cardinalPointActive"
                     : ""
-                } ${pointCardinal} pointsCardinal cardinalPoint`}
+                } ${
+                  classNamePointsCardinal[index]
+                } pointsCardinal cardinalPoint`}
                 id={pointCardinal}
                 onClick={() => {
                   compassValueSelected(pointCardinal);
