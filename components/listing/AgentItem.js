@@ -4,29 +4,37 @@ import CreateButton from "./CreateButton";
 import OpenCloseChevron from "../for-all-form/OpenCloseChevron";
 import Pagination from "./Pagination";
 
-function AgentItem({ agent }) {
+function AgentItem({ agent, clients, onLogout }) {
   const [showList, setShowList] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
   // UserPerPage choisi le nombre de client afficher par agent (modifiable via useState)
-  const [userPerPage] = useState(10);
+  const userPerPage = 10;
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
+  let numberOfClients = 0
 
   function listOfClients(agent) {
-    return agent.clients
-      .slice(indexOfFirstPost, indexOfLastUser)
-      .map((client) => {
-        return (
-          <li
-            key={client.id}
-            className="m-4 textColorBlue bold borderUnderDropdownListing rounded-md mb-4"
-          >
-            <ClientItem client={client} />
-          </li>
-        );
-      });
+    const sortClients = clients.filter((client) => {
+      return agent.id == client.agentCode;
+    }) 
+    numberOfClients = sortClients.length;
+    if(sortClients){
+
+      return sortClients.map((client) => {
+          return (
+            <li
+              key={client.id}
+              className="m-4 textColorBlue bold borderUnderDropdownListing rounded-md mb-4"
+            >
+              <ClientItem client={client} onLogOut={onLogout}/>
+            </li>
+          );
+        });
+    }
   }
+
+  listOfClients(agent);
 
   return (
     <>
@@ -39,8 +47,8 @@ function AgentItem({ agent }) {
         <button>
           <OpenCloseChevron showList={showList} />
         </button>
-        <p className="text-left textColorBlue font-bold w-3/12">{agent.nom}</p>
-        <p className="hidden md:block">Client(s): {agent.clients.length}</p>
+        <p className="text-left textColorBlue font-bold w-3/12">{`${agent.lastName} ${agent.firstName}`}</p>
+        <p className="hidden md:block">Client(s): {numberOfClients}</p>
         <CreateButton
           cible={`/profile/${agent.id}`}
           style={"underline mr-2 textColorBlue"}
@@ -80,14 +88,6 @@ function AgentItem({ agent }) {
               </svg>{" "}
               Ajouter Client
             </CreateButton>
-            <Pagination
-              userPerPage={userPerPage}
-              totalUsers={agent.clients.length}
-              currentPage={currentPage}
-              paginate={(pageNumber) => {
-                setCurrentPage(pageNumber);
-              }}
-            />
           </div>
         </>
       )}

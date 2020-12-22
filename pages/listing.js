@@ -7,8 +7,11 @@ import { useState, useEffect } from "react";
 import FilterBy from "../components/listing/FilterBy";
 import Pagination from "../components/listing/Pagination";
 import NumberPerPage from "../components/listing/NumberPerPage";
+import UserRole from "../common/user";
+import Position from "../common/Position";
+import MenuMobile from "../components/MenuMobile";
 
-export default function ListingPage({ user }) {
+export default function ListingPage({ user, onLogout }) {
   const [agents, setAgents] = useState([]);
   const [clients, setClients] = useState([]);
   const [search, setSearch] = useState("");
@@ -17,17 +20,35 @@ export default function ListingPage({ user }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   // UserPerPage choisi le nombre d'utilisateur afficher par page (modifiable via useState)
-  const [userPerPage, setUserPerPage] = useState(5);
+  const [userPerPage, setUserPerPage] = useState(20);
 
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
-
+  const mainButton = {
+    link: "create-estimation/15",
+    svg: "createEstimation",
+    style: "",
+    logic: () => {},
+  };
+  const buttons = [
+    {
+      title: "createAgent",
+      position: Position.Left,
+      cible: "/create-agent",
+    },
+    {
+      title: "createClient",
+      position: Position.Right,
+      cible: "/create-client/2",
+    },
+    { title: "/logOut", position: Position.Right, cible: "dashboard" },
+  ];
   const optionsSort = [
     "Trier par",
     "Ordre alphabétique (A - z)",
     "Ordre alphabétique (Z - a)",
-    "Nbr de clients décroissant",
-    "Nbr de clients croissant",
+    // "Nbr de clients décroissant",
+    // "Nbr de clients croissant",
   ];
   const [sortSelected, setSortSelected] = useState();
   const pageTitle = "listing";
@@ -49,13 +70,13 @@ export default function ListingPage({ user }) {
         setClients([...clients.sort(inverse)]);
         break;
 
-      case "Nbr de clients décroissant":
-        setAgents([...agents.sort(plusClient)]);
-        break;
+      // case "Nbr de clients décroissant":
+      //   setAgents([...agents.sort(plusClient)]);
+      //   break;
 
-      case "Nbr de clients croissant":
-        setAgents([...agents.sort(moinsClient)]);
-        break;
+      // case "Nbr de clients croissant":
+      //   setAgents([...agents.sort(moinsClient)]);
+      //   break;
 
       default:
         break;
@@ -63,8 +84,8 @@ export default function ListingPage({ user }) {
   }, [sortSelected]);
 
   function alphabetique(userPrev, userNext) {
-    const namePrev = userPrev.nom.toUpperCase();
-    const nameNext = userNext.nom.toUpperCase();
+    const namePrev = userPrev.lastName.toUpperCase();
+    const nameNext = userNext.lastName.toUpperCase();
 
     let comparaison = 0;
     if (namePrev > nameNext) {
@@ -76,8 +97,8 @@ export default function ListingPage({ user }) {
   }
 
   function inverse(userPrev, userNext) {
-    const namePrev = userPrev.nom.toUpperCase();
-    const nameNext = userNext.nom.toUpperCase();
+    const namePrev = userPrev.lastName.toUpperCase();
+    const nameNext = userNext.lastName.toUpperCase();
 
     let comparaison = 0;
     if (namePrev > nameNext) {
@@ -88,50 +109,72 @@ export default function ListingPage({ user }) {
     return comparaison * -1;
   }
 
-  function plusClient(userPrev, userNext) {
-    const nbPrev = userPrev.clients.length;
-    const nbNext = userNext.clients.length;
+  // function plusClient(userPrev, userNext) {
+  //   const nbPrev = userPrev.clients.length;
+  //   const nbNext = userNext.clients.length;
 
-    let comparaison = 0;
-    if (nbPrev > nbNext) {
-      comparaison = 1;
-    } else if (nbPrev < nbNext) {
-      comparaison = -1;
-    }
-    return comparaison * -1;
-  }
+  //   let comparaison = 0;
+  //   if (nbPrev > nbNext) {
+  //     comparaison = 1;
+  //   } else if (nbPrev < nbNext) {
+  //     comparaison = -1;
+  //   }
+  //   return comparaison * -1;
+  // }
 
-  function moinsClient(userPrev, userNext) {
-    const nbPrev = userPrev.clients.length;
-    const nbNext = userNext.clients.length;
+  // function moinsClient(userPrev, userNext) {
+  //   const nbPrev = userPrev.clients.length;
+  //   const nbNext = userNext.clients.length;
 
-    let comparaison = 0;
-    if (nbPrev > nbNext) {
-      comparaison = 1;
-    } else if (nbPrev < nbNext) {
-      comparaison = -1;
-    }
-    return comparaison;
-  }
+  //   let comparaison = 0;
+  //   if (nbPrev > nbNext) {
+  //     comparaison = 1;
+  //   } else if (nbPrev < nbNext) {
+  //     comparaison = -1;
+  //   }
+  //   return comparaison;
+  // }
 
   async function findSpecificUsers(typeOfUser) {
-    let response = await fetch(`http://localhost:3001/${typeOfUser}`);
-    if (response.ok) {
-      var responseJson = await response.json();
-      if (typeOfUser === "agents") setAgents([...responseJson]);
-      else setClients([...responseJson]);
-    } else {
-      throw new Error(`fetch failed`);
+    try {
+      const token = localStorage.getItem("req-token");
+      let response = await fetch(
+        `https://techno-api.azurewebsites.net/api/authorization/get-users?role=${typeOfUser}`,
+        {
+          method: "get",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // let decrypte = typeOfUser === UserRole.client? "clients" : "agents"
+      // let response = await fetch(`http://localhost:3001/${decrypte}`);
+
+      if (!response.ok) {
+        // bad request
+        onLogout();
+        throw new Error(await response.text());
+      } else {
+        // good request
+        var responseJson = await response.json();
+        console.log(responseJson.applicationUsers);
+        const applicationUser = responseJson.applicationUsers;
+        if (typeOfUser === UserRole.confirmedAgent)
+          setAgents([...applicationUser]);
+        else setClients([...applicationUser]);
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
   async function findAllUsers() {
-    await findSpecificUsers("agents");
-    await findSpecificUsers("clients");
+    await findSpecificUsers(UserRole.client);
+    await findSpecificUsers(UserRole.confirmedAgent);
   }
-  const isActive = () => {
-    setLinkActive(!linkActive);
-  };
+
   function listOfUsers(typeOfUser) {
     if (typeOfUser === "agents") {
       return agents.slice(indexOfFirstPost, indexOfLastUser).map((agent) => {
@@ -141,7 +184,9 @@ export default function ListingPage({ user }) {
             className="my-1 borderUnderDropdownListing rounded-md bckLightBlue py-3 m-4 textColorBlue "
           >
             <AgentItem
+              onLogout={onLogout}
               agent={agent}
+              clients={clients}
               userPerPage={userPerPage}
               paginate={(pageNumber) => {
                 setCurrentPage(pageNumber);
@@ -159,7 +204,7 @@ export default function ListingPage({ user }) {
             key={client.id}
             className="my-1 borderUnderDropdownListing rounded-md m-4 bckLightBlue textColorBlue"
           >
-            <ClientItem client={client} />
+            <ClientItem client={client} onLogOut={onLogout} />
           </li>
         );
       });
@@ -172,24 +217,26 @@ export default function ListingPage({ user }) {
 
     setSearch(input);
 
-    if (input.length > 2) {
+    if (input.length > 0) {
       const role = needListAgents ? agents : clients;
-      // console.log('try to find')
-      result = role.filter((agent) => {
-        if (agent.nom.includes(input)) {
-          return agent;
+      result = role.filter((user) => {
+        let name = user.lastName.toLowerCase();
+        if (name.includes(input.toLowerCase())) {
+          return user;
         }
       });
 
       if (result.length != 0) {
-        // console.log('setAgent')
-
         needListAgents ? setAgents([...result]) : setClients([...result]);
+      } else {
+        needListAgents ? setAgents([]) : setClients([]);
       }
     }
 
     if (!input.length) {
-      needListAgents ? findAllUsers("agents") : findAllUsers("clients");
+      needListAgents
+        ? findAllUsers(UserRole.confirmedAgent)
+        : findAllUsers(UserRole.client);
     }
   }
 
@@ -214,9 +261,6 @@ export default function ListingPage({ user }) {
                 setNeedListAgents={() => {
                   setNeedListAgents(true);
                 }}
-                onClick={() => {
-                  isActive();
-                }}
                 needListAgents={needListAgents}
               >
                 Agents
@@ -224,9 +268,6 @@ export default function ListingPage({ user }) {
               <FilterButton
                 setNeedListAgents={() => {
                   setNeedListAgents(false);
-                }}
-                onClick={() => {
-                  isActive();
                 }}
                 needListAgents={!needListAgents}
               >
@@ -353,6 +394,9 @@ export default function ListingPage({ user }) {
               </>
             )}
           </div>
+        </div>
+        <div className="w-full">
+          <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </section>
     </Layout>
