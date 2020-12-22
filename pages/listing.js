@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import FilterBy from "../components/listing/FilterBy";
 import Pagination from "../components/listing/Pagination";
 import NumberPerPage from "../components/listing/NumberPerPage";
+import Position from "../common/Position";
+import MenuMobile from "../components/MenuMobile";
 
 export default function ListingPage({ user }) {
   const [agents, setAgents] = useState([]);
@@ -21,7 +23,25 @@ export default function ListingPage({ user }) {
 
   const indexOfLastUser = currentPage * userPerPage;
   const indexOfFirstPost = indexOfLastUser - userPerPage;
-
+  const mainButton = {
+    link: "create-estimation/15",
+    svg: "createEstimation",
+    style: "",
+    logic: () => {},
+  };
+  const buttons = [
+    {
+      title: "createAgent",
+      position: Position.Left,
+      cible: "/create-agent/3",
+    },
+    {
+      title: "createClient",
+      position: Position.Right,
+      cible: "/create-client/2",
+    },
+    { title: "/logOut", position: Position.Right, cible: "dashboard" },
+  ];
   const optionsSort = [
     "Trier par",
     "Ordre alphabétique (A - z)",
@@ -353,6 +373,9 @@ export default function ListingPage({ user }) {
               </>
             )}
           </div>
+        </div>
+        <div className="w-full">
+          <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </section>
     </Layout>

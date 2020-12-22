@@ -6,25 +6,27 @@ import Position from "../common/Position";
 const CreateAgentPage = ({ user }) => {
   const pageTitle = "Create Agent";
   const mainButton = {
-    link: "create-estimation/15",
+    link: "/create-estimation/15",
     svg: "createEstimation",
+    style: "",
     logic: () => {},
   };
   const buttons = [
     {
       title: "createClient",
       position: Position.Right,
-      cible: "create-client",
+      cible: "/create-client/2",
     },
-    { title: "logOut", position: Position.Right, cible: "dashboard" },
+    { title: "logOut", position: Position.Right, cible: "/dashboard" },
   ];
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
       <section>
         <AddAgent />
-        <div className="w-full"></div>
-        <MenuMobile mainButton={mainButton} buttons={buttons} />
+        <div className="w-full">
+          <MenuMobile mainButton={mainButton} buttons={buttons} />
+        </div>
       </section>
     </Layout>
   );

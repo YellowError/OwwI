@@ -13,12 +13,27 @@ import EstimationRoomInside from "../../components/create-estimation/EstimationR
 import EstimationPagination from "../../components/create-estimation/EstimationPagination";
 import ButtonsPaginationEsti from "../../components/create-estimation/ButtonPaginationEstimation";
 import React, { useState, useEffect } from "react";
+import MenuMobile from "../../components/MenuMobile";
+import Position from "../../common/Position";
 
 const CreateEstimationPage = ({ user }) => {
   const pageTitle = "Create Estimation";
   const router = useRouter();
   const { idClient } = router.query;
-
+  const mainButton = {
+    link: "/create-client/2",
+    svg: "createClient",
+    style: "",
+    logic: () => {},
+  };
+  const buttons = [
+    {
+      title: "createAgent",
+      position: Position.Right,
+      cible: "/create-client/2",
+    },
+    { title: "logOut", position: Position.Right, cible: "/dashboard" },
+  ];
   const [status, setStatus] = useState(1);
   const select = (number) => {
     setStatus(number);
@@ -113,6 +128,9 @@ const CreateEstimationPage = ({ user }) => {
           <EstimationFinal hidden={status == 10 ? "" : "hidden"} />
           <ButtonsPaginationEsti setStatus={setStatus} status={status} />
         </form>
+        <div className="container">
+          <MenuMobile mainButton={mainButton} buttons={buttons} />
+        </div>
       </div>
     </Layout>
   );

@@ -7,14 +7,17 @@ function MainButton({
   svg = "",
   logic = "",
   link = "",
-  style = "",
+  style = "transform scale-125 ",
 }) {
   return (
     <>
       {link ? (
         <Link href={link}>
-          <a onClick={logic} className={style}>
-            <div className="">
+          <a
+            onClick={logic}
+            className={(style, "relative flex justify-center")}
+          >
+            <div className="absolute w-full p-2 rounded-lg shadow-md bg-white topNegative">
               <SvgsMenu choice={svg} />
               <p className="text-center">{title}</p>
             </div>
