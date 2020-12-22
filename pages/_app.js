@@ -55,7 +55,9 @@ const App = ({ Component, pageProps }) => {
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/json',
-					Autorization: `Bearer ${token}`
+					//-------------------------------------------------------------------------------
+					Authorization: `Bearer ${token}`
+					//Fix by Yellow -----------------------------------------------------------------
 				}
 			});
 			

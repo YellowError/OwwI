@@ -26,7 +26,7 @@ const DetailsEstimationPage = ({ user, onLogout }) => {
   };
 
   let fetchestimation = {
-    id: 43153421,
+    id: 5423767,
     ownerId: "23145908543",
     agentId: "31241256624",
     creationDate: "2020-12-16T15:10:55.230Z",
@@ -262,7 +262,6 @@ const DetailsEstimationPage = ({ user, onLogout }) => {
   };
 
   const [estimation, setEstimation] = useState(fetchestimation);
-
   // async function findAllEstimation() {
   //   let response = await fetch(
   //     `http://localhost:3002/estimations/${idEstimation}`
