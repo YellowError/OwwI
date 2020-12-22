@@ -5,7 +5,6 @@ import FloatingInput from "../../components/for-all-form/FloatingInput";
 
 const FormConnection = ({ title, endpoint, onLoginSucess, onNotification, requestServer }) => {
   const router = useRouter();
-  const apiRequestLogin = `https://techno-api.azurewebsites.net/api/authorization/${endpoint}`;
 
   const manageValues = async(values) => {
 
