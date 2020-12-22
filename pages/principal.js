@@ -31,12 +31,16 @@ const PrincipalPage = ({ user }) => {
           Contacter l'agence
         </LinkIndex>
 
-        <LinkIndex
-          cheminLink="login"
-          style={"btnRoundedMd btnRed w-64 text-center"}
-        >
-          Me connecter
-        </LinkIndex>
+        {user ? (
+          <button>Dashboard</button>
+        ) : (
+          <LinkIndex
+            cheminLink="login"
+            style={"btnRoundedMd btnRed w-64 text-center"}
+          >
+            Me connecter
+          </LinkIndex>
+        )}
       </section>
     </Layout>
   );

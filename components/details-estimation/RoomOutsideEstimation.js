@@ -24,7 +24,7 @@ import {
 
 const RoomOutsideEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Pièces extérieures</h2>
 
       {estimation.outside.pieces.map((element) => {

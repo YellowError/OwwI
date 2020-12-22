@@ -1,23 +1,24 @@
 import React from "react";
 import CommentArea from "../CommentArea";
 import FloatingInput from "../for-all-form/FloatingInput";
-const EstimationCoordinate = () => {
+const EstimationCoordinate = ({ hidden }) => {
   return (
     <>
-      <div className="container mx-auto">
+      <div className={`${hidden} container mx-auto`}>
         <h2>Coordonnées du bien immobilier</h2>
+        <FloatingInput type="texte" label="rue" htmlForAndId="street" />
+        <FloatingInput type="texte" label="N°" htmlForAndId="number" />
+        <FloatingInput type="texte" label="Bte" htmlForAndId="box" />
+        {/* Concatainer number et box Ou delete */}
         <FloatingInput
           type="texte"
-          label="Adresse physique"
-          htmlForAndId="adresse"
+          label="Code postale"
+          htmlForAndId="zipCode"
         />
-        <FloatingInput type="texte" label="N°" htmlForAndId="num" />
-        <FloatingInput type="texte" label="Bte" htmlForAndId="boîte" />
-        <FloatingInput type="texte" label="Code postale" htmlForAndId="cp" />
-        <FloatingInput type="texte" label="Ville" htmlForAndId="ville" />
-        <FloatingInput type="texte" label="Province" htmlForAndId="province" />
-        <FloatingInput type="texte" label="Pays" htmlForAndId="pays" />
-        <CommentArea label="votre commentaire" idFor="comStep2" />
+        <FloatingInput type="texte" label="Ville" htmlForAndId="city" />
+        <FloatingInput type="texte" label="Province" htmlForAndId="state" />
+        <FloatingInput type="texte" label="Pays" htmlForAndId="country" />
+        <CommentArea label="votre commentaire" forId="comment" />
       </div>
     </>
   );

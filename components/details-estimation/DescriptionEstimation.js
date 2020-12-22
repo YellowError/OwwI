@@ -24,7 +24,7 @@ import {
 
 const DescriptionEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Description</h2>
       <ul className="listDetailEstimation">
         <li>

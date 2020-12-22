@@ -23,7 +23,7 @@ import {
 
 const ModificationPriceEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Modification du prix</h2>
       <ul className="listDetailEstimation">
         {estimation.extras.map((element) => {

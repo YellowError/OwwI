@@ -2,7 +2,7 @@ import React from "react";
 
 const InfosAgent = ({ agent }) => {
   return (
-    <div className="block flex justify-center items-center">
+    <div className="blockGlobal flex justify-center items-center">
       {agent.img ? (
         <img className="imgAgent" src="${agent.img}" alt="${agent.firstname}" />
       ) : (

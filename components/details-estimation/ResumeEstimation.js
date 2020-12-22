@@ -23,7 +23,7 @@ import {
 
 const ResumeEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Estimation n° {estimation.id}</h2>
       <span className="typeHabitat">{ImmoType[estimation.type]}</span>
       <p>Adresse:</p>

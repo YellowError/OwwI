@@ -3,7 +3,6 @@ const DropHabitat = () => {
   return (
     <>
       <select>
-        {" "}
         choississez le type
         <optgroup label="Maison">
           <option value="villa">Villa</option>

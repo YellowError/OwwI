@@ -1,15 +1,14 @@
-export const ImmoType = [
-  "",
-  "Maison",
-  "Appartement",
-  "Garage",
-  "Bureau",
-  "Commerce",
-  "Industrie",
-  "Terrain",
-  "Immeuble de rapport",
-  "Autre",
-];
+export const ImmoType = {
+  1: "Maison",
+  2: "Appartement",
+  3: "Garage",
+  4: "Bureau",
+  5: "Commerce",
+  6: "Industrie",
+  7: "Terrain",
+  8: "Immeuble de rapport",
+  9: "Autre",
+};
 
 export const ImmoSubType = {
   101: "Villa",
@@ -31,6 +30,9 @@ export const ImmoSubType = {
   206: "Studio",
   207: "Loft",
   208: "Appartement de Service",
+
+  301: "Garage Simple",
+  302: "Garage Double",
 
   401: "Bureau",
   402: "Immeuble de Bureau",
@@ -55,123 +57,138 @@ export const ImmoSubType = {
   707: "Verger",
   708: "Zone agricole",
 
+  801: "Immeuble de rapport",
+
   999: "Autre",
 };
 
-export const BuildingState = [
-  "Neuf",
-  "A rénover",
-  "Bon",
-  "A restaurer",
-  "A rafraichir",
-  "Excellent état",
-  "Fraichement rénové",
-];
+export const BuildingState = {
+  0: "Neuf",
+  1: "A rénover",
+  2: "Bon",
+  3: "A restaurer",
+  4: "A rafraichir",
+  5: "Excellent état",
+  6: "Fraichement rénové",
+};
 
-export const Orientation = [
-  "Autre",
-  "Nord",
-  "Nord-Ouest",
-  "Nord-Est",
-  "Sud",
-  "Sud-Ouest",
-  "Sud-Est",
-  "Est",
-  "Ouest",
-];
+export const Orientation = {
+  0: "Autre",
+  1: "Nord",
+  2: "Nord-Ouest",
+  3: "Nord-Est",
+  4: "Sud",
+  5: "Sud-Ouest",
+  6: "Sud-Est",
+  7: "Est",
+  8: "Ouest",
+};
 
-export const Zoning = [
-  "Autre",
-  "Résidentiel",
-  "Rurale",
-  "Urbain",
-  "Industriel",
-];
+export const Zoning = {
+  0: "Autre",
+  1: "Résidentiel",
+  2: "Rurale",
+  3: "Urbain",
+  4: "Industriel",
+};
 
-export const Decoration = ["Autre", "Rural", "Morderne"];
+export const Decoration = { 0: "Autre", 1: "Rural", 2: "Morderne" };
 
-export const InsidePieceType = [
-  "Cuisine",
-  "Salle de bain",
-  "Salle de douche",
-  "Toilette",
-  "Chambre",
-  "Cave",
-  "Grenier/Comble",
-  "Autre",
-];
+export const InsidePieceType = {
+  0: "Cuisine",
+  1: "Salle de bain",
+  2: "Salle de douche",
+  3: "Toilette",
+  4: "Chambre",
+  5: "Cave",
+  6: "Grenier/Comble",
+  7: "Autre",
+};
 
-export const InsideFlooring = [
-  "Moquette",
-  "Parquet",
-  "Carrelage",
-  "Parquet stratifié",
-  "Beton",
-  "PVC Vinyle",
-];
+export const InsideFlooring = {
+  0: "Moquette",
+  1: "Parquet",
+  2: "Carrelage",
+  3: "Parquet stratifié",
+  4: "Beton",
+  5: "PVC Vinyle",
+};
 
-export const InsidePieceSubtype = [
-  "vide",
-  "semi-équipée",
-  "équipee",
-  "hyper-équipée",
-  "Americaine hyper-équipée",
-  "aménagé",
-  "non aménagé",
-];
+export const InsidePieceSubtype = {
+  0: "vide",
+  1: "semi-équipée",
+  2: "équipee",
+  3: "hyper-équipée",
+  4: "Americaine hyper-équipée",
+  5: "aménagé",
+  6: "non aménagé",
+};
 
-export const TypePieceExterne = [
-  "Autre",
-  "Jardin",
-  "Veranda",
-  "Terrasse",
-  "Piscine",
-  "Parking",
-];
+export const TypePieceExterne = {
+  0: "Autre",
+  1: "Jardin",
+  2: "Veranda",
+  3: "Terrasse",
+  4: "Piscine",
+  5: "Parking",
+};
 
-export const SubTypePieceExterne = [
-  "Jardin fermé",
-  "Jardin ouvert",
-  "Piscine entérrée",
-  "Piscine démontable",
-  "Autre",
-];
+export const SubTypePieceExterne = {
+  0: "Jardin fermé",
+  1: "Jardin ouvert",
+  2: "Piscine entérrée",
+  3: "Piscine démontable",
+  4: "Autre",
+};
 
-export const OutsideFlooring = [
-  "Carrelage",
-  "Beton",
-  "Parquet",
-  "Klinkers",
-  "Pave",
-  "Pierre naturelle",
-];
+export const OutsideFlooring = {
+  0: "Carrelage",
+  1: "Beton",
+  2: "Parquet",
+  3: "Klinkers",
+  4: "Pave",
+  5: "Pierre naturelle",
+};
 
-export const EnergyCategory = ["A", "B", "C", "D", "E", "F", "G"];
+export const EnergyCategory = {
+  0: "A",
+  1: "B",
+  2: "C",
+  3: "D",
+  4: "E",
+  5: "F",
+  6: "G",
+};
 
-export const ConstructionState = ["Aucun", "A rénover", "Nul", "Bon"];
+export const ConstructionState = {
+  0: "Aucun",
+  1: "A rénover",
+  2: "Nul",
+  3: "Bon",
+};
 
-export const ChauffeEau = ["Chauffe", "Boiler"];
+export const ChauffeEau = { 0: "Chauffe-eau", 1: "Boiler" };
 
-export const Chauffage = [
-  "Mazout",
-  "Gaz",
-  "Electrique",
-  "Central",
-  "Sol",
-  "Autre",
-];
+export const Chauffage = {
+  0: "Mazout",
+  1: "Gaz",
+  2: "Electrique",
+  3: "Central",
+  4: "Sol",
+  5: "Autre",
+};
 
-export const FramingType = ["Bois", "PVC"];
+export const FramingType = { 0: "Bois", 1: "PVC" };
 
-export const Vitrage = ["Simple", "Double", "Triple", "Autre"];
+export const Vitrage = { 0: "Simple", 1: "Double", 2: "Triple", 3: "Autre" };
 
-export const Insulation = ["Thermique", "Sonore", "Autre"];
+export const Insulation = { 0: "Thermique", 1: "Sonore", 2: "Autre" };
 
-export const EstimationModifier = [
-  "FinalPrice",
-  "BaseSquareMeterPrice",
-  "HabitableSquareMeterPrice",
-  "NonHabitableSquareMeterPrice",
-  "ConstructibleSquareMeterPrice",
-  "NonConstructibleSquareMeterPrice",
-];
+export const EstimationModifier = {
+  0: "FinalPrice",
+  1: "BaseSquareMeterPrice",
+  2: "HabitableSquareMeterPrice",
+  3: "NonHabitableSquareMeterPrice",
+  4: "ConstructibleSquareMeterPrice",
+  5: "NonConstructibleSquareMeterPrice",
+};

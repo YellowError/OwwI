@@ -20,6 +20,7 @@ const FirstFloor = () => {
           }}
         >
           <span className=" p-2">Rez-de-chaussée</span>
+
           <OpenCloseChevronForm showList={showFloor} />
         </div>
         {showFloor ? (

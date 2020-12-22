@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Button from "../components/dashboard/Button";
 import { useState } from "react";
+import ButtonAction from "../components/dashboard/ButtonAction";
 
 const DashboardPage = ({ user, onLogout }) => {
   const pageTitle = "Dashboard";
@@ -21,7 +22,7 @@ const DashboardPage = ({ user, onLogout }) => {
   const [etatUser, setEtatUser] = useState(fetchUser);
 
   return (
-    <Layout title={pageTitle} user={user} publicContent>
+    <Layout title={pageTitle} user={user}>
       <div className="logo md:block">
         <img src="./../images/logo_owwi.png" />
       </div>
@@ -73,12 +74,12 @@ const DashboardPage = ({ user, onLogout }) => {
           src="./../images/btnListEstimationDashboard.svg"
         />
         <Button
-          href="#"
-          nameBtn="Option"
+          href={`/edit-profile/${user ? user.id : ""}`}
+          nameBtn="Options"
           src="./../images/btnOptionDashboard.svg"
         />
-        <Button
-          href="#"
+        <ButtonAction
+          onLogout={onLogout}
           nameBtn="Déconnexion"
           src="./../images/btnLogoutDashboard.svg"
         />

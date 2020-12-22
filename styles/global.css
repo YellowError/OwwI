@@ -92,9 +92,10 @@ h2 {
   text-align: center;
   font-size: 1.125rem;
 }
-.st0,.st1{
-  color:#294d60;
-  fill :#294d60;
+.st0,
+.st1 {
+  color: #294d60;
+  fill: #294d60;
 }
 
 h3 {
@@ -691,7 +692,7 @@ button.btnSupp:hover {
 /*                             details estimation France                            */
 /* -------------------------------------------------------------------------- */
 
-.block {
+.blockGlobal {
   margin: 10px;
   border-radius: 10px;
   border: 2px solid #bcbcbb;
@@ -741,7 +742,7 @@ span.red {
 span.green {
   color: #81b29a;
 }
-.block h2 {
+.blockGlobal h2 {
   font-family: "textBold";
   font-size: 1.5rem;
 }
@@ -885,13 +886,13 @@ img.picturesEsti {
 /*END CSS melodie */
 /*******************/
 
-.redHome{
-  fill:#DE4C41;
-  color:#DE4C41;
+.redHome {
+  fill: #de4c41;
+  color: #de4c41;
 }
 
-.topNegative{
-  top:-1.2rem;
+.topNegative {
+  top: -1.2rem;
 }
 /* -------------------------------------------------------------------------- */
 /*                            DROPDOWN LIST                                   */

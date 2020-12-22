@@ -1,6 +1,5 @@
 import Layout from "../components/Layout";
 import FormConnection from "../components/login/FormConnection";
-import Navbar from "../components/Navbar";
 import EndpointType from "../common/endpoint-type";
 
 const LoginPage = ({ user, onLoginSucess, onLogout, onNotification }) => {

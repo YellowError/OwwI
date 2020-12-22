@@ -2,7 +2,7 @@ import React from "react";
 
 const PicturesEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Divers</h2>
       <div className="flex flex-wrap justify-center">
         {estimation.photos.map((element) => {

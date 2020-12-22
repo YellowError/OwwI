@@ -24,7 +24,7 @@ import {
 
 const RoomInsideEstimation = ({ estimation }) => {
   return (
-    <div className="block">
+    <div className="blockGlobal">
       <h2>Pièces intérieures</h2>
 
       {estimation.inside.floors.map((element) => {

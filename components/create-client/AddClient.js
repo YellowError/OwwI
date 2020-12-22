@@ -55,7 +55,7 @@ const AddClient = () => {
 
       await axios.post(
         // "https://techno-api.azurewebsites.net//api/Authorization/register",
-        "http://localhost:3001/clients",
+        "http://localhost:3003/clients",
         mergData
       );
       e.target.reset();
@@ -360,8 +360,8 @@ const AddClient = () => {
           {errors.registerNumber ? (
             <span> {errors.registerNumber.message}</span>
           ) : (
-              ""
-            )}
+            ""
+          )}
         </div>
         <div>
           <button type="submit">Submit</button>

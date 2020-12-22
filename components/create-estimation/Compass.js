@@ -24,14 +24,14 @@ const Compass = () => {
 
   return (
     <Fragment>
-      <div className="flex">
+      <div className="flex hidden">
         {pointsCardinal.map((pointCardinal, index) => (
           <div className="m-2" key={pointCardinal}>
             <label htmlFor={pointCardinal}>{pointsCardinalFrench[index]}</label>
             <input
               className="mx-2"
               type="radio"
-              name="compassValue"
+              name="orientation"
               id={pointCardinal}
               value={pointCardinal}
               defaultChecked={`${

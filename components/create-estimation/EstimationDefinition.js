@@ -1,63 +1,60 @@
 import React from "react";
-import DropHabitat from "./DropHabitat";
 import DropSimple from "../DropSimple";
 import FloatingInput from "../for-all-form/FloatingInput";
 import Compass from "./Compass";
 import CommentArea from "../CommentArea";
 import Switch from "../for-all-form/Switch";
-const EstimationDefinition = () => {
+import DropDownMenuImmoType from "./DropDownMenuImmoType";
+import DropDownMenu from "../DropDownMenu";
+import { BuildingState, Zoning } from "../../common/immobilier";
+
+const EstimationDefinition = ({ hidden }) => {
   return (
-    <>
+    <div className={hidden}>
       <h2>Définition générale du bien</h2>
       <h3>Type d'habitat</h3>
-      <DropHabitat />
+      <DropDownMenuImmoType />
+
       <br />
-      <DropSimple label="Nombres de façades" name="nombre" />
+      <DropSimple label="Nombres de façades" name="frontageCount" />
       <h3>surface</h3>
       <FloatingInput
         type="texte"
         label="Superficie terrain constructible"
-        htmlForAndId="supTerConst"
+        htmlForAndId="buildableArea"
       />
       <FloatingInput
         type="texte"
         label="Superficie terrain non-constructible"
-        htmlForAndId="supTerNonConst"
+        htmlForAndId="nonBuildableArea"
       />
       <FloatingInput
         type="texte"
         label="Superficie habitation habitable"
-        htmlForAndId="supHabHabitable"
-      />
-      <FloatingInput
-        type="texte"
-        label="Nbre étages"
-        htmlForAndId="nbrEtages"
-      />
-      <FloatingInput
-        type="texte"
-        label="Nbre appart."
-        htmlForAndId="nbrAppart"
+        htmlForAndId="habitableArea"
       />
       <FloatingInput
         type="texte"
         label="Année de construction"
-        htmlForAndId="anneeConstr"
+        htmlForAndId="constructionDate"
       />
+      <FloatingInput type="texte" label="Cadastre(€)" htmlForAndId="taxe" />
       <FloatingInput
         type="texte"
-        label="Cadastre/Charge communes (€)"
-        htmlForAndId="cadastCharge"
+        label="Charge communes (€)"
+        htmlForAndId="sharedCharges"
       />
-      <DropSimple label="Etat du bâtiment" name="etat" />
+      <span>Etat d'habitat</span>
+      <DropDownMenu table={BuildingState} id="buildingState" />
       <h3>Orientation</h3>
       <Compass />
       <h3>Urbanisme</h3>
-      <Switch label="Permis de bâtir obtenue" idfor="permis" />
-      <Switch label="Zone inondable" idfor="inondable" />
-      <DropSimple label="Zone d'habitat" name="etat" />
-      <CommentArea label="votre commentaire" idFor="comStep3" />
-    </>
+      <Switch label="Permis de bâtir obtenue" idfor="buildingPermit" />
+      <Switch label="Zone inondable" idfor="floodZone" />
+      <span>Zone d'habitat</span>
+      <DropDownMenu table={Zoning} id="zoning" />
+      <CommentArea label="votre commentaire" forId="comStep3" />
+    </div>
   );
 };
 export default EstimationDefinition;
