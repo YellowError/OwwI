@@ -210,6 +210,9 @@ label {
 .textColorBlue {
   color: #294d60;
 }
+.textColorLightGray {
+  color: #bcbcbb;
+}
 /* -------------------------------------------------------------------------- */
 /*                              DASHBOARD BUTTONS                              */
 /* -------------------------------------------------------------------------- */
@@ -810,7 +813,9 @@ img.picturesEsti {
 /*******************/
 /* CSS Melodie */
 /*******************/
-
+.marginTopCustom {
+  margin-top: 4.2rem;
+}
 .regularLink:hover {
   color: #294d60;
   text-decoration: underline;
@@ -845,10 +850,10 @@ img.picturesEsti {
   fill: #294d60;
 }
 .borderDropdownListing {
-  border: solid 1px #294d60;
+  border: solid 2px #90a0a8;
 }
 .borderUnderDropdownListing {
-  border: solid 1px #bcbcbb;
+  border: solid 2px #bcbcbb;
 }
 .openCloseChevronBottom {
   width: 1.4rem;
