@@ -22,11 +22,11 @@ const DashboardPage = ({ user, onLogout }) => {
   const [etatUser, setEtatUser] = useState(fetchUser);
 
   // EXEMPLE DE COMMENT S'ATTENDRE A USER
-  useEffect(() => {
-    if (user) {
-      console.log(user);
-    }
-  }, [user]);
+  //   useEffect(() => {
+  //     if (user) {
+  //       console.log(user);
+  //     }
+  //   }, [user]);
 
   return (
     <Layout title={pageTitle} user={user}>
