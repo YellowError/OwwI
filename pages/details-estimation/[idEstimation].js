@@ -283,8 +283,8 @@ const DetailsEstimationPage = ({ user, onLogout }) => {
   const [agent, setAgent] = useState(fetchAgent);
 
   return (
-    <Layout title={pageTitle} user={user} publicContent>
-      <p>Id estimation : {idEstimation}</p>
+    <Layout title={pageTitle} user={user}>
+   
       {/* {Object.keys(estimation).length != 0 ? ( */}
       <>
         <h2>L'estimation N° {idEstimation}</h2>
