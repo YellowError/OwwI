@@ -1,20 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import CreateButton from "./CreateButton";
 import OpenCloseChevron from "../for-all-form/OpenCloseChevron";
 
-function ClientItem({ client }) {
+function ClientItem({ client, onLogout }) {
   const [showList, setShowList] = useState(false);
+  const [estimations, setEstimation] = useState([]);
+
+  useEffect(() => {
+    getEstimation();
+  }, []);
+
+  async function getEstimation() {
+    const token = localStorage.getItem("req-token");
+    let response = await fetch(
+      `https://techno-api.azurewebsites.net/Immobilier/filter?id=${client.id}`,
+      {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (!response.ok) {
+      if (!response.status == 401)
+        // bad request
+        onLogout();
+      throw new Error(await response.text());
+    } else {
+      // good request
+      var responseJson = await response.json();
+      await setEstimation([...responseJson]);
+    }
+    console.log(estimations);
+  }
 
   function listOfEstimations() {
-    return client.estimations.map((estimation) => {
+    return estimations.map((estimation) => {
       return (
         <Link href={`/details-estimation/${estimation.id}`}>
           <li
             key={estimation.id}
             className="cursor-pointer rounded-md mx-6 bgBlue py-3 my-1 text-wite text-center"
           >
-            {estimation.nom}
+            {`${estimation.address.number} ${estimation.address.street} ${estimation.address.city}`}
           </li>
         </Link>
       );
@@ -32,7 +64,7 @@ function ClientItem({ client }) {
         <button>
           <OpenCloseChevron showList={showList} />
         </button>
-        <p className="text-left textColorBlue w-3/12">{client.nom}</p>
+        <p className="text-left textColorBlue w-3/12">{`${client.lastName} ${client.firstName}`}</p>
         <CreateButton
           cible={`/profile/${client.id}`}
           style={"underline mr-3 textColorBlue"}
@@ -40,10 +72,11 @@ function ClientItem({ client }) {
           Voir profil
         </CreateButton>
       </div>
-      <ul>{showList && listOfEstimations()}</ul>
+      <ul>{estimations ? showList && listOfEstimations() : ""}</ul>
       {showList && (
         <CreateButton
-          cible={`/create-estimation/${client.id}`}
+          // cible={`/create-estimation/${client.id}`}
+          cible={`/create-estimation`}
           style={
             "btnRed rounded-full m-2 ml-4 w-56 pl-2 pr-4 py-2 text-white flex justify-between"
           }

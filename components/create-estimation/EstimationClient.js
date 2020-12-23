@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import InputSearch from "../for-all-form/InputSearch";
-const EstimationClient = ({ hidden }) => {
+const EstimationClient = ({ clientLinked, hidden }) => {
   return (
     <>
       <div className={hidden}>
@@ -9,7 +8,17 @@ const EstimationClient = ({ hidden }) => {
         <Link href="/create-client">
           <button className="btn btnBlue">Nouveau client</button>
         </Link>
-        <InputSearch placeholder="Client existant" />
+        <select name="ownerId">
+          {clientLinked
+            ? clientLinked.map((client, index) => {
+                return (
+                  <option key={index} value={client.id}>
+                    {client.firstName} {client.lastName}
+                  </option>
+                );
+              })
+            : ""}
+        </select>
       </div>
     </>
   );

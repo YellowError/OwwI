@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 import Button from "../components/dashboard/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ButtonAction from "../components/dashboard/ButtonAction";
 
 const DashboardPage = ({ user, onLogout }) => {
@@ -17,10 +17,17 @@ const DashboardPage = ({ user, onLogout }) => {
     agentCode: 0,
     agencyAdressId: 0,
     sector: "string",
-    roles: [0, 2, 3],
+    roles: [],
   };
   const [etatUser, setEtatUser] = useState(fetchUser);
   // console.log(user);
+
+  // EXEMPLE DE COMMENT S'ATTENDRE A USER
+  useEffect(() => {
+    if (user) {
+      setEtatUser(user);
+    }
+  }, [user]);
 
   return (
     <Layout title={pageTitle} user={user}>
@@ -28,8 +35,8 @@ const DashboardPage = ({ user, onLogout }) => {
         <img src="./../images/logo_owwi.png" />
       </div>
       <div className="dashboard">
-        {etatUser.roles.map((e) => {
-          if (e == 3) {
+        {etatUser.roles.map((role) => {
+          if (role == "Admin") {
             return (
               <>
                 <Button
@@ -46,12 +53,12 @@ const DashboardPage = ({ user, onLogout }) => {
             );
           }
         })}
-        {etatUser.roles.map((e) => {
-          if (e == 2) {
+        {etatUser.roles.map((role) => {
+          if (role == "VerifiedAgent") {
             return (
               <>
                 <Button
-                  href="/create-client/idagent"
+                  href={`/create-client/${user ? user.id : ""}`}
                   nameBtn="Ajouter client"
                   src="./../images/btnAddClientDashboard.svg"
                 />
@@ -61,7 +68,7 @@ const DashboardPage = ({ user, onLogout }) => {
                   src="./../images/btnListClientDashboard.svg"
                 />
                 <Button
-                  href="/create-estimation/idclient"
+                  href="/create-estimation"
                   nameBtn="Création estimation"
                   src="./../images/btnAddEstimationDashboard.svg"
                 />

@@ -11,7 +11,7 @@ const Compass = () => {
     "southEast",
     "south",
   ];
-  const pointsCardinal = [1, 2, 3, 8, 7, 5, 6, 4];
+  const pointsCardinal = ["1", "2", "3", "8", "7", "5", "6", "4"];
   const pointsCardinalFrench = [
     "Nord",
     "Nord Ouest",

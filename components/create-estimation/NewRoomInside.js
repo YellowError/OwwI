@@ -28,7 +28,7 @@ const NewRoomInside = () => {
               <div>
                 <DropDownMenu table={InsidePieceType} id="typeInside1" />
                 <InputSurface placeholder="surface" idfor="areaInside1" />
-                <RangeEstimation label="finition" idFor="finishInisde1" />
+                <RangeEstimation label="finition" idFor="finishInside1" />
                 <DropDownMenu table={InsideFlooring} id="flooring1" />
                 <CommentArea label="Votre commentaire" forId="commentInside1" />
                 <div className="flex justify-between">

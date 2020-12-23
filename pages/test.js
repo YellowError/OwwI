@@ -37,7 +37,12 @@ function test() {
     console.log(formObjectToSend);
   };
   const buttons = [
-    { title: "createAgent", position: Position.Left, cible: "create-agent" },
+    {
+      title: "createAgent",
+      position: Position.Left,
+      cible: "create-agent",
+      id: 3,
+    },
     {
       title: "createClient",
       position: Position.Left,
