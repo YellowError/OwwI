@@ -250,11 +250,11 @@ const CreateEstimationPage = ({ user, requestServer }) => {
     }
     console.log(estimation);
 
-    // let validation = await requestServer(
-    //   "post",
-    //   `/Immobilier`,
-    //   JSON.stringify(estimation)
-    // );
+    let validation = await requestServer(
+      "post",
+      `/Immobilier`,
+      JSON.stringify(estimation)
+    );
 
     // await requestServer(
     //   "post",
@@ -262,14 +262,14 @@ const CreateEstimationPage = ({ user, requestServer }) => {
     //   JSON.stringify(estimation)
     // );
 
-    // if (validation !== undefined) {
-    //   await requestServer(
-    //     "post",
-    //     `/Immobilier/send-estimate`,
-    //     JSON.stringify(estimation)
-    //   );
-    //   router.push("/dashboard");
-    // }
+    if (validation !== undefined) {
+      await requestServer(
+        "post",
+        `/Immobilier/send-estimate`,
+        JSON.stringify(estimation)
+      );
+      router.push("/dashboard");
+    }
   };
 
   return (
