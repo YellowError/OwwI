@@ -12,7 +12,7 @@ import RoomInsideEstimation from "../../components/details-estimation/RoomInside
 import RoomOutsideEstimation from "../../components/details-estimation/RoomOutsideEstimation";
 import ModificationPriceEstimation from "../../components/details-estimation/ModificationPriceEstimation";
 
-const DetailsEstimationPage = ({ user, onLogout }) => {
+const DetailsEstimationPage = ({ user, requestServer }) => {
   const pageTitle = "Details Estimation";
   const router = useRouter();
   const { idEstimation } = router.query;
@@ -261,7 +261,8 @@ const DetailsEstimationPage = ({ user, onLogout }) => {
     },
   };
 
-  const [estimation, setEstimation] = useState(fetchestimation);
+  // const [estimation, setEstimation] = useState(fetchestimation);
+
   // async function findAllEstimation() {
   //   let response = await fetch(
   //     `http://localhost:3002/estimations/${idEstimation}`
@@ -280,11 +281,53 @@ const DetailsEstimationPage = ({ user, onLogout }) => {
 
   // console.log(estimation);
 
+  const [estimation, setEstimation] = useState(fetchestimation);
+  const apiRequestEstimation = "/immobilier";
+
+  // async function getEstimationFromServer() {
+  //   try {
+  //     const token = localStorage.getItem("req-token");
+  //     let userRaw = await fetch(`${apiRequestEstimation}/${idEstimation}`, {
+  //       method: "get",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     });
+
+  //     if (!userRaw.ok) {
+  //       // bad request
+  //       if (userRaw.status == 401) {
+  //         onLogout();
+  //       }
+  //       // console.log(await userRaw.text());
+  //     } else {
+  //       // good request
+  //       const getEstimation = await userRaw.json();
+  //       setEstimation(getEstimation);
+  //       console.log(await userRaw.json());
+  //     }
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // }
+  // await getEstimationFromServer();
+
+  useEffect(async () => {
+    if (user) {
+      let response = await requestServer(
+        "get",
+        `${apiRequestEstimation}/${idEstimation}`
+      );
+      // console.log(response);
+      if (response) setEstimation(response);
+    }
+  }, [user]);
   const [agent, setAgent] = useState(fetchAgent);
 
   return (
-    <Layout title={pageTitle} user={user} publicContent>
-      <p>Id estimation : {idEstimation}</p>
+    <Layout title={pageTitle} user={user}>
       {/* {Object.keys(estimation).length != 0 ? ( */}
       <>
         <h2>L'estimation N° {idEstimation}</h2>

@@ -79,7 +79,7 @@ const AddClient = () => {
   return (
     <div className="container mx-auto">
       <form
-        className=" flex flex-wrap flex-col items-center"
+        className=" flex flex-wrap flex-col items-center mb-20 md:mb-24"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div>

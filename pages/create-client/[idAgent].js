@@ -27,7 +27,7 @@ const CreateClientPage = ({ user }) => {
     <Layout title={pageTitle} user={user} publicContent>
       <section>
         <AddClient />
-        <div className="w-full">
+        <div className="container md:h-24 fixed bottom-0">
           <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </section>

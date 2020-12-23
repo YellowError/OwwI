@@ -41,7 +41,7 @@ export default function ListingPage({ user, onLogout }) {
       position: Position.Right,
       cible: "/create-client/2",
     },
-    { title: "/logOut", position: Position.Right, cible: "dashboard" },
+    { title: "logOut", position: Position.Right, cible: "/dashboard" },
   ];
   const optionsSort = [
     "Trier par",
@@ -253,7 +253,7 @@ export default function ListingPage({ user, onLogout }) {
           onChange={handleInputChange}
         />
       </section>
-      <section>
+      <section className="mb-20 md:mb-24">
         <div>
           <div className="flex mx-auto mb-4 items-center justify-between lg:w-1/2">
             <div className="flex flex-col items-center sm:flex-row">
