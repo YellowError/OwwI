@@ -52,7 +52,7 @@ const Compass = () => {
         ))}
       </div>
 
-      <div className="compassWidth">
+      <div className="flex justify-center pt-12 compassWidth">
         <div className="compass">
           {pointsCardinal.map((pointCardinal, index) => (
             <div className="pointsCardinal" key={pointCardinal}>

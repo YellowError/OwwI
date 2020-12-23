@@ -22,10 +22,7 @@ const AboutPage = ({ user }) => {
           d'exploitation Windows Phone ou
         </p>
 
-        <LinkIndex
-          cheminLink="/principal"
-          style={"btn btnRed text-center mt-6"}
-        >
+        <LinkIndex cheminLink="/" style={"btn btnRed text-center mt-6"}>
           {" "}
           Retour
         </LinkIndex>

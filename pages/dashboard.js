@@ -34,7 +34,7 @@ const DashboardPage = ({ user, onLogout }) => {
       <div className="logo md:block">
         <img src="./../images/logo_owwi.png" />
       </div>
-      <div className="dashboard">
+      <div className="dashboard mt-24 md:w-1/2 md:mx-auto md:mt-44">
         {etatUser.roles.map((role) => {
           if (role == "Admin") {
             return (

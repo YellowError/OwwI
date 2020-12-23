@@ -3,7 +3,7 @@ import AddAgent from "../components/create-agent/AddAgent";
 import MenuMobile from "../components/MenuMobile";
 import Position from "../common/Position";
 
-const CreateAgentPage = ({ user }) => {
+const CreateAgentPage = ({ user, onLogout }) => {
   const pageTitle = "Create Agent";
   const mainButton = {
     link: "/create-estimation",
@@ -22,10 +22,14 @@ const CreateAgentPage = ({ user }) => {
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
-      <section>
+      <section className="mb-16 md:mb-24">
         <AddAgent />
-        <div className="w-full">
-          <MenuMobile mainButton={mainButton} buttons={buttons} />
+        <div className="container md:h-24 fixed bottom-0">
+          <MenuMobile
+            onLogout={onLogout}
+            mainButton={mainButton}
+            buttons={buttons}
+          />
         </div>
       </section>
     </Layout>

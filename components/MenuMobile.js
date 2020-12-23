@@ -4,7 +4,7 @@ import SvgsMenu from "../components/SvgsMenu";
 import MainButton from "../components/MainButton";
 
 // function MenuMobile({user, mainButton,{clientButton,agentButton,estimationButton,homeButton,backButton}}) {
-function MenuMobile({ buttons, mainButton }) {
+function MenuMobile({ onLogout, buttons, mainButton }) {
   let [leftButtons, setLeftButtons] = useState([]);
   let [rightButtons, setRightButtons] = useState([]);
 
@@ -86,8 +86,8 @@ function MenuMobile({ buttons, mainButton }) {
   }, []);
 
   return (
-    <div className="bg-white grid grid-cols-12 w-full p-2">
-      <div className="col-span-5 flex justify-around">
+    <div className="bg-white grid grid-cols-12 w-full h-full p-2 rounded rounded-b-none">
+      <div className="col-span-5 flex justify-around items-center">
         <CreateButton cible="/dashboard" style={""} key="987654321">
           <SvgsMenu choice="home" />
         </CreateButton>
@@ -103,7 +103,7 @@ function MenuMobile({ buttons, mainButton }) {
           svg={mainButton.svg}
         />
       </div>
-      <div className="col-span-5 flex justify-around">
+      <div className="col-span-5 flex justify-around items-center">
         {rightButtons.length > 0 ? rightButtons.map((element) => element) : ""}
       </div>
     </div>

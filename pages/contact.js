@@ -18,7 +18,7 @@ const ContactPage = ({ user }) => {
           <p className=""> Tel: 065 00 11 22 </p>
         </div>
         <LinkIndex
-          cheminLink="/principal"
+          cheminLink="/"
           style={"btn btnRed text-center w-32 flex justify-center mt-6"}
         >
           Retour

@@ -6,18 +6,48 @@ const EstimationCoordinate = ({ hidden }) => {
     <>
       <div className={`${hidden} container mx-auto`}>
         <h2>Coordonnées du bien immobilier</h2>
-        <FloatingInput type="texte" label="rue" htmlForAndId="street" />
-        <FloatingInput type="texte" label="N°" htmlForAndId="number" />
-        <FloatingInput type="texte" label="Bte" htmlForAndId="box" />
-        {/* Concatainer number et box Ou delete */}
+        <FloatingInput
+          type="texte"
+          label="rue"
+          htmlForAndId="street"
+          isRequired={true}
+        />
+        <FloatingInput
+          type="texte"
+          label="N°"
+          htmlForAndId="number"
+          isRequired={true}
+        />
+        <FloatingInput
+          type="texte"
+          label="Bte"
+          htmlForAndId="box"
+          isRequired={true}
+        />
         <FloatingInput
           type="texte"
           label="Code postale"
           htmlForAndId="zipCode"
+          isRequired={true}
         />
-        <FloatingInput type="texte" label="Ville" htmlForAndId="city" />
-        <FloatingInput type="texte" label="Province" htmlForAndId="state" />
-        <FloatingInput type="texte" label="Pays" htmlForAndId="country" />
+        <FloatingInput
+          type="texte"
+          label="Ville"
+          htmlForAndId="city"
+          isRequired={true}
+        />
+        <FloatingInput
+          type="texte"
+          label="Province"
+          htmlForAndId="state"
+          isRequired={true}
+        />
+        <FloatingInput
+          type="texte"
+          label="Pays"
+          htmlForAndId="country"
+          isRequired={true}
+        />
         <CommentArea label="votre commentaire" forId="comment" />
       </div>
     </>

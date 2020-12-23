@@ -80,12 +80,10 @@ const App = ({ Component, pageProps }) => {
       let userRaw = await fetch(`${baseUrl}${apiUrl}`, header);
       if (!userRaw.ok) {
         // bad request
-        console.log(userRaw.status);
         if (userRaw.status == 401) onLogout();
         else onNotification(await userRaw.text());
       } else {
         // good request
-        console.log("coucou");
         return await userRaw.json();
       }
     } catch (e) {

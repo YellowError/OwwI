@@ -1,24 +1,22 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router'
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const LayoutConnected = ({ user, children }) => {
+  const router = useRouter();
 
-    const router = useRouter();
+  useEffect(() => {
+    if (!user && !localStorage.getItem("req-token")) router.push("/login");
+  }, [user]);
 
-    useEffect(() => {
-        if (!user && !localStorage.getItem("req-token"))
-            router.push('/login');  
-    }, [user]);
-    
-    return (
+  return (
     <>
-        { user ? (
-            <main>{children}</main>
-        ) : (
-            <main>Redirecting...</main>
-        )}
+      {user ? (
+        <main className="container mx-auto">{children}</main>
+      ) : (
+        <main>Redirecting...</main>
+      )}
     </>
-    );
+  );
 };
 
 export default LayoutConnected;

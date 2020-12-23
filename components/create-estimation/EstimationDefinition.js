@@ -22,21 +22,25 @@ const EstimationDefinition = ({ hidden }) => {
         type="texte"
         label="Superficie terrain constructible"
         htmlForAndId="buildableArea"
+        isRequired={true}
       />
       <FloatingInput
         type="texte"
         label="Superficie terrain non-constructible"
         htmlForAndId="nonBuildableArea"
+        isRequired={true}
       />
       <FloatingInput
         type="texte"
         label="Superficie habitation habitable"
         htmlForAndId="habitableArea"
+        isRequired={true}
       />
       <FloatingInput
         type="texte"
         label="Superficie habitation non-habitable"
         htmlForAndId="nonHabitableArea"
+        isRequired={true}
       />
 
       <FloatingInput

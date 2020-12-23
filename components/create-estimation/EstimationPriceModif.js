@@ -7,14 +7,16 @@ const EstimationPriceModif = ({ hidden }) => {
   return (
     <div className={hidden}>
       <h2>Modification du prix</h2>
-      <InputPrice label="Prix du m²" idfor="areaPrice" />
+      <InputPrice label="Prix du m²" idfor="areaPrice" isRequired={true} />
       <InputPrice
         label="Prix du terrain constructible/m²"
         idfor="buildableAreaPrice"
+        isRequired={true}
       />
       <InputPrice
         label="Prix du terrain non-constructible/m²"
         idfor="nonBuildableAreaPrice"
+        isRequired={true}
       />
       <h3>Extras</h3>
       <ButtonExtra />

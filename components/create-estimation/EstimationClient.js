@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-const EstimationClient = ({ clientLinked, hidden }) => {
+const EstimationClient = ({ user, clientLinked, hidden }) => {
   return (
     <>
       <div className={hidden}>
         <h2>Lier l’estimation à un client</h2>
-        <Link href="/create-client">
+        <Link href={`/create-client/${user.id}`}>
           <button className="btn btnBlue">Nouveau client</button>
         </Link>
         <select name="ownerId">

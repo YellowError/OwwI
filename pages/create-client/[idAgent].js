@@ -25,7 +25,6 @@ const CreateClientPage = ({ user }) => {
 
   return (
     <Layout title={pageTitle} user={user} publicContent>
-      <p>idAgent : {idAgent}</p>
       <section>
         <AddClient />
         <div className="w-full">

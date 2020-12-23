@@ -397,7 +397,7 @@ export default function ListingPage({ user, onLogout }) {
             )}
           </div>
         </div>
-        <div className="w-full">
+        <div className="container md:h-24 fixed bottom-0">
           <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </section>

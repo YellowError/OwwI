@@ -3,27 +3,38 @@ import { useRouter } from "next/router";
 import EndpointType from "../../common/endpoint-type";
 import FloatingInput from "../../components/for-all-form/FloatingInput";
 
-const FormConnection = ({ title, endpoint, onLoginSucess, onNotification, requestServer }) => {
+const FormConnection = ({
+  title,
+  endpoint,
+  onLoginSucess,
+  onNotification,
+  requestServer,
+}) => {
   const router = useRouter();
 
-  const manageValues = async(values) => {
+  const manageValues = async (values) => {
+    let response = await requestServer(
+      "post",
+      `/api/authorization/${endpoint}`,
+      JSON.stringify(values)
+    );
+    if (response) {
+      if (endpoint == EndpointType.Login) {
+        // • with DB Json
+        // localStorage.setItem("req-token", user.accessToken);
+        // onLoginSucess(user.accessToken);
+        // • Live project
+        localStorage.setItem("req-token", response.token);
+        localStorage.setItem("req-userId", response.userId);
+        localStorage.setItem("req-roles", response.roles);
+        onLoginSucess(response);
+        router.push("/dashboard");
+      } else if (endpoint == EndpointType.Register) {
+        router.push("/login");
+      }
 
-    let response = await requestServer('post', `/api/authorization/${endpoint}`, JSON.stringify(values));
-    if (endpoint == EndpointType.Login) {
-      // • with DB Json
-      // localStorage.setItem("req-token", user.accessToken);
-      // onLoginSucess(user.accessToken);
-      // • Live project
-      localStorage.setItem("req-token", response.token);
-      localStorage.setItem("req-userId", response.userId);
-      localStorage.setItem("req-roles", response.roles);
-      onLoginSucess(response);
-      router.push("/dashboard");
-    } else if (endpoint == EndpointType.Register) {
-      router.push("/login");
+      document.querySelector(".form-loginlogout").reset();
     }
-  
-    document.querySelector(".form-loginlogout").reset();
   };
 
   const handleSubmit = (e) => {

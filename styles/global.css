@@ -573,7 +573,6 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   width: 55px;
   height: 55px;
   font-size: 1.125rem;
-  /* background-color: white; */
   color: #939393;
   margin: 5px;
   line-height: 55px;
@@ -588,7 +587,6 @@ input[type="range"].custom-slider.custom-slider-bullet::-ms-thumb {
   color: white;
 }
 .pageEsti ul li a:hover {
-  /* text-decoration: underline; */
   transform: scale(1.1);
   font-weight: 800;
 }
@@ -669,7 +667,7 @@ button.btnSupp:hover {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                             step list form estimation France                            */
+/*                                                                            */
 /*                             STEP LIST FORM ESTIMATION                      */
 /* -------------------------------------------------------------------------- */
 
@@ -694,6 +692,15 @@ button.btnSupp:hover {
 /*-------------------------------------------------------------------------- */
 /*                             details estimation France                            */
 /* -------------------------------------------------------------------------- */
+
+.formEstimation {
+  width: 350px;
+  @apply md:w-1/2;
+}
+
+.formEstimation h2 {
+  @apply my-8 font-bold text-xl;
+}
 
 .blockGlobal {
   margin: 10px;
@@ -780,7 +787,7 @@ img.picturesEsti {
 }
 /* -------------------------------------------------------------------------- */
 /*                             Dashboard France                            
-/*                             -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 .logo {
   display: none;
 }
@@ -791,7 +798,6 @@ img.picturesEsti {
 .dashboard {
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
   align-content: center;
   justify-content: space-around;
 }

@@ -300,7 +300,7 @@ const AddAgent = () => {
               </label>
               {errors.email ? <span> {errors.email.message}</span> : ""}
             </div>
-            <div className="floatLabel w-96">
+            {/* <div className="floatLabel w-96">
               <input
                 className={isActive ? "inputFull" : ""}
                 type="password"
@@ -326,7 +326,7 @@ const AddAgent = () => {
                 Mot de passe
               </label>
               {errors.password ? <span>{errors.password.message}</span> : null}
-            </div>
+            </div> */}
           </div>
           <div className="lg:ml-3">
             <div className="floatLabel w-96">

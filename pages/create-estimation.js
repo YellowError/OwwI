@@ -47,7 +47,7 @@ const CreateEstimationPage = ({ user, requestServer }) => {
   };
 
   const mainButton = {
-    link: "/create-client/2",
+    link: `/create-client/${user.id}`,
     svg: "createClient",
     style: "",
     logic: () => {},
@@ -98,22 +98,21 @@ const CreateEstimationPage = ({ user, requestServer }) => {
         let newObject = {};
         newObject.value = form[i].value;
         formObjectToSend[form[i].name] = newObject;
-      }
-      // else if (form[i].name == "orientation") {
-      //   console.log(form[i]);
-      //   console.log(form[i].checked);
-
-      //   let newObjectCompass = {};
-      //   newObjectCompass.value = form[i].value;
-      //   formObjectToSend[form[i].name] = newObjectCompass;
-      // }
-      else if (form[i].type == "checkbox") {
+      } else if (
+        form[i].name == "orientation" &&
+        form[i].getAttribute("checked") != null
+      ) {
+        let newObjectCompass = {};
+        newObjectCompass.value = form[i].value;
+        formObjectToSend[form[i].name] = newObjectCompass;
+        // console.log(formObjectToSend[form[i].name]);
+      } else if (form[i].type == "checkbox") {
         let newObjectCheckbox = {};
         newObjectCheckbox.value = form[i].checked;
         formObjectToSend[form[i].name] = newObjectCheckbox;
       }
     }
-    // console.log(formObjectToSend.ownerId.value);
+    // console.log(formObjectToSend.orientation);
 
     const estimation = {
       ownerId: formObjectToSend.ownerId.value,
@@ -122,6 +121,9 @@ const CreateEstimationPage = ({ user, requestServer }) => {
       subType: +formObjectToSend.subType.value,
       constructionDate: "2020-12-22T16:21:54.488Z",
       totalArea: 1,
+      orientation: formObjectToSend.orientation
+        ? +formObjectToSend.orientation.value
+        : 0,
       buildingState: +formObjectToSend.buildingState.value,
       taxe: +formObjectToSend.taxe.value,
       sharedCharges: +formObjectToSend.sharedCharges.value,
@@ -246,13 +248,13 @@ const CreateEstimationPage = ({ user, requestServer }) => {
       }
       i++;
     }
-    // console.log(estimation);
+    console.log(estimation);
 
-    let validation = await requestServer(
-      "post",
-      `/Immobilier`,
-      JSON.stringify(estimation)
-    );
+    // let validation = await requestServer(
+    //   "post",
+    //   `/Immobilier`,
+    //   JSON.stringify(estimation)
+    // );
 
     // await requestServer(
     //   "post",
@@ -260,23 +262,28 @@ const CreateEstimationPage = ({ user, requestServer }) => {
     //   JSON.stringify(estimation)
     // );
 
-    if (validation !== undefined) {
-      await requestServer(
-        "post",
-        `/Immobilier/send-estimate`,
-        JSON.stringify(estimation)
-      );
-      router.push("/dashboard");
-    }
+    // if (validation !== undefined) {
+    //   await requestServer(
+    //     "post",
+    //     `/Immobilier/send-estimate`,
+    //     JSON.stringify(estimation)
+    //   );
+    //   router.push("/dashboard");
+    // }
   };
 
   return (
     <Layout title={pageTitle} user={user}>
-      <h1>Création d'une nouvelle estimation</h1>
-      <div className="contain mx-auto">
+      <div className="contain flex flex-wrap flex-col items-center">
+        <h1>Création d'une nouvelle estimation</h1>
         <EstimationPagination select={select} />
-        <form onSubmit={handleSubmit} name="formEstimation">
+        <form
+          onSubmit={handleSubmit}
+          name="formEstimation"
+          className="formEstimation mb-20 md:mb-24"
+        >
           <EstimationClient
+            user={user}
             clientLinked={clientLinked}
             hidden={status == 1 ? "" : "hidden"}
           />
@@ -307,7 +314,7 @@ const CreateEstimationPage = ({ user, requestServer }) => {
           <EstimationFinal hidden={status == 10 ? "" : "hidden"} />
           <ButtonsPaginationEsti setStatus={setStatus} status={status} />
         </form>
-        <div className="container">
+        <div className="container md:h-24 fixed bottom-0">
           <MenuMobile mainButton={mainButton} buttons={buttons} />
         </div>
       </div>

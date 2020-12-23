@@ -22,10 +22,7 @@ const PrivacyPage = ({ user }) => {
             individus au sein de l'Union européenne. Wikipédia
           </p>
         </div>
-        <LinkIndex
-          cheminLink="/principal"
-          style={"btn btnRed text-center mt-6"}
-        >
+        <LinkIndex cheminLink="/" style={"btn btnRed text-center mt-6"}>
           Retour
         </LinkIndex>
       </section>
